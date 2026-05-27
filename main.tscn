@@ -1,0 +1,15 @@
+[gd_scene format=4 uid="uid://bt5nl8t1nljgk"]
+
+[ext_resource type="Texture2D" uid="uid://dusrx0v5ik221" path="res://NES - Mega Man - Stages - Cut Man Stage.png" id="1_0xm2m"]
+[ext_resource type="TileSet" uid="uid://dbd7qsybra3vw" path="res://megaman.tres" id="1_ig7tw"]
+
+[node name="Node2D" type="Node2D" unique_id=967458337]
+
+[node name="NesMegaManStagesCutManStage" type="Sprite2D" parent="." unique_id=1606512977]
+modulate = Color(1, 1, 1, 0.3882353)
+position = Vector2(896, -128)
+texture = ExtResource("1_0xm2m")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1718168569]
+tile_map_data = PackedByteArray("AAADAAQAAQAFAAEAAAADAAMAAQAFAAEAAAADAAIAAQAFAAEAAAADAAEAAQAFAAEAAAADAAAAAQAFAAEAAAADAP//AQAFAAEAAAAEAAQAAQACAAQAAAAFAAQAAQACAAQAAAAGAAQAAQACAAQAAAAHAAQAAQACAAQAAAAEAAMAAQACAAMAAAAFAAMAAQACAAMAAAAGAAMAAQACAAMAAAAHAAMAAQACAAMAAAADAAUAAQACAAEAAAAEAAUAAQACAAEAAAAFAAUAAQACAAEAAAAGAAUAAQACAAEAAAAHAAUAAQACAAEAAAA=")
+tile_set = ExtResource("1_ig7tw")
