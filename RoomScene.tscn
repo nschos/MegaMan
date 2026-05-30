@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://dhe8xu43bb66n"]
+
+[ext_resource type="TileSet" uid="uid://dbd7qsybra3vw" path="res://megaman.tres" id="1_8ye1f"]
+
+[node name="RoomScene" type="Node2D" unique_id=1527702745]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1920326603]
+tile_set = ExtResource("1_8ye1f")

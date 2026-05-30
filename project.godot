@@ -23,6 +23,11 @@ window/stretch/mode="viewport"
 window/stretch/aspect="expand"
 window/stretch/scale_mode="integer"
 
+[layer_names]
+
+2d_physics/layer_1="Floor"
+2d_physics/layer_2="Ladder"
+
 [physics]
 
 3d/physics_engine="Jolt Physics"
