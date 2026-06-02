@@ -5,6 +5,9 @@
 [sub_resource type="TileMapPattern" id="TileMapPattern_aws0i"]
 tile_data = PackedInt32Array(0, 196610, 0, 1, 262146, 0, 2, 196610, 0, 3, 262146, 0, 4, 196610, 0, 5, 262146, 0, 6, 196610, 0, 7, 262146, 0)
 
+[sub_resource type="TileMapPattern" id="TileMapPattern_y4q03"]
+tile_data = PackedInt32Array(0, 262146, 4, 65536, 262146, 5, 1, 327682, 4, 65537, 327682, 5)
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y4q03"]
 texture = ExtResource("1_aws0i")
 separation = Vector2i(1, 1)
@@ -28,6 +31,7 @@ separation = Vector2i(1, 1)
 4:3/0 = 0
 4:2/0 = 0
 5:4/0 = 0
+5:4/0/terrain_set = 0
 5:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 5:3/0 = 0
 5:2/0 = 0
@@ -35,31 +39,65 @@ separation = Vector2i(1, 1)
 5:1/0 = 0
 1:0/0 = 0
 4:5/0 = 0
+4:5/0/terrain_set = 0
 4:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 5:5/0 = 0
+5:5/0/terrain_set = 0
 5:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 4:4/0 = 0
+4:4/0/terrain_set = 0
 4:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 2:3/0 = 0
 2:2/0 = 0
 2:0/0 = 0
 2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:0/next_alternative_id = 3
 3:0/0 = 0
+3:0/0/terrain_set = 0
 3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:0/1 = 1
+3:0/1/terrain_set = 0
+3:0/2 = 2
 2:1/0 = 0
 3:1/0 = 0
 4:1/0 = 0
-4:0/next_alternative_id = 4
+4:0/next_alternative_id = 6
 4:0/0 = 0
 4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-5:0/next_alternative_id = 3
+4:0/4 = 4
+4:0/4/terrain_set = 0
+4:0/5 = 5
+4:0/5/terrain_set = 0
+5:0/next_alternative_id = 5
 5:0/0 = 0
+5:0/0/terrain_set = 0
+5:0/0/terrain = 0
 5:0/0/physics_layer_1/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:0/0/physics_layer_2/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:0/0/physics_layer_2/polygon_0/one_way = true
+5:0/0/terrains_peering_bit/bottom_side = 0
+5:0/3 = 3
+5:0/3/terrain_set = 0
+5:0/3/terrain = 0
+5:0/3/physics_layer_1/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:0/3/terrains_peering_bit/bottom_side = 0
+5:0/3/terrains_peering_bit/top_side = 0
+5:0/4 = 4
+5:0/4/terrain_set = 0
+5:0/4/terrain = 0
+5:0/4/physics_layer_1/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:0/4/terrains_peering_bit/top_side = 0
 
 [resource]
 physics_layer_0/collision_layer = 1
 physics_layer_0/collision_mask = 0
 physics_layer_1/collision_layer = 2
 physics_layer_1/collision_mask = 0
+physics_layer_2/collision_layer = 4
+physics_layer_2/collision_mask = 0
+terrain_set_0/mode = 2
+terrain_set_0/terrain_0/name = "Ladder"
+terrain_set_0/terrain_0/color = Color(0.70295644, 7.2196127e-07, 0.37104857, 1)
 sources/2 = SubResource("TileSetAtlasSource_y4q03")
 pattern_0 = SubResource("TileMapPattern_aws0i")
+pattern_1 = SubResource("TileMapPattern_y4q03")

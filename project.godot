@@ -27,6 +27,7 @@ window/stretch/scale_mode="integer"
 
 2d_physics/layer_1="Floor"
 2d_physics/layer_2="Ladder"
+2d_physics/layer_3="TopLadder"
 
 [physics]
 
