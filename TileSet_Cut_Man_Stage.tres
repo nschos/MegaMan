@@ -8,6 +8,12 @@ tile_data = PackedInt32Array(0, 196610, 0, 1, 262146, 0, 2, 196610, 0, 3, 262146
 [sub_resource type="TileMapPattern" id="TileMapPattern_y4q03"]
 tile_data = PackedInt32Array(0, 262146, 4, 65536, 262146, 5, 1, 327682, 4, 65537, 327682, 5)
 
+[sub_resource type="TileMapPattern" id="TileMapPattern_1vx8q"]
+tile_data = PackedInt32Array(0, 196610, 0, 65536, 262146, 0, 131072, 196610, 0, 1, 262146, 0, 65537, 196610, 0, 131073, 262146, 0)
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_qmuc2"]
+tile_data = PackedInt32Array(0, 262146, 0, 65536, 196610, 0, 1, 196610, 0, 65537, 262146, 0)
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y4q03"]
 texture = ExtResource("1_aws0i")
 separation = Vector2i(1, 1)
@@ -48,7 +54,9 @@ separation = Vector2i(1, 1)
 4:4/0/terrain_set = 0
 4:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 2:3/0 = 0
+2:3/0/terrain_set = 0
 2:2/0 = 0
+2:2/0/terrain_set = 0
 2:0/0 = 0
 2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 3:0/next_alternative_id = 3
@@ -101,3 +109,5 @@ terrain_set_0/terrain_0/color = Color(0.70295644, 7.2196127e-07, 0.37104857, 1)
 sources/2 = SubResource("TileSetAtlasSource_y4q03")
 pattern_0 = SubResource("TileMapPattern_aws0i")
 pattern_1 = SubResource("TileMapPattern_y4q03")
+pattern_2 = SubResource("TileMapPattern_1vx8q")
+pattern_3 = SubResource("TileMapPattern_qmuc2")
