@@ -1,3 +1,43 @@
 [gd_scene format=3 uid="uid://dqda7fj5sxlng"]
 
-[node name="Inim6" type="Node2D" unique_id=732077306]
+[ext_resource type="Texture2D" uid="uid://dykha5g56mp22" path="res://Enemies/inimigo_6.png" id="1_i4f44"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wvmu3"]
+atlas = ExtResource("1_i4f44")
+region = Rect2(0, 0, 17, 23)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fvpsp"]
+atlas = ExtResource("1_i4f44")
+region = Rect2(17, 0, 17, 23)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_maw2o"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wvmu3")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fvpsp")
+}],
+"loop": true,
+"name": &"shooting",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tab5q"]
+size = Vector2(17, 19)
+
+[node name="Inim6" type="Area2D" unique_id=757134308]
+
+[node name="inimigo6" type="AnimatedSprite2D" parent="." unique_id=1489058169]
+sprite_frames = SubResource("SpriteFrames_maw2o")
+animation = &"shooting"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=897328309]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_tab5q")
