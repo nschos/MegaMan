@@ -3,7 +3,7 @@ class_name MegaManState extends State
 const IDLE = "Idle"
 const RUNNING = "Running"
 const JUMPING = "Jumping"
-const FALLING = "Falling"
+const CLIMBING = "Climbing"
 
 var megaman: MegaMan
 
