@@ -4,7 +4,7 @@
 [ext_resource type="TileSet" uid="uid://dbd7qsybra3vw" path="res://megaman.tres" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://njymll7o5ile" path="res://Stages/CutMan/scene_1.tscn" id="2_lquwl"]
 [ext_resource type="PackedScene" uid="uid://bsmqjr371mm51" path="res://Stages/CutMan/scene_2.tscn" id="3_7mycd"]
-[ext_resource type="PackedScene" uid="uid://sq7opjplcn" path="res://MegaMan.tscn" id="4_lquwl"]
+[ext_resource type="PackedScene" uid="uid://sq7opjplcn" path="res://Megaman/MegaMan.tscn" id="4_lquwl"]
 
 [node name="Node2D" type="Node2D" unique_id=967458337]
 
@@ -24,6 +24,6 @@ position = Vector2(1664, -896)
 texture = ExtResource("1_0xm2m")
 
 [node name="CharacterBody2D" parent="." unique_id=1964672799 instance=ExtResource("4_lquwl")]
-position = Vector2(42, 153)
+position = Vector2(42, 177)
 
 [editable path="Scene_2"]

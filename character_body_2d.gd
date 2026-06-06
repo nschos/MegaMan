@@ -1,9 +1,8 @@
 class_name MegaMan extends CharacterBody2D
 
-const SPEED = 50.0
-const JUMP_VELOCITY = -400.0
+const SPEED = 82.5
 
-@export var gravity := 20
+
 
 var is_touching_ladder = false
 
@@ -20,36 +19,23 @@ func _physics_process(delta: float) -> void:
 			#has_grabbed_ladder = true
 			#print(collision_mask)
 			state_machine.state.finished.emit(MegaManState.CLIMBING)
-			self.set_collision_mask_value(3, false)
 		
-	
-	if has_grabbed_ladder:
-		pass
-		#state_machine.state.finished.emit(MegaManState.CLIMBING)
-		#velocity = Vector2(0,0)
-		#if Input.is_action_just_pressed("ui_accept"):
-			#has_grabbed_ladder = false
-			#set_collision_mask_value(3, true)
-			#
-		#var direction := Input.get_axis("ui_up", "ui_down")
-		#if direction:
-			#velocity.y = direction * SPEED
-		#else:
-			#velocity.y = 0 #move_toward(velocity.x, 0, SPEED)
-	
-	else:
-		# Add the gravity.
-		if not is_on_floor():
-			velocity += get_gravity() * delta
+		
+		if is_on_floor() and velocity.x != 0:
+			state_machine.state.finished.emit(MegaManState.RUNNING)
+			pass
 		# Handle jump.
 		if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-			velocity.y = JUMP_VELOCITY
+			state_machine.state.finished.emit(MegaManState.JUMPING)
+			
 		
 		var direction := Input.get_axis("ui_left", "ui_right")
 		if direction:
 			velocity.x = direction * SPEED
 		else:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
+			
+			
 
 		
 		

@@ -11,10 +11,10 @@ func physics_update(_delta: float) -> void:
 	#megaman.velocity.y += megaman.gravity * _delta
 	#megaman.move_and_slide()
 
-	if not megaman.is_on_floor():
-		finished.emit(JUMPING)
-	elif Input.is_action_just_pressed("jump"):
-		finished.emit(JUMPING)
+	#if not megaman.is_on_floor():
+		#finished.emit(JUMPING)
+	#elif Input.is_action_just_pressed("jump"):
+		#finished.emit(JUMPING)
 	#elif Input.is_action_pressed("move_left") or Input.is_action_pressed("move_right"):
 		#finished.emit(RUNNING)
 	pass
