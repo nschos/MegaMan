@@ -1,16 +1,32 @@
-[gd_scene format=4 uid="uid://bt5nl8t1nljgk"]
+[gd_scene format=3 uid="uid://bt5nl8t1nljgk"]
 
 [ext_resource type="Texture2D" uid="uid://dusrx0v5ik221" path="res://NES - Mega Man - Stages - Cut Man Stage.png" id="1_0xm2m"]
-[ext_resource type="TileSet" uid="uid://dbd7qsybra3vw" path="res://megaman.tres" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://njymll7o5ile" path="res://Stages/CutMan/scene_1.tscn" id="2_lquwl"]
 [ext_resource type="Script" uid="uid://chnadb28tns6d" path="res://character_body_2d.gd" id="3_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://bsmqjr371mm51" path="res://Stages/CutMan/scene_2.tscn" id="3_7mycd"]
 [ext_resource type="Texture2D" uid="uid://5bvc6j7w4l4x" path="res://icon.svg" id="3_h2yge"]
 [ext_resource type="PackedScene" uid="uid://cogaxf2abkayq" path="res://Stages/CutMan/scene_3.tscn" id="7_efxa6"]
 [ext_resource type="PackedScene" uid="uid://vacp6kjcf6ui" path="res://Stages/CutMan/scene_4.tscn" id="8_dg77c"]
+[ext_resource type="PackedScene" uid="uid://c32eabc187wql" path="res://Stages/CutMan/Scene_9.tscn" id="9_w48qg"]
 [ext_resource type="PackedScene" uid="uid://ctfd4i5xl8ycv" path="res://Stages/CutMan/scene_5.tscn" id="9_ycdy4"]
+[ext_resource type="PackedScene" uid="uid://bwydl22iiuqcg" path="res://Stages/CutMan/scene_10.tscn" id="10_vivmo"]
 [ext_resource type="PackedScene" uid="uid://cx15rc5d1nlxh" path="res://Stages/CutMan/scene_6.tscn" id="10_w48qg"]
 [ext_resource type="PackedScene" uid="uid://c0rbgmxgos56y" path="res://Stages/CutMan/scene_7.tscn" id="11_vivmo"]
+[ext_resource type="PackedScene" uid="uid://gw72rio30yss" path="res://Stages/CutMan/Scene_8.tscn" id="12_dg77c"]
+[ext_resource type="PackedScene" uid="uid://c5yb3kgs0qfvq" path="res://Stages/CutMan/scene_11.tscn" id="14_82xsv"]
+[ext_resource type="PackedScene" uid="uid://dsu7syadnvyv2" path="res://Stages/CutMan/scene_12.tscn" id="15_getpj"]
+[ext_resource type="PackedScene" uid="uid://bjmtmnygh8aav" path="res://Stages/CutMan/scene_13.tscn" id="16_ryguw"]
+[ext_resource type="PackedScene" uid="uid://bxhh66qxk12ks" path="res://Stages/CutMan/scene_14.tscn" id="17_d13ii"]
+[ext_resource type="PackedScene" uid="uid://5vxgpwthq2tr" path="res://Stages/CutMan/scene_15.tscn" id="18_1u8w0"]
+[ext_resource type="PackedScene" uid="uid://bpssmfwu7dvn" path="res://Stages/CutMan/scene_18.tscn" id="18_a6jrf"]
+[ext_resource type="PackedScene" uid="uid://di6qb3alld6uf" path="res://Stages/CutMan/scene_16.tscn" id="19_0odxb"]
+[ext_resource type="PackedScene" uid="uid://doq4f3n1jlq3f" path="res://Stages/CutMan/scene_19.tscn" id="19_xuqvo"]
+[ext_resource type="PackedScene" uid="uid://c3mllwpfadsr2" path="res://Stages/CutMan/scene_17.tscn" id="20_lswn8"]
+[ext_resource type="PackedScene" uid="uid://4x3h40f5vp17" path="res://Stages/CutMan/scene_20.tscn" id="20_qsp4k"]
+[ext_resource type="PackedScene" uid="uid://lm83lpx8qdab" path="res://Stages/CutMan/scene_21.tscn" id="21_kq58d"]
+[ext_resource type="PackedScene" uid="uid://rwrtv1co1amy" path="res://Stages/CutMan/scene_22.tscn" id="22_seu75"]
+[ext_resource type="PackedScene" uid="uid://bo4j5sdbdyafy" path="res://Stages/CutMan/scene_23.tscn" id="23_htxhm"]
+[ext_resource type="PackedScene" uid="uid://dwk3qdllbbw5" path="res://Stages/CutMan/scene_24.tscn" id="24_jq2sk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lquwl"]
 size = Vector2(20, 4)
@@ -20,31 +36,76 @@ size = Vector2(44.86, 48.614)
 
 [node name="Node2D" type="Node2D" unique_id=967458337]
 
-[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1718168569]
-tile_set = ExtResource("1_ig7tw")
-
 [node name="Scene_1" parent="." unique_id=861985110 instance=ExtResource("2_lquwl")]
 
 [node name="Scene_2" parent="." unique_id=2044701076 instance=ExtResource("3_7mycd")]
 position = Vector2(256, 0)
 
-[node name="TileMapLayer" parent="Scene_2" index="0" unique_id=1361323545]
-tile_map_data = PackedByteArray("AAAAAA4AAgAEAAAAAAABAA4AAgADAAAAAAACAA4AAgAEAAAAAAADAA4AAgADAAAAAAAEAA4AAgAEAAAAAAAFAA4AAgADAAAAAAAGAA4AAgAEAAAAAAAHAA4AAgADAAAAAAAAAA0AAgADAAAAAAABAA0AAgAEAAAAAAACAA0AAgADAAAAAAADAA0AAgAEAAAAAAAEAA0AAgADAAAAAAAFAA0AAgAEAAAAAAAGAA0AAgADAAAAAAAHAA0AAgAEAAAAAAAIAA0AAgADAAAAAAAJAA0AAgAEAAAAAAAKAA0AAgADAAAAAAALAA0AAgAEAAAAAAAMAA0AAgADAAAAAAANAA0AAgAEAAAAAAAOAA0AAgADAAAAAAAPAA0AAgAEAAAAAAAIAA4AAgAEAAAAAAAJAA4AAgADAAAAAAAKAA4AAgAEAAAAAAALAA4AAgADAAAAAAAMAA4AAgAEAAAAAAANAA4AAgADAAAAAAAOAA4AAgAEAAAAAAAPAA4AAgADAAAAAAAAAAwAAgACAAAAAAABAAwAAgACAAAAAAACAAwAAgACAAAAAAADAAwAAgACAAAAAAAEAAwAAgACAAAAAAAFAAwAAgACAAAAAAAGAAwAAgACAAAAAAAHAAwAAgACAAAAAAAIAAwAAgACAAAAAAAJAAwAAgACAAAAAAAKAAwAAgACAAAAAAALAAwAAgACAAAAAAAMAAwAAgACAAAAAAANAAwAAgACAAAAAAAOAAwAAgACAAAAAAAPAAwAAgADAAAAAAAAAAgAAgACAAIAAAABAAgAAgACAAIAAAACAAgAAgACAAIAAAAAAAkAAgACAAMAAAABAAkAAgACAAMAAAACAAkAAgACAAMAAAACAAoAAgAEAAMAAAAAAAoAAgAAAAMAAAAGAAgAAgAAAAMAAAAHAAsAAgAAAAMAAAAAAAcAAgABAAIAAAABAAcAAgABAAIAAAACAAcAAgABAAIAAAADAAcAAgABAAIAAAAEAAcAAgABAAIAAAAGAAcAAgABAAIAAAAHAAcAAgABAAIAAAAAAAsAAgABAAMAAAABAAsAAgABAAMAAAABAAoAAgABAAMAAAACAAsAAgABAAMAAAADAAsAAgABAAMAAAADAAoAAgABAAMAAAADAAkAAgABAAMAAAADAAgAAgABAAMAAAAEAAgAAgABAAMAAAAEAAkAAgABAAMAAAAEAAoAAgABAAMAAAAEAAsAAgABAAMAAAAGAAsAAgABAAMAAAAGAAoAAgABAAMAAAAGAAkAAgABAAMAAAAHAAoAAgABAAMAAAAHAAkAAgABAAMAAAAHAAgAAgABAAMAAAAIAAoAAgAEAAQAAAAJAAoAAgAFAAQAAAAJAAsAAgAFAAUAAAAIAAsAAgAEAAUAAAAKAAoAAgAEAAQAAAALAAoAAgAFAAQAAAALAAsAAgAFAAUAAAAKAAsAAgAEAAUAAAAKAAgAAgAEAAQAAAALAAgAAgAFAAQAAAALAAkAAgAFAAUAAAAKAAkAAgAEAAUAAAAIAAQAAgAEAAQAAAAJAAQAAgAFAAQAAAAJAAUAAgAFAAUAAAAIAAUAAgAEAAUAAAAAAAYAAgACAAAAAAABAAYAAgACAAAAAAACAAYAAgACAAAAAAADAAYAAgACAAAAAAAEAAYAAgACAAAAAAAGAAYAAgACAAAAAAAHAAYAAgACAAAAAAAIAAYAAgACAAAAAAAJAAYAAgACAAAAAAALAAYAAgACAAAAAAAAAAQAAgABAAAAAAAAAAAAAgABAAAAAAAAAAEAAgABAAAAAAAAAAIAAgABAAAAAAAAAAMAAgABAAAAAAAAAAUAAgABAAAAAAABAAAAAgABAAAAAAABAAEAAgABAAAAAAABAAIAAgABAAAAAAABAAMAAgABAAAAAAABAAQAAgABAAAAAAABAAUAAgABAAAAAAACAAAAAgABAAAAAAACAAEAAgABAAAAAAACAAIAAgABAAAAAAACAAMAAgABAAAAAAACAAQAAgABAAAAAAACAAUAAgABAAAAAAADAAAAAgABAAAAAAADAAEAAgABAAAAAAADAAIAAgABAAAAAAADAAMAAgABAAAAAAADAAQAAgABAAAAAAADAAUAAgABAAAAAAAEAAAAAgABAAAAAAAEAAEAAgABAAAAAAAEAAIAAgABAAAAAAAEAAMAAgABAAAAAAAEAAQAAgABAAAAAAAEAAUAAgABAAAAAAAFAAAAAgABAAAAAAAFAAEAAgABAAAAAAAFAAIAAgABAAAAAAAFAAMAAgABAAAAAAAFAAQAAgABAAAAAAAFAAUAAgABAAAAAAAGAAAAAgABAAAAAAAGAAEAAgABAAAAAAAGAAIAAgABAAAAAAAGAAMAAgABAAAAAAAGAAQAAgABAAAAAAAGAAUAAgABAAAAAAAHAAAAAgABAAAAAAAHAAEAAgABAAAAAAAHAAIAAgABAAAAAAAHAAMAAgABAAAAAAAHAAQAAgABAAAAAAAHAAUAAgABAAAAAAAIAAAAAgABAAAAAAAIAAEAAgABAAAAAAAIAAIAAgABAAAAAAAIAAMAAgABAAAAAAAJAAAAAgABAAAAAAAJAAEAAgABAAAAAAAJAAIAAgABAAAAAAAJAAMAAgABAAAAAAAKAAAAAgABAAAAAAAKAAEAAgABAAAAAAAKAAIAAgABAAAAAAAKAAMAAgABAAAAAAAKAAQAAgABAAAAAAAKAAUAAgABAAAAAAALAAAAAgABAAAAAAALAAEAAgABAAAAAAALAAIAAgABAAAAAAALAAMAAgABAAAAAAALAAQAAgABAAAAAAALAAUAAgABAAAAAAAIAAkAAgABAAAAAAAIAAgAAgABAAAAAAAIAAcAAgABAAAAAAAJAAcAAgABAAAAAAAJAAgAAgABAAAAAAAJAAkAAgABAAAAAAALAAcAAgABAAAAAAAFAAsAAgAFAAAABAAFAAoAAgAFAAAAAwAFAAkAAgAFAAAAAwAFAAgAAgAFAAAAAwAFAAcAAgAFAAAAAwAFAAYAAgAFAAAAAAAKAAcAAgAFAAAABAAKAAYAAgAFAAAAAAD//w4AAgADAAAAAAAQAA0AAgADAAAAAAARAA0AAgAEAAAAAAASAA0AAgADAAAAAAATAA0AAgAEAAAAAAAUAA0AAgADAAAAAAAVAA0AAgAEAAAAAAAQAA4AAgAEAAAAAAARAA4AAgADAAAAAAASAA4AAgAEAAAAAAATAA4AAgAEAAAAAAAUAA4AAgAEAAAAAAAVAA4AAgAEAAAAAAAQAAwAAgAEAAAAAAARAAwAAgADAAAAAAASAAwAAgAEAAAAAAATAAwAAgADAAAAAAAUAAwAAgAEAAAAAAAVAAwAAgADAAAAAAAWAAwAAgAEAAAAAAAXAAwAAgADAAAAAAAYAAwAAgAEAAAAAAAZAAwAAgADAAAAAAAaAAwAAgAEAAAAAAAbAAwAAgADAAAAAAAcAAwAAgAEAAAAAAAdAAwAAgADAAAAAAAeAAwAAgAEAAAAAAAfAAwAAgADAAAAAAAgAAwAAgAEAAAAAAAhAAwAAgADAAAAAAAiAAwAAgAEAAAAAAAjAAwAAgADAAAAAAAkAAwAAgAEAAAAAAAlAAwAAgADAAAAAAAmAAwAAgAEAAAAAAAnAAwAAgADAAAAAAAoAAwAAgAEAAAAAAApAAwAAgADAAAAAAAqAAwAAgAEAAAAAAArAAwAAgADAAAAAAAsAAwAAgAEAAAAAAAtAAwAAgADAAAAAAAuAAwAAgAEAAAAAAAvAAwAAgADAAAAAAAwAAwAAgAEAAAAAAAxAAwAAgADAAAAAAAyAAwAAgAEAAAAAAAzAAwAAgADAAAAAAA0AAwAAgAEAAAAAAA1AAwAAgADAAAAAAA2AAwAAgAEAAAAAAA=")
-
 [node name="Scene_3" parent="." unique_id=416176899 instance=ExtResource("7_efxa6")]
 position = Vector2(512, 0)
 
-[node name="Scene4" parent="." unique_id=1787977831 instance=ExtResource("8_dg77c")]
+[node name="Scene_4" parent="." unique_id=1787977831 instance=ExtResource("8_dg77c")]
 position = Vector2(768, 0)
 
 [node name="Scene_5" parent="." unique_id=989877003 instance=ExtResource("9_ycdy4")]
-position = Vector2(768, -240)
+position = Vector2(768, -256)
 
 [node name="Scene_6" parent="." unique_id=209596716 instance=ExtResource("10_w48qg")]
-position = Vector2(768, -480)
+position = Vector2(768, -512)
 
-[node name="Scene7" parent="." unique_id=892131200 instance=ExtResource("11_vivmo")]
-position = Vector2(768, -720)
+[node name="Scene_7" parent="." unique_id=892131200 instance=ExtResource("11_vivmo")]
+position = Vector2(768, -768)
+
+[node name="Scene_8" parent="." unique_id=37351230 instance=ExtResource("12_dg77c")]
+position = Vector2(768, -1024)
+
+[node name="Scene_9" parent="." unique_id=1030378226 instance=ExtResource("9_w48qg")]
+position = Vector2(1024, -1024)
+
+[node name="Scene_10" parent="." unique_id=1842796285 instance=ExtResource("10_vivmo")]
+position = Vector2(1280, -1024)
+
+[node name="Scene_11" parent="." unique_id=1135647731 instance=ExtResource("14_82xsv")]
+position = Vector2(1280, -1280)
+
+[node name="Scene_12" parent="." unique_id=1071976940 instance=ExtResource("15_getpj")]
+position = Vector2(1280, -1536)
+
+[node name="Scene_13" parent="." unique_id=2074448629 instance=ExtResource("16_ryguw")]
+position = Vector2(1280, -1792)
+
+[node name="Scene_14" parent="." unique_id=401266934 instance=ExtResource("17_d13ii")]
+position = Vector2(1280, -2048)
+
+[node name="Scene_15" parent="." unique_id=1621649663 instance=ExtResource("18_1u8w0")]
+position = Vector2(1536, -2048)
+
+[node name="Scene_16" parent="." unique_id=1954628045 instance=ExtResource("19_0odxb")]
+position = Vector2(1792, -2048)
+
+[node name="Scene_17" parent="." unique_id=467441884 instance=ExtResource("20_lswn8")]
+position = Vector2(1792, -1792)
+
+[node name="Scene18" parent="." unique_id=54689573 instance=ExtResource("18_a6jrf")]
+position = Vector2(1792, -1536)
+
+[node name="Scene_19" parent="." unique_id=1574472765 instance=ExtResource("19_xuqvo")]
+position = Vector2(1792, -1280)
+
+[node name="Scene_20" parent="." unique_id=1936994331 instance=ExtResource("20_qsp4k")]
+position = Vector2(2048, -1280)
+
+[node name="Scene_21" parent="." unique_id=1057466262 instance=ExtResource("21_kq58d")]
+position = Vector2(2304, -1280)
+
+[node name="Scene_22" parent="." unique_id=1410591181 instance=ExtResource("22_seu75")]
+position = Vector2(2560, -1280)
+
+[node name="Scene23" parent="." unique_id=745698054 instance=ExtResource("23_htxhm")]
+position = Vector2(2816, -1280)
+
+[node name="Scene_24" parent="." unique_id=1429679783 instance=ExtResource("24_jq2sk")]
+position = Vector2(3072, -1280)
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=179750563]
 position = Vector2(31, 139)
@@ -80,10 +141,8 @@ editor_draw_drag_margin = true
 [node name="NesMegaManStagesCutManStage" type="Sprite2D" parent="." unique_id=1606512977]
 visible = false
 modulate = Color(1, 1, 1, 0.3882353)
-position = Vector2(1664, -904)
+position = Vector2(1664, -896)
 texture = ExtResource("1_0xm2m")
 
 [connection signal="body_entered" from="CharacterBody2D/Area2D" to="CharacterBody2D" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="CharacterBody2D/Area2D" to="CharacterBody2D" method="_on_area_2d_body_exited"]
-
-[editable path="Scene_2"]

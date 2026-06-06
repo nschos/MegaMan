@@ -14,6 +14,9 @@ tile_data = PackedInt32Array(0, 196610, 0, 65536, 262146, 0, 131072, 196610, 0, 
 [sub_resource type="TileMapPattern" id="TileMapPattern_qmuc2"]
 tile_data = PackedInt32Array(0, 262146, 0, 65536, 196610, 0, 1, 196610, 0, 65537, 262146, 0)
 
+[sub_resource type="TileMapPattern" id="TileMapPattern_ne0al"]
+tile_data = PackedInt32Array(0, 196610, 2, 65536, 2, 5, 131072, 2, 5, 196608, 2, 5, 262144, 2, 5, 1, 262146, 2, 65537, 327682, 1, 131073, 327682, 1, 196609, 327682, 1, 262145, 327682, 1, 2, 262146, 2, 65538, 2, 4, 131074, 131074, 4, 196610, 65538, 5, 262146, 2, 4, 3, 262146, 2, 65539, 65538, 4, 131075, 196610, 4, 196611, 131074, 5, 262147, 65538, 4, 4, 262146, 2, 65540, 327682, 1, 131076, 327682, 1, 196612, 327682, 1, 262148, 327682, 1, 5, 327682, 2, 65541, 196610, 5, 131077, 196610, 5, 196613, 196610, 5, 262149, 196610, 5)
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y4q03"]
 texture = ExtResource("1_aws0i")
 separation = Vector2i(1, 1)
@@ -111,3 +114,4 @@ pattern_0 = SubResource("TileMapPattern_aws0i")
 pattern_1 = SubResource("TileMapPattern_y4q03")
 pattern_2 = SubResource("TileMapPattern_1vx8q")
 pattern_3 = SubResource("TileMapPattern_qmuc2")
+pattern_4 = SubResource("TileMapPattern_ne0al")
