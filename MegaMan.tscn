@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://b306647ilvtte"]
+[gd_scene format=3 uid="uid://cuvrltvelv4si"]
 
 [ext_resource type="Script" uid="uid://chnadb28tns6d" path="res://character_body_2d.gd" id="1_gt4lj"]
 [ext_resource type="Texture2D" uid="uid://bed2ktogim485" path="res://Megaman/SPR_MegaMan.png" id="3_ens4t"]
@@ -6,14 +6,12 @@
 [ext_resource type="Script" uid="uid://duto1pwce8oks" path="res://src/idle.gd" id="5_0po8d"]
 [ext_resource type="Script" uid="uid://dn1yvsufex57e" path="res://src/jumping.gd" id="6_0po8d"]
 [ext_resource type="Script" uid="uid://digqlqpd28l7q" path="res://src/climbing.gd" id="6_y4sv1"]
-[ext_resource type="Script" uid="uid://dh4amutkswq76" path="res://src/running.gd" id="7_y4sv1"]
-[ext_resource type="Script" uid="uid://bvvahnqc4v15o" path="res://src/falling.gd" id="8_gtn4u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lquwl"]
-size = Vector2(3.8900414, 1.306797)
+size = Vector2(20, 4)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0xm2m"]
-size = Vector2(16, 23)
+size = Vector2(12, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_oehvy"]
 atlas = ExtResource("3_ens4t")
@@ -149,7 +147,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
-"speed": 1.0
+"speed": 7.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -220,12 +218,12 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LadderDetection" unique_id=829421064]
-position = Vector2(0, 14.000002)
+position = Vector2(0, 32.50676)
 scale = Vector2(9.001697, 6.501357)
 shape = SubResource("RectangleShape2D_lquwl")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=17805679]
-position = Vector2(0, 3.5)
+position = Vector2(0, 4)
 shape = SubResource("RectangleShape2D_0xm2m")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=894090002]
@@ -239,8 +237,7 @@ editor_draw_drag_margin = true
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1312357347]
 unique_name_in_owner = true
 sprite_frames = SubResource("SpriteFrames_riu6h")
-animation = &"jump"
-flip_h = true
+animation = &"climb"
 
 [node name="StateMachine" type="Node" parent="." unique_id=228864651 node_paths=PackedStringArray("initial_state")]
 script = ExtResource("4_rfobd")
@@ -258,12 +255,6 @@ metadata/_custom_type_script = "uid://c6bchvtuub8f2"
 [node name="Climbing" type="Node" parent="StateMachine" unique_id=630121040]
 script = ExtResource("6_y4sv1")
 metadata/_custom_type_script = "uid://c6bchvtuub8f2"
-
-[node name="Running" type="Node" parent="StateMachine" unique_id=435374063]
-script = ExtResource("7_y4sv1")
-
-[node name="Falling" type="Node" parent="StateMachine" unique_id=695058213]
-script = ExtResource("8_gtn4u")
 
 [connection signal="body_entered" from="LadderDetection" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="LadderDetection" to="." method="_on_area_2d_body_exited"]

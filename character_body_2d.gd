@@ -1,17 +1,23 @@
 class_name MegaMan extends CharacterBody2D
 
 const SPEED = 82.5
+const JUMP_VELOCITY = -292.265625
+const GRAVITY = 15
 
 
+var is_jumping = false
 
 var is_touching_ladder = false
-
+	
 var has_grabbed_ladder = false
 
 @onready var animation_player := %AnimatedSprite2D
 @onready var state_machine := $StateMachine
 
 func _physics_process(delta: float) -> void:
+	
+	if not is_on_floor():
+		velocity.y += GRAVITY
 	
 	if state_machine.state is not MegaMan_State_Climbing:
 		
@@ -27,6 +33,8 @@ func _physics_process(delta: float) -> void:
 		# Handle jump.
 		if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 			state_machine.state.finished.emit(MegaManState.JUMPING)
+			is_jumping = true
+			
 			
 		
 		var direction := Input.get_axis("ui_left", "ui_right")
@@ -35,20 +43,6 @@ func _physics_process(delta: float) -> void:
 		else:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
 			
-			
-
-		
-		
-		#for i in range(get_slide_collision_count()):
-			#var collision = get_slide_collision(i)
-			#var collider = collision.get_collider()
-			#print(collider)
-		#var collider = collision.get_collider()
-		#
-		## Do something if we collided with a specific object
-		#if collider.is_in_group("enemies"):
-			#print("Collided with an enemy!")
-		
 
 	move_and_slide()
 
