@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c0rbwnuq5fyeb"]
 
-[ext_resource type="Texture2D" uid="uid://bfxwx5qg6dhna" path="res://Addons/dmg_dust.png" id="1_2e0l3"]
+[ext_resource type="Texture2D" uid="uid://bfxwx5qg6dhna" path="res://addons/dmg_dust.png" id="1_2e0l3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_f4meu"]
 atlas = ExtResource("1_2e0l3")
@@ -27,11 +27,12 @@ animations = [{
 "texture": SubResource("AtlasTexture_ce8lu")
 }],
 "loop": true,
-"name": &"default",
+"name": &"dust",
 "speed": 5.0
 }]
 
-[node name="BonusPoints" type="Area2D" unique_id=845994739]
+[node name="dmg_dust" type="Area2D" unique_id=845994739]
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=739733162]
+[node name="dmg_dust" type="AnimatedSprite2D" parent="." unique_id=739733162]
 sprite_frames = SubResource("SpriteFrames_ncy5o")
+animation = &"dust"

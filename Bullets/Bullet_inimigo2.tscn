@@ -7,7 +7,7 @@ size = Vector2(6, 6)
 
 [node name="BulletInimigo2" type="Area2D" unique_id=910349642]
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1102331547]
+[node name="bullet_inim2" type="Sprite2D" parent="." unique_id=1102331547]
 texture = ExtResource("1_adlfy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1531059901]

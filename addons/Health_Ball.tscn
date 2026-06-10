@@ -1,13 +1,13 @@
 [gd_scene format=3 uid="uid://da6xivl63buoa"]
 
-[ext_resource type="Texture2D" uid="uid://csav052nedreh" path="res://Addons/Health_Ball.png" id="1_abol2"]
+[ext_resource type="Texture2D" uid="uid://csav052nedreh" path="res://addons/Health_Ball.png" id="1_abol2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sr7bb"]
 size = Vector2(10, 12)
 
-[node name="Ammo" type="Area2D" unique_id=1019441849]
+[node name="Health_Ball" type="Area2D" unique_id=1019441849]
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=365401724]
+[node name="health_ball" type="Sprite2D" parent="." unique_id=365401724]
 texture = ExtResource("1_abol2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2030087315]

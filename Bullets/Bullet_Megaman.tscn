@@ -7,7 +7,7 @@ size = Vector2(8, 6)
 
 [node name="BulletMegaman" type="Area2D" unique_id=400124483]
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=563051098]
+[node name="bullet_megaman" type="Sprite2D" parent="." unique_id=563051098]
 texture = ExtResource("1_5oepi")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=409237816]

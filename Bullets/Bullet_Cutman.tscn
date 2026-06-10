@@ -43,7 +43,7 @@ size = Vector2(14, 14)
 
 [node name="BulletCutman" type="Area2D" unique_id=84555313]
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=983793513]
+[node name="bullet_cut" type="AnimatedSprite2D" parent="." unique_id=983793513]
 sprite_frames = SubResource("SpriteFrames_8e0ny")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1341710480]

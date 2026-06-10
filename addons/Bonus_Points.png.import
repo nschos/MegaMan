@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bxv8ha3ua34f0"
-path="res://.godot/imported/Bonus_Points.png-3fcce96d7939ccc2a8eb8744a9af9212.ctex"
+path="res://.godot/imported/Bonus_Points.png-215a01607ae6df06f9a42f814ee87269.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Addons/Bonus_Points.png"
-dest_files=["res://.godot/imported/Bonus_Points.png-3fcce96d7939ccc2a8eb8744a9af9212.ctex"]
+source_file="res://addons/Bonus_Points.png"
+dest_files=["res://.godot/imported/Bonus_Points.png-215a01607ae6df06f9a42f814ee87269.ctex"]
 
 [params]
 

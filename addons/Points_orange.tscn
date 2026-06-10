@@ -1,13 +1,13 @@
 [gd_scene format=3 uid="uid://bn2sru8l0asir"]
 
-[ext_resource type="Texture2D" uid="uid://dmdqbbyg6x34h" path="res://Addons/Points_orange.png" id="1_i41b1"]
+[ext_resource type="Texture2D" uid="uid://dmdqbbyg6x34h" path="res://addons/Points_orange.png" id="1_i41b1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sr7bb"]
 size = Vector2(8, 8)
 
-[node name="Ammo" type="Area2D" unique_id=1019441849]
+[node name="Points_Orange" type="Area2D" unique_id=1019441849]
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=365401724]
+[node name="points_orange" type="Sprite2D" parent="." unique_id=365401724]
 texture = ExtResource("1_i41b1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2030087315]

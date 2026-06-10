@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://csav052nedreh"
-path="res://.godot/imported/Health_Ball.png-9d969c0cd2a01c52854fdc2bebd7f622.ctex"
+uid="uid://c3irhwkoxjtht"
+path="res://.godot/imported/bullet_inimigo8.png-93e7d849c8a651786f159d6b4ad59d00.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/Health_Ball.png"
-dest_files=["res://.godot/imported/Health_Ball.png-9d969c0cd2a01c52854fdc2bebd7f622.ctex"]
+source_file="res://Bullets/bullet_inimigo8.png"
+dest_files=["res://.godot/imported/bullet_inimigo8.png-93e7d849c8a651786f159d6b4ad59d00.ctex"]
 
 [params]
 
