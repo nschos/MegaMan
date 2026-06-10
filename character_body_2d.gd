@@ -17,7 +17,7 @@ var has_grabbed_ladder = false
 
 func _physics_process(delta: float) -> void:
 	
-	print(position)
+	#print(position)
 	#print(get_slide_collision_count())
 	
 	if not is_on_floor() and state_machine.state is not MegaMan_State_Climbing:
@@ -41,7 +41,7 @@ func _physics_process(delta: float) -> void:
 			is_jumping = true
 			
 			
-		
+		#if state_machine.state is MegaMan_State_Running:
 		var direction := Input.get_axis("ui_left", "ui_right")
 		if direction:
 			velocity.x = direction * SPEED
@@ -57,33 +57,18 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	is_touching_ladder = true
 	
 	var local_pos: Vector2 = body.to_local(global_position)
-	print(local_pos)
-	
+	#print(local_pos)
 	var tile_grid_coords: Vector2i = body.local_to_map(local_pos)
-	print(tile_grid_coords)
-	
+	#print(tile_grid_coords)
 	var tile_local_center: Vector2 = body.map_to_local(tile_grid_coords)
-			
-	# 5. Convert that local center back into the true GLOBAL pixel position
 	var tile_global_pos: Vector2 = body.to_global(tile_local_center)
-			
-	print("Found ladder! Grid cell: ", tile_grid_coords, " | Global pixel position: ", tile_global_pos)
 	
 	ladder_x = tile_global_pos.x
 	
-	#print($LadderDetection.get_overlapping_bodies())
-	#if body is TileMapLayer:
-		##body.tile
-		#body.get_coords_for_body_rid
-	#ladder_x =
-	#if body is TileMapLayer: 
-		#print(body.get_ov)
 	pass # Replace with function body.
 
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
-	#var local_pos: Vector2 = body.to_local(global_position)
-	#print(local_pos)
 	print("megaman untouched ladder")
 	is_touching_ladder = false
 	has_grabbed_ladder = false
