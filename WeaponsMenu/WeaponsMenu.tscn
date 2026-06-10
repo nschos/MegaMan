@@ -1,8 +1,10 @@
 [gd_scene format=3 uid="uid://cu0xt2xfiqnsy"]
 
 [ext_resource type="Texture2D" uid="uid://c6bhiimrv4jtd" path="res://WeaponsMenu/MenuAppear.png" id="1_6fvk5"]
+[ext_resource type="Texture2D" uid="uid://du2llvwwajenk" path="res://WeaponsMenu/base_menu.png" id="1_n3jpt"]
 [ext_resource type="Texture2D" uid="uid://cpeg0xx0x4f81" path="res://WeaponsMenu/Menu_Disappear.png" id="2_ec0ie"]
 [ext_resource type="Texture2D" uid="uid://c0pufv3gbpxp5" path="res://WeaponsMenu/Menu_Full.png" id="3_n3jpt"]
+[ext_resource type="Texture2D" uid="uid://c2jrl5srw8pyu" path="res://WeaponsMenu/B.png" id="5_l0kyh"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_l0kyh"]
 atlas = ExtResource("1_6fvk5")
@@ -234,13 +236,56 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_000ms")
 }],
-"loop": true,
+"loop": false,
 "name": &"Idle",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fjepk"]
+atlas = ExtResource("5_l0kyh")
+region = Rect2(0, 0, 7, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qjxxl"]
+atlas = ExtResource("5_l0kyh")
+region = Rect2(0, 9, 7, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fw88a"]
+atlas = ExtResource("5_l0kyh")
+region = Rect2(0, 20, 6, 5)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_j7b58"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fjepk")
+}],
+"loop": true,
+"name": &"no_select",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qjxxl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fw88a")
+}],
+"loop": true,
+"name": &"select",
 "speed": 5.0
 }]
 
 [node name="Menu" type="Area2D" unique_id=520652668]
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1978445778]
+[node name="base_menu" type="Sprite2D" parent="." unique_id=2101922408]
+visible = false
+texture = ExtResource("1_n3jpt")
+
+[node name="PauseMenu" type="AnimatedSprite2D" parent="." unique_id=1978445778]
 sprite_frames = SubResource("SpriteFrames_fjepk")
 animation = &"Idle"
+
+[node name="B" type="AnimatedSprite2D" parent="." unique_id=353287066]
+position = Vector2(-30, -56)
+sprite_frames = SubResource("SpriteFrames_j7b58")
+animation = &"select"
