@@ -3,12 +3,14 @@ class_name MegaMan_State_Climbing extends MegaManState
 func enter(previous_state_path: String, data := {}) -> void:
 	print("climbing!!")
 	megaman.set_collision_mask_value(3, false)
+	megaman.set_collision_mask_value(1, false)
 	megaman.velocity = Vector2(0,0)
 	megaman.animation_player.play("climb")
 	pass
 	
 func exit() -> void:
 	megaman.set_collision_mask_value(3, true)
+	megaman.set_collision_mask_value(1, true)
 	pass
 
 func physics_update(_delta: float) -> void:
