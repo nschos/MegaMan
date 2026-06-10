@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://pp8hhqj2c84o"]
+
+[ext_resource type="Texture2D" uid="uid://bh3nhx8ot0jvl" path="res://addons/Ammo.png" id="1_04gjs"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sr7bb"]
+size = Vector2(12, 8)
+
+[node name="Ammo" type="Area2D" unique_id=1019441849]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=365401724]
+texture = ExtResource("1_04gjs")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2030087315]
+shape = SubResource("RectangleShape2D_sr7bb")

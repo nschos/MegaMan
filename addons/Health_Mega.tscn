@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://cgri62wuil0ue"]
+
+[ext_resource type="Texture2D" uid="uid://dxqanq6b68k47" path="res://addons/Health_Mega.png" id="1_txkpk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g1rtv"]
+atlas = ExtResource("1_txkpk")
+region = Rect2(0, 0, 14, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8n7ra"]
+atlas = ExtResource("1_txkpk")
+region = Rect2(14, 0, 14, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ncy5o"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g1rtv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8n7ra")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8tmk8"]
+size = Vector2(14, 16)
+
+[node name="BonusPoints" type="Area2D" unique_id=845994739]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=739733162]
+sprite_frames = SubResource("SpriteFrames_ncy5o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1030840154]
+shape = SubResource("RectangleShape2D_8tmk8")

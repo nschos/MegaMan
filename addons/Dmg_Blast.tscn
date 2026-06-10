@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://csmue2ulaiwiq"]
+
+[ext_resource type="Texture2D" uid="uid://c7m025868j0y0" path="res://addons/Dmg_Blast.png" id="1_m2qch"]
+
+[node name="BonusPoints" type="Area2D" unique_id=845994739]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=677724006]
+texture = ExtResource("1_m2qch")
