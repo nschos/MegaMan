@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://b7vmoy454vfd"]
+
+[ext_resource type="Script" uid="uid://g8o02a05edyv" path="res://Stages/UI/stage_button.gd" id="1_8w2my"]
+[ext_resource type="SpriteFrames" uid="uid://yoejs0d73cv7" path="res://Stages/UI/UI Assets/Sprites/Gutsman_Button.tres" id="2_8w2my"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8w2my"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pc7b6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_16wun"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mnvtm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_r4ce8"]
+
+[node name="Cutman_Button" type="Button" unique_id=55780788]
+offset_right = 64.0
+offset_bottom = 64.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8w2my")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_pc7b6")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_16wun")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_mnvtm")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_r4ce8")
+icon_alignment = 1
+script = ExtResource("1_8w2my")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=269090675]
+sprite_frames = ExtResource("2_8w2my")
+animation = &"focus"
+centered = false
+
+[connection signal="focus_entered" from="." to="." method="_on_focus_entered"]
+[connection signal="focus_exited" from="." to="." method="_on_focus_exited"]
