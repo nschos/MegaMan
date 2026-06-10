@@ -5,6 +5,10 @@ const JUMP_VELOCITY = -292.265625
 const GRAVITY = 15
 
 
+var blink_timer := 0
+const blink_max_time := 168
+
+
 var is_jumping := false
 
 var is_touching_ladder := false
@@ -16,6 +20,11 @@ var has_grabbed_ladder = false
 @onready var state_machine := $StateMachine
 
 func _physics_process(delta: float) -> void:
+	
+	if blink_timer > blink_max_time:
+		blink_timer = 0
+		
+	
 	
 	#print(position)
 	#print(get_slide_collision_count())
@@ -50,6 +59,8 @@ func _physics_process(delta: float) -> void:
 			
 
 	move_and_slide()
+	
+	blink_timer += 1
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
