@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dbw403mn4mw06"]
 
-[ext_resource type="Texture2D" uid="uid://4oftdh6qnt53" path="res://addons/CutMan_Weapon.png" id="1_d38js"]
+[ext_resource type="Texture2D" uid="uid://4oftdh6qnt53" path="res://Addons/CutMan_Weapon.png" id="1_d38js"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gvp0f"]
 atlas = ExtResource("1_d38js")

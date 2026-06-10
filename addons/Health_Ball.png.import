@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://csav052nedreh"
-path="res://.godot/imported/Health_Ball.png-9d969c0cd2a01c52854fdc2bebd7f622.ctex"
+path="res://.godot/imported/Health_Ball.png-7b7d28159f5f4ea46cf24df2f70338f9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/Health_Ball.png"
-dest_files=["res://.godot/imported/Health_Ball.png-9d969c0cd2a01c52854fdc2bebd7f622.ctex"]
+source_file="res://Addons/Health_Ball.png"
+dest_files=["res://.godot/imported/Health_Ball.png-7b7d28159f5f4ea46cf24df2f70338f9.ctex"]
 
 [params]
 

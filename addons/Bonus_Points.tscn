@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://crvdny488vmqc"]
 
-[ext_resource type="Texture2D" uid="uid://bxv8ha3ua34f0" path="res://addons/Bonus_Points.png" id="1_2lmyb"]
+[ext_resource type="Texture2D" uid="uid://bxv8ha3ua34f0" path="res://Addons/Bonus_Points.png" id="1_2lmyb"]
 
 [node name="BonusPoints" type="Area2D" unique_id=845994739]
 

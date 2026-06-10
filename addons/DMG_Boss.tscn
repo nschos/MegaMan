@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cqlf4x8wneeiq"]
 
-[ext_resource type="Texture2D" uid="uid://baarnh728h6pk" path="res://addons/DMG_Boss.png" id="1_nujkp"]
+[ext_resource type="Texture2D" uid="uid://baarnh728h6pk" path="res://Addons/DMG_Boss.png" id="1_nujkp"]
 
 [node name="BonusPoints" type="Area2D" unique_id=845994739]
 

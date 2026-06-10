@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cc5blcdip2uqh"
-path="res://.godot/imported/Points_red.png-839cd159f10f036951f3648a1502fb07.ctex"
+uid="uid://c6bhiimrv4jtd"
+path="res://.godot/imported/MenuAppear.png-5f17f29a29cc2d6b4a9c157a2e3105b1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Addons/Points_red.png"
-dest_files=["res://.godot/imported/Points_red.png-839cd159f10f036951f3648a1502fb07.ctex"]
+source_file="res://WeaponsMenu/MenuAppear.png"
+dest_files=["res://.godot/imported/MenuAppear.png-5f17f29a29cc2d6b4a9c157a2e3105b1.ctex"]
 
 [params]
 

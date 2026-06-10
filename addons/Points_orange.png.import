@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dmdqbbyg6x34h"
-path="res://.godot/imported/Points_orange.png-edd5ac8de1a2bd7ed7911e798b407888.ctex"
+path="res://.godot/imported/Points_orange.png-c92d354bb24aa82d31bc05f249c832fd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/Points_orange.png"
-dest_files=["res://.godot/imported/Points_orange.png-edd5ac8de1a2bd7ed7911e798b407888.ctex"]
+source_file="res://Addons/Points_orange.png"
+dest_files=["res://.godot/imported/Points_orange.png-c92d354bb24aa82d31bc05f249c832fd.ctex"]
 
 [params]
 

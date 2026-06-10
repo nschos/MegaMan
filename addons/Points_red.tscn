@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dyl8ejbsbdj7y"]
 
-[ext_resource type="Texture2D" uid="uid://cc5blcdip2uqh" path="res://addons/Points_red.png" id="1_e3eqe"]
+[ext_resource type="Texture2D" uid="uid://cc5blcdip2uqh" path="res://Addons/Points_red.png" id="1_e3eqe"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sr7bb"]
 size = Vector2(8, 8)
