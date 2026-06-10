@@ -32,7 +32,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qqsq2"]
 size = Vector2(30, 46)
 
-[node name="Inim6" type="Area2D" unique_id=327821787]
+[node name="Inim7" type="Area2D" unique_id=327821787]
 
 [node name="inimigo7" type="AnimatedSprite2D" parent="." unique_id=1840357030]
 sprite_frames = SubResource("SpriteFrames_lenfl")
