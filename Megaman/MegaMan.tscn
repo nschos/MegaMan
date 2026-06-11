@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://b306647ilvtte"]
+[gd_scene format=3 uid="uid://bnuadflk8nhjv"]
 
 [ext_resource type="Script" uid="uid://chnadb28tns6d" path="res://character_body_2d.gd" id="1_gt4lj"]
 [ext_resource type="Texture2D" uid="uid://bed2ktogim485" path="res://Megaman/SPR_MegaMan.png" id="3_ens4t"]
@@ -143,13 +143,18 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_5c5su")
+}],
+"loop": false,
+"name": &"idle",
+"speed": 1.0
 }, {
+"frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_8isr6")
 }],
-"loop": true,
-"name": &"idle",
-"speed": 1.0
+"loop": false,
+"name": &"idle_blink",
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -238,7 +243,7 @@ editor_draw_drag_margin = true
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1312357347]
 unique_name_in_owner = true
 sprite_frames = SubResource("SpriteFrames_riu6h")
-animation = &"idle"
+animation = &"idle_blink"
 flip_h = true
 
 [node name="StateMachine" type="Node" parent="." unique_id=228864651 node_paths=PackedStringArray("initial_state")]
