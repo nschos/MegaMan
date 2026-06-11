@@ -1,6 +1,10 @@
 class_name MegaMan extends CharacterBody2D
 
-const SPEED = 82.5
+const RUNNING_FULLSPEED_X    := 82.5 # 01.60
+const RUNNING_DECELERATION_X := 30.0 # 00.80
+const RUNNING_ACCELERATION_X := 7.5  # 00.20
+
+
 const JUMP_VELOCITY = -292.265625
 const GRAVITY = 15
 
@@ -19,12 +23,16 @@ var has_grabbed_ladder = false
 @onready var animation_player := %AnimatedSprite2D
 @onready var state_machine := $StateMachine
 
+var current_frame = 0
+
 func _physics_process(delta: float) -> void:
 	
 	if blink_timer > blink_max_time:
 		blink_timer = 0
 		
-	
+	$Camera2D/CanvasLayer/FrameCount.text = "Frames: " + str(current_frame)
+	current_frame += 1 
+	#print("char:",Engine.get_frames_drawn())
 	
 	#print(position)
 	#print(get_slide_collision_count())
@@ -51,11 +59,11 @@ func _physics_process(delta: float) -> void:
 			
 			
 		#if state_machine.state is MegaMan_State_Running:
-		var direction := Input.get_axis("ui_left", "ui_right")
-		if direction:
-			velocity.x = direction * SPEED
-		else:
-			velocity.x = move_toward(velocity.x, 0, SPEED)
+		#var direction := Input.get_axis("ui_left", "ui_right")
+		#if direction:
+			#velocity.x = direction * RUNNING_MAX_X_SPEED
+		#else:
+			#velocity.x = move_toward(velocity.x, 0, RUNNING_MAX_X_SPEED)
 			
 
 	move_and_slide()

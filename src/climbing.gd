@@ -5,7 +5,7 @@ func enter(previous_state_path: String, data := {}) -> void:
 	megaman.set_collision_mask_value(3, false)
 	megaman.set_collision_mask_value(1, false)
 	megaman.velocity = Vector2(0,0)
-	megaman.animation_player.play("climb")
+	megaman.animation_player.play("climb_R")
 	pass
 	
 func exit() -> void:
@@ -17,7 +17,7 @@ func physics_update(_delta: float) -> void:
 	megaman.velocity.x = 0
 	var direction := Input.get_axis("ui_up", "ui_down")
 	if direction:
-		megaman.velocity.y = direction * megaman.SPEED
+		megaman.velocity.y = direction * megaman.RUNNING_FULLSPEED_X
 	else:
 		megaman.velocity.y = 0 #move_toward(velocity.x, 0, SPEED)
 	#megaman.velocity.y += megaman.gravity * _delta

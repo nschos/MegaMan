@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://dusrx0v5ik221" path="res://NES - Mega Man - Stages - Cut Man Stage.png" id="1_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://njymll7o5ile" path="res://Stages/CutMan/scene_1.tscn" id="2_lquwl"]
 [ext_resource type="PackedScene" uid="uid://bsmqjr371mm51" path="res://Stages/CutMan/scene_2.tscn" id="3_7mycd"]
-[ext_resource type="PackedScene" path="res://Megaman/MegaMan.tscn" id="4_lquwl"]
+[ext_resource type="PackedScene" uid="uid://bnuadflk8nhjv" path="res://Megaman/MegaMan.tscn" id="4_lquwl"]
 [ext_resource type="PackedScene" uid="uid://cogaxf2abkayq" path="res://Stages/CutMan/scene_3.tscn" id="7_efxa6"]
 [ext_resource type="PackedScene" uid="uid://vacp6kjcf6ui" path="res://Stages/CutMan/scene_4.tscn" id="8_dg77c"]
 [ext_resource type="PackedScene" uid="uid://c32eabc187wql" path="res://Stages/CutMan/Scene_9.tscn" id="9_w48qg"]

@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bnuadflk8nhjv"]
 
 [ext_resource type="Script" uid="uid://chnadb28tns6d" path="res://character_body_2d.gd" id="1_gt4lj"]
+[ext_resource type="Texture2D" uid="uid://drvjsx4yfg8hr" path="res://Mega-Man-Inch.png" id="3_6rr7a"]
 [ext_resource type="Texture2D" uid="uid://bed2ktogim485" path="res://Megaman/SPR_MegaMan.png" id="3_ens4t"]
 [ext_resource type="Script" uid="uid://cobfoclnydwek" path="res://src/StateMachine.gd" id="4_rfobd"]
 [ext_resource type="Script" uid="uid://duto1pwce8oks" path="res://src/idle.gd" id="5_0po8d"]
@@ -104,16 +105,26 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_oehvy")
+}],
+"loop": false,
+"name": &"climb_L",
+"speed": 6.0
 }, {
+"frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_j74xd")
+}],
+"loop": false,
+"name": &"climb_R",
+"speed": 6.0
 }, {
+"frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ng6ce")
 }],
-"loop": true,
-"name": &"climb",
-"speed": 6.0
+"loop": false,
+"name": &"climb_top",
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -154,6 +165,14 @@ animations = [{
 }],
 "loop": false,
 "name": &"idle_blink",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_6rr7a")
+}],
+"loop": true,
+"name": &"inch",
 "speed": 5.0
 }, {
 "frames": [{
@@ -212,7 +231,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"walk",
-"speed": 10.0
+"speed": 8.57
 }]
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=1964672799]
@@ -240,10 +259,23 @@ limit_bottom = 240
 editor_draw_limits = true
 editor_draw_drag_margin = true
 
+[node name="CanvasLayer" type="CanvasLayer" parent="Camera2D" unique_id=136162944]
+
+[node name="FrameCount" type="Label" parent="Camera2D/CanvasLayer" unique_id=1933326738]
+visible = false
+texture_filter = 1
+texture_repeat = 1
+offset_right = 98.0
+offset_bottom = 23.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 30
+text = "fmracounter"
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1312357347]
 unique_name_in_owner = true
 sprite_frames = SubResource("SpriteFrames_riu6h")
-animation = &"idle_blink"
+animation = &"inch"
 flip_h = true
 
 [node name="StateMachine" type="Node" parent="." unique_id=228864651 node_paths=PackedStringArray("initial_state")]
