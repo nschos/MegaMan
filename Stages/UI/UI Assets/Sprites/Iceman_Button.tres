@@ -1,0 +1,25 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://bk5ixvkfhgij7"]
+
+[ext_resource type="Texture2D" uid="uid://bs8th67nt1smo" path="res://Stages/UI/UI Assets/SPRS_Iceman_Button.png" id="1_cgpuh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qgvlw"]
+atlas = ExtResource("1_cgpuh")
+region = Rect2(0, 0, 48, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ouhm3"]
+atlas = ExtResource("1_cgpuh")
+region = Rect2(49, 0, 48, 56)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qgvlw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ouhm3")
+}],
+"loop": true,
+"name": &"focus",
+"speed": 3.0
+}]
