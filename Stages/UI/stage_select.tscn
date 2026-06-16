@@ -114,6 +114,9 @@ focus_neighbor_right = NodePath("../Fireman_Button")
 frames_animacao = ExtResource("8_f6gxm")
 
 [node name="Placeholder" type="Sprite2D" parent="." unique_id=1002157506]
+visible = false
 modulate = Color(1, 1, 1, 0.10980392)
 position = Vector2(128, 112)
 texture = ExtResource("3_owd2e")
+
+[connection signal="pressed" from="Cutman_Button" to="." method="_on_cutman_button_pressed"]

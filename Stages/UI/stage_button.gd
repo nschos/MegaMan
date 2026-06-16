@@ -1,11 +1,11 @@
 extends Button
-@export var frames_animacao: SpriteFrames
+@export var animation_frames: SpriteFrames
 
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 
 func _ready() -> void:
-	if frames_animacao:
-		sprite.sprite_frames = frames_animacao
+	if animation_frames:
+		sprite.sprite_frames = animation_frames
 	
 	sprite.stop()
 	sprite.frame = 0
