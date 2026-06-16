@@ -3,9 +3,9 @@ class_name MegaMan extends CharacterBody2D
 const RUNNING_FULLSPEED_X    := 82.5 # 01.60
 const RUNNING_DECELERATION_X := 30.0 # 00.80
 const RUNNING_ACCELERATION_X := 7.5  # 00.20
-
-
+const JUMP_X_SPEED = 78.75
 const JUMP_VELOCITY = -292.265625
+const CLIMB_SPEED = 45
 const GRAVITY = 15
 
 
@@ -20,7 +20,7 @@ var ladder_x := 0
 	
 var has_grabbed_ladder = false
 
-@onready var animation_player := %AnimatedSprite2D
+@onready var animation_player: AnimatedSprite2D = %AnimatedSprite2D
 @onready var state_machine := $StateMachine
 
 var current_frame = 0
@@ -42,7 +42,7 @@ func _physics_process(delta: float) -> void:
 	
 	if state_machine.state is not MegaMan_State_Climbing:
 		
-		if (Input.is_action_just_pressed("ui_up") or Input.is_action_just_pressed("ui_down")) and is_touching_ladder:
+		if (Input.is_action_pressed("ui_up") or Input.is_action_pressed("ui_down")) and is_touching_ladder:
 			#has_grabbed_ladder = true
 			#print(collision_mask)
 			state_machine.state.finished.emit(MegaManState.CLIMBING)
@@ -53,17 +53,23 @@ func _physics_process(delta: float) -> void:
 				state_machine.state.finished.emit(MegaManState.RUNNING)
 				pass
 		# Handle jump.
-		if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+		if Input.is_action_just_pressed("jump") and is_on_floor():
 			state_machine.state.finished.emit(MegaManState.JUMPING)
 			is_jumping = true
 			
 			
+		#var current_speed: int
 		#if state_machine.state is MegaMan_State_Running:
+			#current_speed = WALK_X_SPEED
+		#elif state_machine.state is MegaMan_State_Jumping:
+			#current_speed = JUMP_X_SPEED
+		#else:
+			#current_speed = 0
 		#var direction := Input.get_axis("ui_left", "ui_right")
 		#if direction:
-			#velocity.x = direction * RUNNING_MAX_X_SPEED
+			#velocity.x = direction * WALK_X_SPEED
 		#else:
-			#velocity.x = move_toward(velocity.x, 0, RUNNING_MAX_X_SPEED)
+			#velocity.x = move_toward(velocity.x, 0, WALK_X_SPEED)
 			
 
 	move_and_slide()

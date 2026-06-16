@@ -4,6 +4,7 @@ const IDLE = "Idle"
 const RUNNING = "Running"
 const JUMPING = "Jumping"
 const CLIMBING = "Climbing"
+const FALLING = "Falling"
 
 var megaman: MegaMan
 

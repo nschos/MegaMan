@@ -14,7 +14,12 @@ var last_direction := 0
 func enter(previous_state_path: String, data := {}) -> void:
 	print("running!")
 	
-	current_velocity = Velocity.FULLHALT
+	megaman.animation_player.play("walk")
+	
+	if megaman.velocity.x == 0:
+		current_velocity = Velocity.FULLHALT
+	else:
+		current_velocity = Velocity.ACCELERATE
 	pass
 
 func physics_update(_delta: float) -> void:
