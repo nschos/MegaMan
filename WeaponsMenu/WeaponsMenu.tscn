@@ -5,6 +5,9 @@
 [ext_resource type="Texture2D" uid="uid://cpeg0xx0x4f81" path="res://WeaponsMenu/Menu_Disappear.png" id="2_ec0ie"]
 [ext_resource type="Texture2D" uid="uid://c0pufv3gbpxp5" path="res://WeaponsMenu/Menu_Full.png" id="3_n3jpt"]
 [ext_resource type="Texture2D" uid="uid://c2jrl5srw8pyu" path="res://WeaponsMenu/B.png" id="5_l0kyh"]
+[ext_resource type="Texture2D" uid="uid://cs8j5olqd3ods" path="res://WeaponsMenu/EmptyAmmo.png" id="6_wcx6n"]
+[ext_resource type="Texture2D" uid="uid://cior6x1nxr4yp" path="res://WeaponsMenu/P.png" id="6_xxjus"]
+[ext_resource type="Texture2D" uid="uid://bjr1uou5v8wco" path="res://WeaponsMenu/FullAmmo.png" id="7_xxjus"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_l0kyh"]
 atlas = ExtResource("1_6fvk5")
@@ -241,17 +244,51 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_j7b58"]
+atlas = ExtResource("6_xxjus")
+region = Rect2(0, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rqsl4"]
+atlas = ExtResource("6_xxjus")
+region = Rect2(0, 8, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sr7cp"]
+atlas = ExtResource("6_xxjus")
+region = Rect2(6, 6, 1, 2)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wcx6n"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j7b58")
+}],
+"loop": true,
+"name": &"no_select",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rqsl4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sr7cp")
+}],
+"loop": true,
+"name": &"select",
+"speed": 5.0
+}]
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_fjepk"]
 atlas = ExtResource("5_l0kyh")
-region = Rect2(0, 0, 7, 8)
+region = Rect2(0, 0, 8, 8)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qjxxl"]
 atlas = ExtResource("5_l0kyh")
-region = Rect2(0, 9, 7, 8)
+region = Rect2(0, 8, 8, 8)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fw88a"]
 atlas = ExtResource("5_l0kyh")
-region = Rect2(0, 20, 6, 5)
+region = Rect2(7, 6, 1, 2)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_j7b58"]
 animations = [{
@@ -278,14 +315,42 @@ animations = [{
 [node name="Menu" type="Area2D" unique_id=520652668]
 
 [node name="base_menu" type="Sprite2D" parent="." unique_id=2101922408]
-visible = false
 texture = ExtResource("1_n3jpt")
 
 [node name="PauseMenu" type="AnimatedSprite2D" parent="." unique_id=1978445778]
 sprite_frames = SubResource("SpriteFrames_fjepk")
 animation = &"Idle"
 
+[node name="P" type="AnimatedSprite2D" parent="." unique_id=132096210]
+position = Vector2(-30, 56)
+sprite_frames = SubResource("SpriteFrames_wcx6n")
+animation = &"select"
+autoplay = "select"
+frame_progress = 0.65630275
+
 [node name="B" type="AnimatedSprite2D" parent="." unique_id=353287066]
+visible = false
 position = Vector2(-30, -56)
 sprite_frames = SubResource("SpriteFrames_j7b58")
 animation = &"select"
+autoplay = "no_select"
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="." unique_id=321163485]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -22.0
+offset_top = -61.0
+offset_right = 36.0
+offset_bottom = -51.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+max_value = 28.0
+value = 28.0
+texture_under = ExtResource("6_wcx6n")
+texture_progress = ExtResource("7_xxjus")
+texture_progress_offset = Vector2(1, 1)
