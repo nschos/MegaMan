@@ -45,6 +45,8 @@ size = Vector2(14, 14)
 
 [node name="bullet_cut" type="AnimatedSprite2D" parent="." unique_id=983793513]
 sprite_frames = SubResource("SpriteFrames_8e0ny")
+autoplay = "default"
+frame_progress = 0.99687916
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1341710480]
 shape = SubResource("RectangleShape2D_4hras")

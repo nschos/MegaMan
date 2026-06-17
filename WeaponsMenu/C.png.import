@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c2jrl5srw8pyu"
-path="res://.godot/imported/B.png-2dedf0bb1f5155f616721d9d08388d4f.ctex"
+uid="uid://btvyiq0p11ipf"
+path="res://.godot/imported/C.png-a1919f6fa3eeebe0dff899970ab4f6ee.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://WeaponsMenu/B.png"
-dest_files=["res://.godot/imported/B.png-2dedf0bb1f5155f616721d9d08388d4f.ctex"]
+source_file="res://WeaponsMenu/C.png"
+dest_files=["res://.godot/imported/C.png-a1919f6fa3eeebe0dff899970ab4f6ee.ctex"]
 
 [params]
 

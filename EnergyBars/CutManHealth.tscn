@@ -13,3 +13,4 @@ fill_mode = 3
 texture_under = ExtResource("1_1g66b")
 texture_progress = ExtResource("2_1g66b")
 texture_progress_offset = Vector2(1, 1)
+metadata/_edit_use_anchors_ = true
