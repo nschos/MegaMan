@@ -32,6 +32,7 @@ size = Vector2(16, 18)
 [node name="inimigo3" type="AnimatedSprite2D" parent="." unique_id=1940487154]
 sprite_frames = SubResource("SpriteFrames_irpwu")
 animation = &"pac"
+autoplay = "pac"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=617238523]
 visible = false

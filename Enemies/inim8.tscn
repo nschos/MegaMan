@@ -76,7 +76,8 @@ size = Vector2(16, 15)
 
 [node name="inimigo8" type="AnimatedSprite2D" parent="." unique_id=1489058169]
 sprite_frames = SubResource("SpriteFrames_maw2o")
-animation = &"spin_shoot"
+animation = &"idle"
+autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=897328309]
 position = Vector2(0, 0.5)

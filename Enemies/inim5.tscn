@@ -88,7 +88,8 @@ size = Vector2(16, 16)
 
 [node name="inimigo5" type="AnimatedSprite2D" parent="." unique_id=1358088948]
 sprite_frames = SubResource("SpriteFrames_p5x73")
-animation = &"move_stop"
+animation = &"idle"
+autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=564659518]
 shape = SubResource("RectangleShape2D_2oq0r")

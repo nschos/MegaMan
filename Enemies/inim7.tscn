@@ -37,6 +37,7 @@ size = Vector2(30, 46)
 [node name="inimigo7" type="AnimatedSprite2D" parent="." unique_id=1840357030]
 sprite_frames = SubResource("SpriteFrames_lenfl")
 animation = &"idle"
+autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=644256340]
 position = Vector2(0, 1)

@@ -103,6 +103,7 @@ size = Vector2(13, 16)
 [node name="inimigo2" type="AnimatedSprite2D" parent="." unique_id=616641770]
 sprite_frames = SubResource("SpriteFrames_ir1ur")
 animation = &"idle"
+autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=540963719]
 visible = false
