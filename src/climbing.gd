@@ -29,8 +29,8 @@ func physics_update(_delta: float) -> void:
 	
 	#if megaman.is_on_floor():
 		#finished.emit(IDLE)
-	
-	if Input.is_action_just_pressed("jump"):
-		finished.emit(FALLING)
+	if direction == 0.0:
+		if Input.is_action_just_pressed("jump"):
+			finished.emit(FALLING)
 
 	pass
