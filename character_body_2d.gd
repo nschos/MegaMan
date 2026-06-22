@@ -58,19 +58,6 @@ func _physics_process(delta: float) -> void:
 			is_jumping = true
 			
 			
-		#var current_speed: int
-		#if state_machine.state is MegaMan_State_Running:
-			#current_speed = WALK_X_SPEED
-		#elif state_machine.state is MegaMan_State_Jumping:
-			#current_speed = JUMP_X_SPEED
-		#else:
-			#current_speed = 0
-		#var direction := Input.get_axis("ui_left", "ui_right")
-		#if direction:
-			#velocity.x = direction * WALK_X_SPEED
-		#else:
-			#velocity.x = move_toward(velocity.x, 0, WALK_X_SPEED)
-			
 
 	move_and_slide()
 	
