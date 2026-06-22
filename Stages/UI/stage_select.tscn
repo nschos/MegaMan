@@ -1,0 +1,122 @@
+[gd_scene format=3 uid="uid://00vvr60c50q3"]
+
+[ext_resource type="Texture2D" uid="uid://c0oldmbqntdb4" path="res://Stages/UI/UI Assets/SPRS_Select.png" id="1_qln63"]
+[ext_resource type="Script" uid="uid://bj0sbpfay0xsy" path="res://Stages/UI/stage_select.gd" id="1_yo44i"]
+[ext_resource type="PackedScene" uid="uid://b7vmoy454vfd" path="res://Stages/UI/stage_button.tscn" id="2_8ec8j"]
+[ext_resource type="SpriteFrames" uid="uid://yoejs0d73cv7" path="res://Stages/UI/UI Assets/Sprites/Gutsman_Button.tres" id="3_8ec8j"]
+[ext_resource type="Texture2D" uid="uid://cui8u5rtavxyn" path="res://Stages/UI/UI Assets/placeholder.png" id="3_owd2e"]
+[ext_resource type="SpriteFrames" uid="uid://nydl2a6hcdtb" path="res://Stages/UI/UI Assets/Sprites/Cutman_Button.tres" id="3_yo44i"]
+[ext_resource type="SpriteFrames" uid="uid://bk5ixvkfhgij7" path="res://Stages/UI/UI Assets/Sprites/Iceman_Button.tres" id="6_84nb6"]
+[ext_resource type="SpriteFrames" uid="uid://b5yulhphwman0" path="res://Stages/UI/UI Assets/Sprites/Fireman_Button.tres" id="7_3xu2o"]
+[ext_resource type="SpriteFrames" uid="uid://ncd0q1kdcru" path="res://Stages/UI/UI Assets/Sprites/Bombman_Button.tres" id="8_f6gxm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yo44i"]
+atlas = ExtResource("1_qln63")
+region = Rect2(0, 0, 48, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_84nb6"]
+atlas = ExtResource("1_qln63")
+region = Rect2(0, 57, 48, 56)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ybl76"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yo44i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_84nb6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}]
+
+[node name="StageSelect" type="Control" unique_id=761284788]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_yo44i")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1329611755]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0.44313726, 0.9411765, 1)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=399659128]
+position = Vector2(128, 108)
+sprite_frames = SubResource("SpriteFrames_ybl76")
+autoplay = "default"
+frame_progress = 0.6541228
+
+[node name="Cutman_Button" parent="." unique_id=55780788 instance=ExtResource("2_8ec8j")]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 16.0
+offset_right = 72.0
+offset_bottom = 16.0
+focus_neighbor_left = NodePath("../Elecman_Button")
+focus_neighbor_right = NodePath("../Gutsman_Button")
+frames_animacao = ExtResource("3_yo44i")
+
+[node name="Gutsman_Button" parent="." unique_id=356963817 instance=ExtResource("2_8ec8j")]
+layout_mode = 0
+offset_left = 136.0
+offset_top = 16.0
+offset_right = 136.0
+offset_bottom = 16.0
+frames_animacao = ExtResource("3_8ec8j")
+
+[node name="Elecman_Button" parent="." unique_id=2121913715 instance=ExtResource("2_8ec8j")]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 80.0
+offset_right = 40.0
+offset_bottom = 80.0
+focus_neighbor_left = NodePath("../Fireman_Button")
+focus_neighbor_right = NodePath("../Cutman_Button")
+
+[node name="Iceman_Button" parent="." unique_id=1908216493 instance=ExtResource("2_8ec8j")]
+layout_mode = 0
+offset_left = 168.0
+offset_top = 80.0
+offset_right = 168.0
+offset_bottom = 80.0
+focus_neighbor_left = NodePath("../Gutsman_Button")
+focus_neighbor_right = NodePath("../Bombman_Button3")
+frames_animacao = ExtResource("6_84nb6")
+
+[node name="Fireman_Button" parent="." unique_id=2106718617 instance=ExtResource("2_8ec8j")]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 144.0
+offset_right = 72.0
+offset_bottom = 144.0
+focus_neighbor_left = NodePath("../Bombman_Button3")
+focus_neighbor_right = NodePath("../Elecman_Button")
+frames_animacao = ExtResource("7_3xu2o")
+
+[node name="Bombman_Button3" parent="." unique_id=745757290 instance=ExtResource("2_8ec8j")]
+layout_mode = 0
+offset_left = 136.0
+offset_top = 144.0
+offset_right = 136.0
+offset_bottom = 144.0
+focus_neighbor_left = NodePath("../Iceman_Button")
+focus_neighbor_right = NodePath("../Fireman_Button")
+frames_animacao = ExtResource("8_f6gxm")
+
+[node name="Placeholder" type="Sprite2D" parent="." unique_id=1002157506]
+visible = false
+modulate = Color(1, 1, 1, 0.10980392)
+position = Vector2(128, 112)
+texture = ExtResource("3_owd2e")
+
+[connection signal="pressed" from="Cutman_Button" to="." method="_on_cutman_button_pressed"]

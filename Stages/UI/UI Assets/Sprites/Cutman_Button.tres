@@ -1,0 +1,25 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://nydl2a6hcdtb"]
+
+[ext_resource type="Texture2D" uid="uid://4p1hoefogopm" path="res://Stages/UI/UI Assets/SPRS_Cutman_Button.png" id="1_haugr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wu3op"]
+atlas = ExtResource("1_haugr")
+region = Rect2(0, 0, 48, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fmyme"]
+atlas = ExtResource("1_haugr")
+region = Rect2(49, 0, 48, 56)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wu3op")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fmyme")
+}],
+"loop": true,
+"name": &"focus",
+"speed": 3.0
+}]
