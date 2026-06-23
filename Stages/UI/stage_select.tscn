@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cui8u5rtavxyn" path="res://Stages/UI/UI Assets/placeholder.png" id="3_owd2e"]
 [ext_resource type="SpriteFrames" uid="uid://nydl2a6hcdtb" path="res://Stages/UI/UI Assets/Sprites/Cutman_Button.tres" id="3_yo44i"]
 [ext_resource type="SpriteFrames" uid="uid://bk5ixvkfhgij7" path="res://Stages/UI/UI Assets/Sprites/Iceman_Button.tres" id="6_84nb6"]
+[ext_resource type="SpriteFrames" uid="uid://d063j5r3mdut4" path="res://Stages/UI/UI Assets/Sprites/Elecman_Button.tres" id="6_f6gxm"]
 [ext_resource type="SpriteFrames" uid="uid://b5yulhphwman0" path="res://Stages/UI/UI Assets/Sprites/Fireman_Button.tres" id="7_3xu2o"]
 [ext_resource type="SpriteFrames" uid="uid://ncd0q1kdcru" path="res://Stages/UI/UI Assets/Sprites/Bombman_Button.tres" id="8_f6gxm"]
 
@@ -27,7 +28,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_84nb6")
 }],
-"loop": true,
+"loop": 1,
 "name": &"default",
 "speed": 4.0
 }]
@@ -64,7 +65,7 @@ offset_right = 72.0
 offset_bottom = 16.0
 focus_neighbor_left = NodePath("../Elecman_Button")
 focus_neighbor_right = NodePath("../Gutsman_Button")
-frames_animacao = ExtResource("3_yo44i")
+animation_frames = ExtResource("3_yo44i")
 
 [node name="Gutsman_Button" parent="." unique_id=356963817 instance=ExtResource("2_8ec8j")]
 layout_mode = 0
@@ -72,7 +73,7 @@ offset_left = 136.0
 offset_top = 16.0
 offset_right = 136.0
 offset_bottom = 16.0
-frames_animacao = ExtResource("3_8ec8j")
+animation_frames = ExtResource("3_8ec8j")
 
 [node name="Elecman_Button" parent="." unique_id=2121913715 instance=ExtResource("2_8ec8j")]
 layout_mode = 0
@@ -82,6 +83,7 @@ offset_right = 40.0
 offset_bottom = 80.0
 focus_neighbor_left = NodePath("../Fireman_Button")
 focus_neighbor_right = NodePath("../Cutman_Button")
+animation_frames = ExtResource("6_f6gxm")
 
 [node name="Iceman_Button" parent="." unique_id=1908216493 instance=ExtResource("2_8ec8j")]
 layout_mode = 0
@@ -91,7 +93,7 @@ offset_right = 168.0
 offset_bottom = 80.0
 focus_neighbor_left = NodePath("../Gutsman_Button")
 focus_neighbor_right = NodePath("../Bombman_Button3")
-frames_animacao = ExtResource("6_84nb6")
+animation_frames = ExtResource("6_84nb6")
 
 [node name="Fireman_Button" parent="." unique_id=2106718617 instance=ExtResource("2_8ec8j")]
 layout_mode = 0
@@ -101,7 +103,7 @@ offset_right = 72.0
 offset_bottom = 144.0
 focus_neighbor_left = NodePath("../Bombman_Button3")
 focus_neighbor_right = NodePath("../Elecman_Button")
-frames_animacao = ExtResource("7_3xu2o")
+animation_frames = ExtResource("7_3xu2o")
 
 [node name="Bombman_Button3" parent="." unique_id=745757290 instance=ExtResource("2_8ec8j")]
 layout_mode = 0
@@ -111,7 +113,7 @@ offset_right = 136.0
 offset_bottom = 144.0
 focus_neighbor_left = NodePath("../Iceman_Button")
 focus_neighbor_right = NodePath("../Fireman_Button")
-frames_animacao = ExtResource("8_f6gxm")
+animation_frames = ExtResource("8_f6gxm")
 
 [node name="Placeholder" type="Sprite2D" parent="." unique_id=1002157506]
 visible = false

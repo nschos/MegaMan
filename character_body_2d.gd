@@ -1,9 +1,15 @@
 class_name MegaMan extends CharacterBody2D
 
-const SPEED = 82.5
+const RUNNING_FULLSPEED_X    := 82.5 # 01.60
+const RUNNING_DECELERATION_X := 30.0 # 00.80
+const RUNNING_ACCELERATION_X := 7.5  # 00.20
+const JUMP_X_SPEED = 78.75
 const JUMP_VELOCITY = -292.265625
+const CLIMB_SPEED = 45
 const GRAVITY = 15
 
+var respawn_position: Vector2
+var has_control: bool = true
 
 var blink_timer := 0
 const blink_max_time := 168
@@ -12,19 +18,32 @@ const blink_max_time := 168
 var is_jumping := false
 
 var is_touching_ladder := false
+var has_ladder_under := false
 var ladder_x := 0
 	
 var has_grabbed_ladder = false
 
-@onready var animation_player := %AnimatedSprite2D
+@onready var animation_player: AnimatedSprite2D = %AnimatedSprite2D
 @onready var state_machine := $StateMachine
 
+@onready var collision_shape := $CollisionShape2D2
+
+
+func _ready() -> void:
+	respawn_position = global_position
+	add_to_group("player")
+
 func _physics_process(delta: float) -> void:
+	
+	if not has_control:
+		velocity = Vector2.ZERO 
+		move_and_slide()
+		return
 	
 	if blink_timer > blink_max_time:
 		blink_timer = 0
 		
-	
+	#print("char:",Engine.get_frames_drawn())
 	
 	#print(position)
 	#print(get_slide_collision_count())
@@ -34,7 +53,8 @@ func _physics_process(delta: float) -> void:
 	
 	if state_machine.state is not MegaMan_State_Climbing:
 		
-		if (Input.is_action_just_pressed("ui_up") or Input.is_action_just_pressed("ui_down")) and is_touching_ladder:
+		if ((Input.is_action_pressed("ui_up") and is_touching_ladder) or
+			(Input.is_action_pressed("ui_down") and has_ladder_under)):
 			#has_grabbed_ladder = true
 			#print(collision_mask)
 			state_machine.state.finished.emit(MegaManState.CLIMBING)
@@ -45,17 +65,10 @@ func _physics_process(delta: float) -> void:
 				state_machine.state.finished.emit(MegaManState.RUNNING)
 				pass
 		# Handle jump.
-		if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+		if Input.is_action_just_pressed("jump") and is_on_floor():
 			state_machine.state.finished.emit(MegaManState.JUMPING)
 			is_jumping = true
 			
-			
-		#if state_machine.state is MegaMan_State_Running:
-		var direction := Input.get_axis("ui_left", "ui_right")
-		if direction:
-			velocity.x = direction * SPEED
-		else:
-			velocity.x = move_toward(velocity.x, 0, SPEED)
 			
 
 	move_and_slide()
@@ -67,21 +80,65 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	print("megaman touched ladder")
 	is_touching_ladder = true
 	
-	var local_pos: Vector2 = body.to_local(global_position)
-	#print(local_pos)
-	var tile_grid_coords: Vector2i = body.local_to_map(local_pos)
-	#print(tile_grid_coords)
-	var tile_local_center: Vector2 = body.map_to_local(tile_grid_coords)
-	var tile_global_pos: Vector2 = body.to_global(tile_local_center)
-	
-	ladder_x = tile_global_pos.x
+	_calculate_ladder_x(body)
 	
 	pass # Replace with function body.
 
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
-	print("megaman untouched ladder")
-	is_touching_ladder = false
-	has_grabbed_ladder = false
-	self.set_collision_mask_value(3, true)
+	if (state_machine.state is MegaMan_State_Climbing) and has_control:
+		print("megaman untouched ladder")
+		is_touching_ladder = false
+		has_grabbed_ladder = false
+		self.set_collision_mask_value(3, true)
+		state_machine.state.finished.emit(MegaManState.IDLE)
+		self.velocity.y = 0
 	pass # Replace with function body.
+
+
+func _on_lower_ladder_detection_body_entered(body: Node2D) -> void:
+	print("ladder under!")
+	has_ladder_under = true
+	_calculate_ladder_x(body)
+	#is_touching_ladder = true
+	pass # Replace with function body.
+
+
+func _on_lower_ladder_detection_body_exited(body: Node2D) -> void:
+	if has_control:
+		print("no ladder under!")
+		has_ladder_under = false
+	pass # Replace with function body.
+	
+func _calculate_ladder_x(body: Node2D) -> void:
+	var local_pos: Vector2 = body.to_local(global_position)
+	var tile_grid_coords: Vector2i = body.local_to_map(local_pos)
+	var tile_local_center: Vector2 = body.map_to_local(tile_grid_coords)
+	var tile_global_pos: Vector2 = body.to_global(tile_local_center)
+	ladder_x = tile_global_pos.x
+	pass
+	
+func death() -> void:
+	print("O jogador morreu!")
+	
+	has_control = false
+	velocity = Vector2.ZERO
+	process_mode = PROCESS_MODE_DISABLED
+	hide()
+	
+	#need to add animation
+	await get_tree().create_timer(1.0).timeout 
+	
+	respawn()
+
+func respawn() -> void:
+	print("Jogador respawnou!")
+	
+	global_position = respawn_position
+	
+	process_mode = PROCESS_MODE_INHERIT
+	show()
+	has_control = true
+	
+	if animation_player.sprite_frames.has_animation("idle"):
+		animation_player.play("idle")

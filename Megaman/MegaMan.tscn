@@ -1,19 +1,14 @@
 [gd_scene format=3 uid="uid://bnuadflk8nhjv"]
 
 [ext_resource type="Script" uid="uid://chnadb28tns6d" path="res://character_body_2d.gd" id="1_gt4lj"]
+[ext_resource type="Texture2D" uid="uid://drvjsx4yfg8hr" path="res://Mega-Man-Inch.png" id="3_6rr7a"]
 [ext_resource type="Texture2D" uid="uid://bed2ktogim485" path="res://Megaman/SPR_MegaMan.png" id="3_ens4t"]
 [ext_resource type="Script" uid="uid://cobfoclnydwek" path="res://src/StateMachine.gd" id="4_rfobd"]
-[ext_resource type="Script" uid="uid://duto1pwce8oks" path="res://src/idle.gd" id="5_0po8d"]
-[ext_resource type="Script" uid="uid://dn1yvsufex57e" path="res://src/jumping.gd" id="6_0po8d"]
-[ext_resource type="Script" uid="uid://digqlqpd28l7q" path="res://src/climbing.gd" id="6_y4sv1"]
-[ext_resource type="Script" uid="uid://dh4amutkswq76" path="res://src/running.gd" id="7_y4sv1"]
-[ext_resource type="Script" uid="uid://bvvahnqc4v15o" path="res://src/falling.gd" id="8_gtn4u"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_lquwl"]
-size = Vector2(8, 16)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_0xm2m"]
-size = Vector2(16, 23)
+[ext_resource type="Script" uid="uid://duto1pwce8oks" path="res://src/MegamanStateMachine/idle.gd" id="5_0po8d"]
+[ext_resource type="Script" uid="uid://dn1yvsufex57e" path="res://src/MegamanStateMachine/jumping.gd" id="6_0po8d"]
+[ext_resource type="Script" uid="uid://digqlqpd28l7q" path="res://src/MegamanStateMachine/climbing.gd" id="6_y4sv1"]
+[ext_resource type="Script" uid="uid://dh4amutkswq76" path="res://src/MegamanStateMachine/running.gd" id="7_y4sv1"]
+[ext_resource type="Script" uid="uid://bvvahnqc4v15o" path="res://src/MegamanStateMachine/falling.gd" id="8_gtn4u"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_oehvy"]
 atlas = ExtResource("3_ens4t")
@@ -104,16 +99,26 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_oehvy")
+}],
+"loop": 0,
+"name": &"climb_L",
+"speed": 6.0
 }, {
+"frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_j74xd")
+}],
+"loop": 0,
+"name": &"climb_R",
+"speed": 6.0
 }, {
+"frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ng6ce")
 }],
-"loop": true,
-"name": &"climb",
-"speed": 6.0
+"loop": 0,
+"name": &"climb_top",
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -128,7 +133,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_shp44")
 }],
-"loop": true,
+"loop": 1,
 "name": &"death",
 "speed": 10.0
 }, {
@@ -136,7 +141,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_272x0")
 }],
-"loop": true,
+"loop": 1,
 "name": &"hurt",
 "speed": 5.0
 }, {
@@ -144,7 +149,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_5c5su")
 }],
-"loop": false,
+"loop": 0,
 "name": &"idle",
 "speed": 1.0
 }, {
@@ -152,15 +157,23 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_8isr6")
 }],
-"loop": false,
+"loop": 0,
 "name": &"idle_blink",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_6rr7a")
+}],
+"loop": 1,
+"name": &"inch",
 "speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_cu0v6")
 }],
-"loop": true,
+"loop": 1,
 "name": &"jump",
 "speed": 5.0
 }, {
@@ -174,7 +187,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_w1ucb")
 }],
-"loop": true,
+"loop": 1,
 "name": &"shooting_walk",
 "speed": 10.0
 }, {
@@ -182,7 +195,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_fyho2")
 }],
-"loop": true,
+"loop": 1,
 "name": &"stun",
 "speed": 5.0
 }, {
@@ -196,7 +209,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_kl221")
 }],
-"loop": true,
+"loop": 1,
 "name": &"teleport",
 "speed": 10.0
 }, {
@@ -210,41 +223,49 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_pvja8")
 }],
-"loop": true,
+"loop": 1,
 "name": &"walk",
-"speed": 10.0
+"speed": 8.57
 }]
 
-[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1964672799]
-collision_layer = 0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_thwjo"]
+size = Vector2(7.9, 21)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lquwl"]
+size = Vector2(7.9, 3.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0xm2m"]
+size = Vector2(15.9, 23)
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1964672799 groups=["player"]]
 collision_mask = 5
 script = ExtResource("1_gt4lj")
 
-[node name="LadderDetection" type="Area2D" parent="." unique_id=1305862378]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1312357347]
+unique_name_in_owner = true
+sprite_frames = SubResource("SpriteFrames_riu6h")
+animation = &"idle"
+flip_h = true
+
+[node name="UpperLadderDetection" type="Area2D" parent="." unique_id=1305862378]
 collision_layer = 0
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LadderDetection" unique_id=829421064]
-position = Vector2(0, 12)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="UpperLadderDetection" unique_id=829421064]
+position = Vector2(0, 3.5)
+shape = SubResource("RectangleShape2D_thwjo")
+
+[node name="LowerLadderDetection" type="Area2D" parent="." unique_id=1189632704]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LowerLadderDetection" unique_id=1472036759]
+position = Vector2(0, 18.25)
 shape = SubResource("RectangleShape2D_lquwl")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=17805679]
 position = Vector2(0, 3.5)
 shape = SubResource("RectangleShape2D_0xm2m")
-
-[node name="Camera2D" type="Camera2D" parent="." unique_id=894090002]
-limit_left = 0
-limit_top = 0
-limit_right = 1024
-limit_bottom = 240
-editor_draw_limits = true
-editor_draw_drag_margin = true
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1312357347]
-unique_name_in_owner = true
-sprite_frames = SubResource("SpriteFrames_riu6h")
-animation = &"idle_blink"
-flip_h = true
 
 [node name="StateMachine" type="Node" parent="." unique_id=228864651 node_paths=PackedStringArray("initial_state")]
 script = ExtResource("4_rfobd")
@@ -269,8 +290,7 @@ script = ExtResource("7_y4sv1")
 [node name="Falling" type="Node" parent="StateMachine" unique_id=695058213]
 script = ExtResource("8_gtn4u")
 
-[connection signal="area_entered" from="LadderDetection" to="." method="_on_ladder_detection_area_entered"]
-[connection signal="area_shape_entered" from="LadderDetection" to="." method="_on_ladder_detection_area_shape_entered"]
-[connection signal="body_entered" from="LadderDetection" to="." method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="LadderDetection" to="." method="_on_area_2d_body_exited"]
-[connection signal="body_shape_entered" from="LadderDetection" to="." method="_on_ladder_detection_body_shape_entered"]
+[connection signal="body_entered" from="UpperLadderDetection" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="UpperLadderDetection" to="." method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="LowerLadderDetection" to="." method="_on_lower_ladder_detection_body_entered"]
+[connection signal="body_exited" from="LowerLadderDetection" to="." method="_on_lower_ladder_detection_body_exited"]

@@ -13,4 +13,11 @@ func physics_update(_delta: float) -> void:
 		megaman.animation_player.play("idle_blink")
 	elif megaman.blink_timer >= 2:
 		megaman.animation_player.play("idle")
+		
+		
+	var direction := Input.get_axis("ui_left", "ui_right")
+	if direction != 0:
+		finished.emit(RUNNING)
+	
+		
 	pass

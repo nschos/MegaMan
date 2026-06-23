@@ -106,7 +106,7 @@ position = Vector2(2816, -1280)
 position = Vector2(3072, -1280)
 
 [node name="CharacterBody2D2" parent="." unique_id=1964672799 instance=ExtResource("4_lquwl")]
-position = Vector2(128, 145)
+position = Vector2(42, 177)
 
 [node name="Camera2D_old" type="Camera2D" parent="." unique_id=31807017]
 visible = false
