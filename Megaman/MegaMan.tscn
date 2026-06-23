@@ -215,8 +215,7 @@ animations = [{
 "speed": 10.0
 }]
 
-[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1964672799]
-collision_layer = 0
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1964672799 groups=["player"]]
 collision_mask = 5
 script = ExtResource("1_gt4lj")
 
@@ -231,14 +230,6 @@ shape = SubResource("RectangleShape2D_lquwl")
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=17805679]
 position = Vector2(0, 3.5)
 shape = SubResource("RectangleShape2D_0xm2m")
-
-[node name="Camera2D" type="Camera2D" parent="." unique_id=894090002]
-limit_left = 0
-limit_top = 0
-limit_right = 1024
-limit_bottom = 240
-editor_draw_limits = true
-editor_draw_drag_margin = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1312357347]
 unique_name_in_owner = true

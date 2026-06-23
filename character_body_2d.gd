@@ -4,6 +4,8 @@ const SPEED = 82.5
 const JUMP_VELOCITY = -292.265625
 const GRAVITY = 15
 
+var respawn_position: Vector2
+var has_control: bool = true
 
 var blink_timer := 0
 const blink_max_time := 168
@@ -19,7 +21,16 @@ var has_grabbed_ladder = false
 @onready var animation_player := %AnimatedSprite2D
 @onready var state_machine := $StateMachine
 
+func _ready() -> void:
+	respawn_position = global_position
+	add_to_group("player")
+
 func _physics_process(delta: float) -> void:
+	
+	if not has_control:
+		velocity = Vector2.ZERO 
+		move_and_slide()
+		return
 	
 	if blink_timer > blink_max_time:
 		blink_timer = 0
@@ -85,3 +96,28 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 	has_grabbed_ladder = false
 	self.set_collision_mask_value(3, true)
 	pass # Replace with function body.
+
+func death() -> void:
+	print("O jogador morreu!")
+	
+	has_control = false
+	velocity = Vector2.ZERO
+	process_mode = PROCESS_MODE_DISABLED
+	hide()
+	
+	#need to add animation
+	await get_tree().create_timer(1.0).timeout 
+	
+	respawn()
+
+func respawn() -> void:
+	print("Jogador respawnou!")
+	
+	global_position = respawn_position
+	
+	process_mode = PROCESS_MODE_INHERIT
+	show()
+	has_control = true
+	
+	if animation_player.sprite_frames.has_animation("idle"):
+		animation_player.play("idle")
