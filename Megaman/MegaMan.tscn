@@ -10,12 +10,6 @@
 [ext_resource type="Script" uid="uid://dh4amutkswq76" path="res://src/MegamanStateMachine/running.gd" id="7_y4sv1"]
 [ext_resource type="Script" uid="uid://bvvahnqc4v15o" path="res://src/MegamanStateMachine/falling.gd" id="8_gtn4u"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_lquwl"]
-size = Vector2(8, 12)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_0xm2m"]
-size = Vector2(16, 23)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_oehvy"]
 atlas = ExtResource("3_ens4t")
 region = Rect2(0, 96, 32, 32)
@@ -234,17 +228,40 @@ animations = [{
 "speed": 8.57
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_thwjo"]
+size = Vector2(7.9, 21)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lquwl"]
+size = Vector2(7.9, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0xm2m"]
+size = Vector2(15.9, 23)
+
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=1964672799]
 collision_layer = 0
 collision_mask = 5
 script = ExtResource("1_gt4lj")
 
-[node name="LadderDetection" type="Area2D" parent="." unique_id=1305862378]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1312357347]
+unique_name_in_owner = true
+sprite_frames = SubResource("SpriteFrames_riu6h")
+animation = &"idle"
+flip_h = true
+
+[node name="UpperLadderDetection" type="Area2D" parent="." unique_id=1305862378]
 collision_layer = 0
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LadderDetection" unique_id=829421064]
-position = Vector2(0, 10)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="UpperLadderDetection" unique_id=829421064]
+position = Vector2(0, 3.5)
+shape = SubResource("RectangleShape2D_thwjo")
+
+[node name="LowerLadderDetection" type="Area2D" parent="." unique_id=1189632704]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LowerLadderDetection" unique_id=1472036759]
+position = Vector2(0, 17)
 shape = SubResource("RectangleShape2D_lquwl")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=17805679]
@@ -272,12 +289,6 @@ theme_override_constants/outline_size = 3
 theme_override_font_sizes/font_size = 30
 text = "fmracounter"
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1312357347]
-unique_name_in_owner = true
-sprite_frames = SubResource("SpriteFrames_riu6h")
-animation = &"idle"
-flip_h = true
-
 [node name="StateMachine" type="Node" parent="." unique_id=228864651 node_paths=PackedStringArray("initial_state")]
 script = ExtResource("4_rfobd")
 initial_state = NodePath("Idle")
@@ -301,8 +312,7 @@ script = ExtResource("7_y4sv1")
 [node name="Falling" type="Node" parent="StateMachine" unique_id=695058213]
 script = ExtResource("8_gtn4u")
 
-[connection signal="area_entered" from="LadderDetection" to="." method="_on_ladder_detection_area_entered"]
-[connection signal="area_shape_entered" from="LadderDetection" to="." method="_on_ladder_detection_area_shape_entered"]
-[connection signal="body_entered" from="LadderDetection" to="." method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="LadderDetection" to="." method="_on_area_2d_body_exited"]
-[connection signal="body_shape_entered" from="LadderDetection" to="." method="_on_ladder_detection_body_shape_entered"]
+[connection signal="body_entered" from="UpperLadderDetection" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="UpperLadderDetection" to="." method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="LowerLadderDetection" to="." method="_on_lower_ladder_detection_body_entered"]
+[connection signal="body_exited" from="LowerLadderDetection" to="." method="_on_lower_ladder_detection_body_exited"]

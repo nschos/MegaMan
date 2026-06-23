@@ -16,12 +16,15 @@ const blink_max_time := 168
 var is_jumping := false
 
 var is_touching_ladder := false
+var has_ladder_under := false
 var ladder_x := 0
 	
 var has_grabbed_ladder = false
 
 @onready var animation_player: AnimatedSprite2D = %AnimatedSprite2D
 @onready var state_machine := $StateMachine
+
+@onready var collision_shape := $CollisionShape2D2
 
 var current_frame = 0
 
@@ -42,7 +45,8 @@ func _physics_process(delta: float) -> void:
 	
 	if state_machine.state is not MegaMan_State_Climbing:
 		
-		if (Input.is_action_pressed("ui_up") or Input.is_action_pressed("ui_down")) and is_touching_ladder:
+		if ((Input.is_action_pressed("ui_up") and is_touching_ladder) or
+			(Input.is_action_pressed("ui_down") and has_ladder_under)):
 			#has_grabbed_ladder = true
 			#print(collision_mask)
 			state_machine.state.finished.emit(MegaManState.CLIMBING)
@@ -68,14 +72,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	print("megaman touched ladder")
 	is_touching_ladder = true
 	
-	var local_pos: Vector2 = body.to_local(global_position)
-	#print(local_pos)
-	var tile_grid_coords: Vector2i = body.local_to_map(local_pos)
-	#print(tile_grid_coords)
-	var tile_local_center: Vector2 = body.map_to_local(tile_grid_coords)
-	var tile_global_pos: Vector2 = body.to_global(tile_local_center)
-	
-	ladder_x = tile_global_pos.x
+	_calculate_ladder_x(body)
 	
 	pass # Replace with function body.
 
@@ -85,4 +82,28 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 	is_touching_ladder = false
 	has_grabbed_ladder = false
 	self.set_collision_mask_value(3, true)
+	if state_machine.state is MegaMan_State_Climbing:
+		state_machine.state.finished.emit(MegaManState.IDLE)
+		self.velocity.y = 0
 	pass # Replace with function body.
+
+
+func _on_lower_ladder_detection_body_entered(body: Node2D) -> void:
+	has_ladder_under = true
+	_calculate_ladder_x(body)
+	#is_touching_ladder = true
+	pass # Replace with function body.
+
+
+func _on_lower_ladder_detection_body_exited(body: Node2D) -> void:
+	has_ladder_under = false
+	pass # Replace with function body.
+	
+func _calculate_ladder_x(body: Node2D) -> void:
+	var local_pos: Vector2 = body.to_local(global_position)
+	var tile_grid_coords: Vector2i = body.local_to_map(local_pos)
+	var tile_local_center: Vector2 = body.map_to_local(tile_grid_coords)
+	var tile_global_pos: Vector2 = body.to_global(tile_local_center)
+	ladder_x = tile_global_pos.x
+	pass
+	
