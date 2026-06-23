@@ -86,17 +86,18 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
-	print("megaman untouched ladder")
-	is_touching_ladder = false
-	has_grabbed_ladder = false
-	self.set_collision_mask_value(3, true)
-	if state_machine.state is MegaMan_State_Climbing:
+	if (state_machine.state is MegaMan_State_Climbing) and has_control:
+		print("megaman untouched ladder")
+		is_touching_ladder = false
+		has_grabbed_ladder = false
+		self.set_collision_mask_value(3, true)
 		state_machine.state.finished.emit(MegaManState.IDLE)
 		self.velocity.y = 0
 	pass # Replace with function body.
 
 
 func _on_lower_ladder_detection_body_entered(body: Node2D) -> void:
+	print("ladder under!")
 	has_ladder_under = true
 	_calculate_ladder_x(body)
 	#is_touching_ladder = true
@@ -104,7 +105,9 @@ func _on_lower_ladder_detection_body_entered(body: Node2D) -> void:
 
 
 func _on_lower_ladder_detection_body_exited(body: Node2D) -> void:
-	has_ladder_under = false
+	if has_control:
+		print("no ladder under!")
+		has_ladder_under = false
 	pass # Replace with function body.
 	
 func _calculate_ladder_x(body: Node2D) -> void:
