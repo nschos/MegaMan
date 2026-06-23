@@ -8,6 +8,8 @@ const JUMP_VELOCITY = -292.265625
 const CLIMB_SPEED = 45
 const GRAVITY = 15
 
+var respawn_position: Vector2
+var has_control: bool = true
 
 var blink_timer := 0
 const blink_max_time := 168
@@ -26,15 +28,21 @@ var has_grabbed_ladder = false
 
 @onready var collision_shape := $CollisionShape2D2
 
-var current_frame = 0
+
+func _ready() -> void:
+	respawn_position = global_position
+	add_to_group("player")
 
 func _physics_process(delta: float) -> void:
+	
+	if not has_control:
+		velocity = Vector2.ZERO 
+		move_and_slide()
+		return
 	
 	if blink_timer > blink_max_time:
 		blink_timer = 0
 		
-	$Camera2D/CanvasLayer/FrameCount.text = "Frames: " + str(current_frame)
-	current_frame += 1 
 	#print("char:",Engine.get_frames_drawn())
 	
 	#print(position)
@@ -107,3 +115,27 @@ func _calculate_ladder_x(body: Node2D) -> void:
 	ladder_x = tile_global_pos.x
 	pass
 	
+func death() -> void:
+	print("O jogador morreu!")
+	
+	has_control = false
+	velocity = Vector2.ZERO
+	process_mode = PROCESS_MODE_DISABLED
+	hide()
+	
+	#need to add animation
+	await get_tree().create_timer(1.0).timeout 
+	
+	respawn()
+
+func respawn() -> void:
+	print("Jogador respawnou!")
+	
+	global_position = respawn_position
+	
+	process_mode = PROCESS_MODE_INHERIT
+	show()
+	has_control = true
+	
+	if animation_player.sprite_frames.has_animation("idle"):
+		animation_player.play("idle")

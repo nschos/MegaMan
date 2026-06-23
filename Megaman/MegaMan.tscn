@@ -237,8 +237,7 @@ size = Vector2(7.9, 1)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0xm2m"]
 size = Vector2(15.9, 23)
 
-[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1964672799]
-collision_layer = 0
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1964672799 groups=["player"]]
 collision_mask = 5
 script = ExtResource("1_gt4lj")
 
@@ -267,27 +266,6 @@ shape = SubResource("RectangleShape2D_lquwl")
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=17805679]
 position = Vector2(0, 3.5)
 shape = SubResource("RectangleShape2D_0xm2m")
-
-[node name="Camera2D" type="Camera2D" parent="." unique_id=894090002]
-limit_left = 0
-limit_top = 0
-limit_right = 1024
-limit_bottom = 240
-editor_draw_limits = true
-editor_draw_drag_margin = true
-
-[node name="CanvasLayer" type="CanvasLayer" parent="Camera2D" unique_id=136162944]
-
-[node name="FrameCount" type="Label" parent="Camera2D/CanvasLayer" unique_id=1933326738]
-visible = false
-texture_filter = 1
-texture_repeat = 1
-offset_right = 98.0
-offset_bottom = 23.0
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 3
-theme_override_font_sizes/font_size = 30
-text = "fmracounter"
 
 [node name="StateMachine" type="Node" parent="." unique_id=228864651 node_paths=PackedStringArray("initial_state")]
 script = ExtResource("4_rfobd")
