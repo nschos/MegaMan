@@ -1,16 +1,16 @@
 Features que faltam:
-* Tiro
+* Tiro (Nathan)
 * Inimigos
     * Big Eye
-    * Octopus Battery
-    * Blaster
+    * Octopus Battery (Brayan)
+    * Blaster (Brayan)
     * Blader
-    * Screw Driver
+    * Screw Driver (Brayan)
     * Mambu
     * Flea
     * Cutman
-* Enemy Spawner
-* HUD
+* Enemy Spawner (Nathan)
+* HUD (Alexis)
     * Pontos
     * Vida
     * Power-up (?)
@@ -19,9 +19,10 @@ Features que faltam:
     * HP
     * One-up
 * Megaman damage animation/system
+* Weapons Menu
 * Pause
-* Menu
-* Audio
+* Stage Selection (Brayan)
+* Audio (Alexis)
     * Inimigos
     * Musica de fundo
     * SFX
