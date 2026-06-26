@@ -14,6 +14,8 @@ var has_control: bool = true
 var blink_timer := 0
 const blink_max_time := 168
 
+var bullets: Array[MegamanBullet] = []
+
 var is_shooting := false
 
 
@@ -36,6 +38,12 @@ var has_grabbed_ladder = false
 func _ready() -> void:
 	respawn_position = global_position
 	add_to_group("player")
+	#get_tree().current_scene.add_child.call_deferred(bullet)
+	for child in get_children():
+		if child is MegamanBullet:
+			child.reparent.call_deferred(get_tree().current_scene)
+			bullets.append(child)
+	
 
 func _physics_process(delta: float) -> void:
 	#print(Engine.get_physics_frames())
@@ -80,6 +88,8 @@ func _physics_process(delta: float) -> void:
 	
 	if Input.is_action_just_pressed("NES_B_button"):
 		state_machine.state.shoot_pressed.emit()
+		_shoot_bullet()
+		
 		
 	#if Input.is_action_just_pressed("NES_A_button"):
 		
@@ -88,6 +98,19 @@ func _physics_process(delta: float) -> void:
 	
 	blink_timer += 1
 
+func _shoot_bullet() -> void:
+	for bullet in bullets:
+		if not bullet.bullet_moving:
+			#bullet.position = self.global_position
+			bullet.position.y = self.global_position.y + 4
+			if animation_player.flip_h:
+				bullet.position.x = self.global_position.x + 20
+				bullet.shoot(MegamanBullet.Direction.RIGHT)
+			else:
+				bullet.position.x = self.global_position.x - 20
+				bullet.shoot(MegamanBullet.Direction.LEFT)
+			return
+	pass
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	print("megaman touched ladder")

@@ -12,7 +12,7 @@ config_version=5
 
 config/name="MegaMan"
 run/main_scene="uid://bt5nl8t1nljgk"
-config/features=PackedStringArray("4.7", "Forward Plus")
+config/features=PackedStringArray("4.6", "Forward Plus")
 boot_splash/image="uid://rqgccugx1n6q"
 config/icon="res://icon.svg"
 
@@ -74,6 +74,8 @@ NES_A_button={
 2d_physics/layer_2="Ladder"
 2d_physics/layer_3="TopLadder"
 2d_physics/layer_4="Megaman"
+2d_physics/layer_5="MegamanBullet"
+2d_physics/layer_6="Enemy"
 
 [physics]
 

@@ -119,14 +119,4 @@ drag_top_margin = 0.0
 drag_right_margin = 0.0
 drag_bottom_margin = 0.0
 
-[node name="Camera2D_old" type="Camera2D" parent="." unique_id=31807017]
-visible = false
-enabled = false
-limit_left = 0
-limit_top = 0
-limit_right = 1024
-limit_bottom = 240
-editor_draw_limits = true
-editor_draw_drag_margin = true
-
 [editable path="Rooms/Scene_1"]
