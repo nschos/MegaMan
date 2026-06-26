@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://dyl8ejbsbdj7y"]
+
+[ext_resource type="Texture2D" uid="uid://cc5blcdip2uqh" path="res://addons/Points_red.png" id="1_e3eqe"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sr7bb"]
+size = Vector2(8, 8)
+
+[node name="Points_Red" type="Area2D" unique_id=1019441849]
+
+[node name="points_red" type="Sprite2D" parent="." unique_id=365401724]
+texture = ExtResource("1_e3eqe")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2030087315]
+shape = SubResource("RectangleShape2D_sr7bb")

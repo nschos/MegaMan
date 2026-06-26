@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://bp0nxtiktgjt7"]
+
+[ext_resource type="Texture2D" uid="uid://c72lvbgkkekyv" path="res://Bullets/bullet_megaman.png" id="1_5oepi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5oepi"]
+size = Vector2(8, 6)
+
+[node name="BulletMegaman" type="Area2D" unique_id=400124483]
+
+[node name="bullet_megaman" type="Sprite2D" parent="." unique_id=563051098]
+texture = ExtResource("1_5oepi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=409237816]
+shape = SubResource("RectangleShape2D_5oepi")

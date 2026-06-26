@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://dcesn7olett0o"]
+
+[ext_resource type="Texture2D" uid="uid://gey1tpgl0j83" path="res://EnergyBars/EmptyHealth.png" id="1_xeifl"]
+[ext_resource type="Texture2D" uid="uid://cy6pbfeqfp5wk" path="res://EnergyBars/FullHealth.png" id="2_nvui2"]
+
+[node name="MegaManHealthBar" type="Area2D" unique_id=882701853]
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="." unique_id=521080786]
+offset_right = 10.0
+offset_bottom = 58.0
+max_value = 28.0
+value = 28.0
+fill_mode = 3
+texture_under = ExtResource("1_xeifl")
+texture_progress = ExtResource("2_nvui2")
+texture_progress_offset = Vector2(1, 1)

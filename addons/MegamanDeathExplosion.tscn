@@ -1,0 +1,116 @@
+[gd_scene format=3 uid="uid://07vn60arvol3"]
+
+[ext_resource type="Texture2D" uid="uid://lk7ixxwyt5xq" path="res://addons/MegamanDeathExplosion.png" id="1_8kshi"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m13cm"]
+atlas = ExtResource("1_8kshi")
+region = Rect2(0, 0, 65, 66)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k5wcl"]
+atlas = ExtResource("1_8kshi")
+region = Rect2(65, 0, 65, 66)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7v0g5"]
+atlas = ExtResource("1_8kshi")
+region = Rect2(130, 0, 65, 66)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_57qny"]
+atlas = ExtResource("1_8kshi")
+region = Rect2(195, 0, 65, 66)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kbsop"]
+atlas = ExtResource("1_8kshi")
+region = Rect2(260, 0, 65, 66)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u2ixi"]
+atlas = ExtResource("1_8kshi")
+region = Rect2(325, 0, 65, 66)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eewl3"]
+atlas = ExtResource("1_8kshi")
+region = Rect2(390, 0, 65, 66)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ogk85"]
+atlas = ExtResource("1_8kshi")
+region = Rect2(455, 0, 65, 66)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tjs8w"]
+atlas = ExtResource("1_8kshi")
+region = Rect2(520, 0, 65, 66)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3qju6"]
+atlas = ExtResource("1_8kshi")
+region = Rect2(585, 0, 65, 66)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_npqiq"]
+atlas = ExtResource("1_8kshi")
+region = Rect2(650, 0, 65, 66)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n56tc"]
+atlas = ExtResource("1_8kshi")
+region = Rect2(715, 0, 65, 66)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y1mpl"]
+atlas = ExtResource("1_8kshi")
+region = Rect2(780, 0, 65, 66)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0mw8u"]
+atlas = ExtResource("1_8kshi")
+region = Rect2(845, 0, 65, 66)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3b2ds"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m13cm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k5wcl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7v0g5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_57qny")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kbsop")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u2ixi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eewl3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ogk85")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tjs8w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3qju6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_npqiq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n56tc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y1mpl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0mw8u")
+}],
+"loop": true,
+"name": &"death_explosion",
+"speed": 20.0
+}]
+
+[node name="MegamanDeathExplosion" type="Area2D" unique_id=1627597320]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=624622742]
+sprite_frames = SubResource("SpriteFrames_3b2ds")
+animation = &"death_explosion"
+frame_progress = 0.32654315
