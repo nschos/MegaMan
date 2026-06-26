@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://5vnlbwroqsqw"]
+
+[ext_resource type="Texture2D" uid="uid://cuqif8pexsou6" path="res://Enemies/inimigo_7.png" id="1_akmg4"]
+[ext_resource type="Script" uid="uid://cl3cy2km2x473" path="res://simple_enemy.gd" id="1_sl8h2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_04gau"]
+size = Vector2(67, 47)
+
+[sub_resource type="FontFile" id="FontFile_fbyh7"]
+cache/0/variation_coordinates = {}
+cache/0/face_index = 0
+cache/0/embolden = 0.0
+cache/0/transform = Transform2D(1, 0, 0, 1, 0, 0)
+cache/0/spacing_top = 0
+cache/0/spacing_bottom = 0
+cache/0/spacing_space = 0
+cache/0/spacing_glyph = 0
+cache/0/baseline_offset = 0.0
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+
+[sub_resource type="Theme" id="Theme_lpaxg"]
+default_base_scale = 1.3
+default_font = SubResource("FontFile_fbyh7")
+
+[node name="SimpleEnemy" type="Area2D" unique_id=602455028]
+script = ExtResource("1_sl8h2")
+metadata/_custom_type_script = "uid://cfd54j20deuav"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=666301533]
+texture = ExtResource("1_akmg4")
+
+[node name="Timer" type="Timer" parent="." unique_id=582097431]
+process_callback = 0
+autostart = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1786226703]
+position = Vector2(1.5, 1.5)
+shape = SubResource("RectangleShape2D_04gau")
+
+[node name="Label" type="Label" parent="." unique_id=968202804]
+offset_left = -17.0
+offset_top = -8.0
+offset_right = 23.0
+offset_bottom = 15.0
+theme = SubResource("Theme_lpaxg")
+theme_override_colors/font_color = Color(0.83137256, 0.43529412, 0.3372549, 1)
+theme_override_colors/font_outline_color = Color(0.7647059, 0.6392157, 0, 1)
+theme_override_constants/line_spacing = 3
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/outline_size = 3
+theme_override_constants/shadow_outline_size = 8
+text = "100"
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://bnuadflk8nhjv"]
 
-[ext_resource type="Script" uid="uid://chnadb28tns6d" path="res://character_body_2d.gd" id="1_gt4lj"]
-[ext_resource type="Texture2D" uid="uid://drvjsx4yfg8hr" path="res://Mega-Man-Inch.png" id="3_6rr7a"]
+[ext_resource type="Script" uid="uid://chnadb28tns6d" path="res://src/MegamanCore.gd" id="1_gt4lj"]
 [ext_resource type="Texture2D" uid="uid://bed2ktogim485" path="res://Megaman/SPR_MegaMan.png" id="3_ens4t"]
+[ext_resource type="Texture2D" uid="uid://3laav2je54rr" path="res://idle_shooting.png" id="3_thwjo"]
 [ext_resource type="Script" uid="uid://cobfoclnydwek" path="res://src/StateMachine.gd" id="4_rfobd"]
 [ext_resource type="Script" uid="uid://duto1pwce8oks" path="res://src/MegamanStateMachine/idle.gd" id="5_0po8d"]
 [ext_resource type="Script" uid="uid://dn1yvsufex57e" path="res://src/MegamanStateMachine/jumping.gd" id="6_0po8d"]
@@ -49,6 +49,9 @@ region = Rect2(0, 0, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_8isr6"]
 atlas = ExtResource("3_ens4t")
 region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_thwjo"]
+load_path = "res://.godot/imported/Mega-Man-Inch.png-507a4409b65f04b6c7f8ef524f9bda28.ctex"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cu0v6"]
 atlas = ExtResource("3_ens4t")
@@ -163,7 +166,15 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_6rr7a")
+"texture": ExtResource("3_thwjo")
+}],
+"loop": 0,
+"name": &"idle_shooting",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("CompressedTexture2D_thwjo")
 }],
 "loop": 1,
 "name": &"inch",
@@ -237,14 +248,14 @@ size = Vector2(7.9, 3.5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0xm2m"]
 size = Vector2(15.9, 23)
 
-[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1964672799 groups=["player"]]
+[node name="Megaman" type="CharacterBody2D" unique_id=1964672799 groups=["player"]]
 collision_mask = 5
 script = ExtResource("1_gt4lj")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1312357347]
 unique_name_in_owner = true
 sprite_frames = SubResource("SpriteFrames_riu6h")
-animation = &"idle"
+animation = &"idle_shooting"
 flip_h = true
 
 [node name="UpperLadderDetection" type="Area2D" parent="." unique_id=1305862378]

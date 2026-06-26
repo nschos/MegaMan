@@ -14,7 +14,7 @@ var current_velocity: Velocity = Velocity.FULLHALT
 
 
 func enter(previous_state_path: String, data := {}) -> void:
-	print("running!")
+	#print("running!")
 	
 	#megaman.animation_player.play("walk")
 	
@@ -90,6 +90,9 @@ func physics_update(_delta: float) -> void:
 	elif megaman.velocity.x < 0:
 		megaman.animation_player.flip_h = false
 	pass
+	
+	if not megaman.is_on_floor():
+		finished.emit(FALLING)
 	
 	
 	

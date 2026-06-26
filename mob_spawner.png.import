@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://by6tg15tr8m3h"
-path="res://.godot/imported/Mega-Man-Inch.png-507a4409b65f04b6c7f8ef524f9bda28.ctex"
+uid="uid://bci50y5827if5"
+path="res://.godot/imported/mob_spawner.png-c25e390cbcebbd13ab673dc3d096d5a2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Mega-Man-Inch.png"
-dest_files=["res://.godot/imported/Mega-Man-Inch.png-507a4409b65f04b6c7f8ef524f9bda28.ctex"]
+source_file="res://mob_spawner.png"
+dest_files=["res://.godot/imported/mob_spawner.png-c25e390cbcebbd13ab673dc3d096d5a2.ctex"]
 
 [params]
 
