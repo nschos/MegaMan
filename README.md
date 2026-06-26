@@ -19,7 +19,7 @@ Features que faltam:
     * HP
     * One-up
 * Megaman damage animation/system
-* Weapons Menu
+* Weapons Menu (Aléxis)
 * Pause
 * Stage Selection (Brayan)
 * Audio (Alexis)
