@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://cqlf4x8wneeiq"]
+
+[ext_resource type="Texture2D" uid="uid://baarnh728h6pk" path="res://addons/DMG_Boss.png" id="1_nujkp"]
+
+[node name="DMG_Boss" type="Area2D" unique_id=845994739]
+
+[node name="DMG_Boss" type="Sprite2D" parent="." unique_id=677724006]
+texture = ExtResource("1_nujkp")

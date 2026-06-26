@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://dbw403mn4mw06"]
+
+[ext_resource type="Texture2D" uid="uid://4oftdh6qnt53" path="res://addons/CutMan_Powerup.png" id="1_xfimg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gvp0f"]
+atlas = ExtResource("1_xfimg")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fjalo"]
+atlas = ExtResource("1_xfimg")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ncy5o"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gvp0f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fjalo")
+}],
+"loop": true,
+"name": &"PowerUp_twinkle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8tmk8"]
+size = Vector2(16, 16)
+
+[node name="Cutman_Powerup" type="Area2D" unique_id=845994739]
+
+[node name="CutMan_PowerUp" type="AnimatedSprite2D" parent="." unique_id=739733162]
+sprite_frames = SubResource("SpriteFrames_ncy5o")
+animation = &"PowerUp_twinkle"
+autoplay = "PowerUp_twinkle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1030840154]
+shape = SubResource("RectangleShape2D_8tmk8")

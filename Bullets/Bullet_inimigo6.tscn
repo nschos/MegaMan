@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://cx63i6kyyiwit"]
+
+[ext_resource type="Texture2D" uid="uid://dij53huowkbhq" path="res://Bullets/bullet_inimigo6.png" id="1_78axl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_78axl"]
+size = Vector2(6, 6)
+
+[node name="BulletInimigo6" type="Area2D" unique_id=2078283329]
+
+[node name="bullet_inim6" type="Sprite2D" parent="." unique_id=40120664]
+texture = ExtResource("1_78axl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1969567448]
+shape = SubResource("RectangleShape2D_78axl")

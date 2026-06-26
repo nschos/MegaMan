@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://bsx2kth725kly"]
+
+[ext_resource type="Texture2D" uid="uid://dft8m1ld5uvkx" path="res://addons/Enemie_Explode.png" id="1_x3egm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e8nog"]
+atlas = ExtResource("1_x3egm")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cpjyf"]
+atlas = ExtResource("1_x3egm")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rcl1w"]
+atlas = ExtResource("1_x3egm")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_stsw8"]
+atlas = ExtResource("1_x3egm")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qg1th"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e8nog")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cpjyf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rcl1w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_stsw8")
+}],
+"loop": true,
+"name": &"explosion",
+"speed": 5.0
+}]
+
+[node name="Enemie_Explode" type="Area2D" unique_id=1677480578]
+
+[node name="enemie_explode" type="AnimatedSprite2D" parent="." unique_id=341200213]
+sprite_frames = SubResource("SpriteFrames_qg1th")
+animation = &"explosion"

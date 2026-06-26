@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://nkxva45rojun"]
+
+[ext_resource type="Texture2D" uid="uid://cmsimj22jtjft" path="res://Bullets/bullet_cutman.png" id="1_q135y"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cghj8"]
+atlas = ExtResource("1_q135y")
+region = Rect2(0, 0, 14, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ibcj0"]
+atlas = ExtResource("1_q135y")
+region = Rect2(0, 14, 14, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_12ors"]
+atlas = ExtResource("1_q135y")
+region = Rect2(14, 0, 14, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e8twt"]
+atlas = ExtResource("1_q135y")
+region = Rect2(14, 14, 14, 14)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8e0ny"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cghj8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ibcj0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_12ors")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e8twt")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4hras"]
+size = Vector2(14, 14)
+
+[node name="BulletCutman" type="Area2D" unique_id=84555313]
+
+[node name="bullet_cut" type="AnimatedSprite2D" parent="." unique_id=983793513]
+sprite_frames = SubResource("SpriteFrames_8e0ny")
+autoplay = "default"
+frame_progress = 0.99687916
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1341710480]
+shape = SubResource("RectangleShape2D_4hras")
