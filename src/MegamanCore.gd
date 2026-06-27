@@ -12,6 +12,9 @@ enum Direction { LEFT = -1, RIGHT = 1 }
 
 var is_facing_direction: Direction
 
+const shooting_window := 15
+var shooting_frame_counter := 0
+
 var respawn_position: Vector2
 var has_control: bool = true
 
@@ -51,6 +54,12 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	#print(Engine.get_physics_frames())
+	
+	if is_shooting:
+		shooting_frame_counter += 1
+		if shooting_frame_counter == shooting_window:
+			is_shooting = false
+	
 	if not has_control:
 		velocity = Vector2.ZERO 
 		move_and_slide()
@@ -120,6 +129,10 @@ func _shoot_bullet() -> void:
 			else:
 				bullet.position.x = self.global_position.x - 20
 				bullet.shoot(Direction.LEFT)
+				
+			shooting_frame_counter = 0
+			is_shooting = true
+				
 			return
 	pass
 

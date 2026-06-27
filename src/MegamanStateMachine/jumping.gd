@@ -20,11 +20,6 @@ func physics_update(_delta: float) -> void:
 	else:
 		megaman.velocity.x = 0
 	
-	#if megaman.velocity.x > 0:
-		#megaman.animation_player.flip_h = true
-	#else:
-		#megaman.animation_player.flip_h = false
-	
 	if megaman.is_on_floor():
 		if megaman.velocity.x != 0:
 			finished.emit(RUNNING)
@@ -32,6 +27,10 @@ func physics_update(_delta: float) -> void:
 			finished.emit(IDLE)
 	pass
 	
+	
+func handle_shoot() -> void:
+	megaman.animation_player.play("jump_shoot")
+
 func exit():
 	megaman.animation_player.position.y -= 7
 	#print("jump ended!")

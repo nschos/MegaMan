@@ -2,9 +2,10 @@
 
 [ext_resource type="Script" uid="uid://chnadb28tns6d" path="res://src/MegamanCore.gd" id="1_gt4lj"]
 [ext_resource type="Texture2D" uid="uid://bed2ktogim485" path="res://Megaman/SPR_MegaMan.png" id="3_ens4t"]
-[ext_resource type="Texture2D" uid="uid://3laav2je54rr" path="res://idle_shooting.png" id="3_thwjo"]
+[ext_resource type="Texture2D" uid="uid://3laav2je54rr" path="res://Megaman/idle_shooting.png" id="3_thwjo"]
 [ext_resource type="Script" uid="uid://cobfoclnydwek" path="res://src/StateMachine.gd" id="4_rfobd"]
 [ext_resource type="Script" uid="uid://duto1pwce8oks" path="res://src/MegamanStateMachine/idle.gd" id="5_0po8d"]
+[ext_resource type="Texture2D" uid="uid://blxdx2rg5cn3b" path="res://Megaman/jump_shoot.png" id="5_rqalg"]
 [ext_resource type="Script" uid="uid://dn1yvsufex57e" path="res://src/MegamanStateMachine/jumping.gd" id="6_0po8d"]
 [ext_resource type="Script" uid="uid://digqlqpd28l7q" path="res://src/MegamanStateMachine/climbing.gd" id="6_y4sv1"]
 [ext_resource type="Script" uid="uid://dh4amutkswq76" path="res://src/MegamanStateMachine/running.gd" id="7_y4sv1"]
@@ -191,6 +192,14 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("5_rqalg")
+}],
+"loop": 1,
+"name": &"jump_shoot",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_6dyes")
 }, {
 "duration": 1.0,
@@ -266,7 +275,7 @@ visible = false
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1312357347]
 unique_name_in_owner = true
 sprite_frames = SubResource("SpriteFrames_riu6h")
-animation = &"idle_blink"
+animation = &"jump_shoot"
 flip_h = true
 
 [node name="UpperLadderDetection" type="Area2D" parent="." unique_id=1305862378]
