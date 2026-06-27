@@ -8,13 +8,6 @@ func enter(_previous_state_path: String, _data := {}) -> void:
 const blink_frame := 162
 
 
-func handle_shoot() -> void:
-	print("idle shoot!")
-	#megaman.is_shooting = true
-	megaman.animation_player.play("idle_shooting")
-	
-	#megaman.animation_player.position += Vector2(2, 4)
-
 func physics_update(_delta: float) -> void:
 	
 	if not megaman.is_shooting:
@@ -22,6 +15,8 @@ func physics_update(_delta: float) -> void:
 			megaman.animation_player.play("idle_blink")
 		elif megaman.blink_timer >= 2:
 			megaman.animation_player.play("idle")
+	else:
+		megaman.animation_player.play("idle_shooting")
 		
 		
 	var direction := Input.get_axis("ui_left", "ui_right")

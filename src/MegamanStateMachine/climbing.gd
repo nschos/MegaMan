@@ -21,9 +21,6 @@ func exit() -> void:
 	#megaman.set_collision_mask_value(1, true)
 	megaman.animation_player.position.y -= 7
 	pass
-	
-func handle_shoot() -> void:
-	print("shooting while climbing!")
 
 func physics_update(_delta: float) -> void:
 	megaman.velocity.x = 0
@@ -36,6 +33,11 @@ func physics_update(_delta: float) -> void:
 		frame_counter = 0
 	#megaman.velocity.y += megaman.gravity * _delta
 	#megaman.move_and_slide()
+	
+	if megaman.is_shooting:
+		megaman.animation_player.play("climb_shoot")
+	else:
+		megaman.animation_player.play("climb_R")
 	
 	if megaman.is_on_floor() and Input.is_action_pressed("ui_down"):
 		finished.emit(IDLE)

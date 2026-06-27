@@ -33,6 +33,13 @@ func physics_update(_delta: float) -> void:
 	if Input.is_action_pressed("ui_left") or Input.is_action_pressed("ui_right"):
 		if direction != 0:
 			last_direction = direction
+			match direction:
+				-1:
+					megaman.last_direction = MegaMan.Direction.LEFT
+				1: 
+					megaman.last_direction = MegaMan.Direction.RIGHT
+				
+			#megaman.last_direction = MegaMan.Direction(direction)
 		
 		#print("direction: ",direction)
 

@@ -10,6 +10,8 @@ const GRAVITY = 15
 
 enum Direction { LEFT = -1, RIGHT = 1 }
 
+var last_direction := Direction.RIGHT
+
 var is_facing_direction: Direction = Direction.RIGHT
 
 const shooting_window := 15
@@ -104,10 +106,9 @@ func _physics_process(_delta: float) -> void:
 			
 		if !Input.is_action_pressed("jump"):
 			jump_flag = true
-			
+		
 	
 	if Input.is_action_just_pressed("NES_B_button"):
-		state_machine.state.shoot_pressed.emit()
 		_shoot_bullet()
 		
 		
@@ -123,12 +124,29 @@ func _shoot_bullet() -> void:
 		if not bullet.bullet_moving:
 			#bullet.position = self.global_position
 			bullet.position.y = self.global_position.y + 4
-			if animation_player.flip_h:
-				bullet.position.x = self.global_position.x + 20
-				bullet.shoot(Direction.RIGHT)
+			if state_machine.state is not MegaMan_State_Climbing:
+				if animation_player.flip_h:
+					bullet.position.x = self.global_position.x + 20
+					bullet.shoot(Direction.RIGHT)
+				else:
+					bullet.position.x = self.global_position.x - 20
+					bullet.shoot(Direction.LEFT)
 			else:
-				bullet.position.x = self.global_position.x - 20
-				bullet.shoot(Direction.LEFT)
+				if Input.is_action_pressed("ui_left"):
+					bullet.position.x = self.global_position.x - 20
+					bullet.shoot(Direction.LEFT)
+					animation_player.flip_h = false
+				elif Input.is_action_pressed("ui_right"):
+					bullet.position.x = self.global_position.x + 20
+					bullet.shoot(Direction.RIGHT)
+					animation_player.flip_h = true
+				else:
+					bullet.position.x = self.global_position.x + 20
+					bullet.shoot(Direction.RIGHT)
+					animation_player.flip_h = true
+					
+				
+				
 				
 			shooting_frame_counter = 0
 			is_shooting = true
