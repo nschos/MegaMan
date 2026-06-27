@@ -14,8 +14,14 @@ var has_control: bool = true
 var blink_timer := 0
 const blink_max_time := 168
 
+var bullets: Array[MegamanBullet] = []
+
+var is_shooting := false
+
 
 var is_jumping := false
+
+var jump_flag := true
 
 var is_touching_ladder := false
 var has_ladder_under := false
@@ -32,9 +38,15 @@ var has_grabbed_ladder = false
 func _ready() -> void:
 	respawn_position = global_position
 	add_to_group("player")
+	#get_tree().current_scene.add_child.call_deferred(bullet)
+	for child in get_children():
+		if child is MegamanBullet:
+			child.reparent.call_deferred(get_tree().current_scene)
+			bullets.append(child)
+	
 
 func _physics_process(delta: float) -> void:
-	
+	#print(Engine.get_physics_frames())
 	if not has_control:
 		velocity = Vector2.ZERO 
 		move_and_slide()
@@ -65,16 +77,40 @@ func _physics_process(delta: float) -> void:
 				state_machine.state.finished.emit(MegaManState.RUNNING)
 				pass
 		# Handle jump.
-		if Input.is_action_just_pressed("jump") and is_on_floor():
+		if Input.is_action_pressed("jump") and is_on_floor() and jump_flag:
 			state_machine.state.finished.emit(MegaManState.JUMPING)
 			is_jumping = true
+			jump_flag = false
 			
+		if !Input.is_action_pressed("jump"):
+			jump_flag = true
 			
+	
+	if Input.is_action_just_pressed("NES_B_button"):
+		state_machine.state.shoot_pressed.emit()
+		_shoot_bullet()
+		
+		
+	#if Input.is_action_just_pressed("NES_A_button"):
+		
 
 	move_and_slide()
 	
 	blink_timer += 1
 
+func _shoot_bullet() -> void:
+	for bullet in bullets:
+		if not bullet.bullet_moving:
+			#bullet.position = self.global_position
+			bullet.position.y = self.global_position.y + 4
+			if animation_player.flip_h:
+				bullet.position.x = self.global_position.x + 20
+				bullet.shoot(MegamanBullet.Direction.RIGHT)
+			else:
+				bullet.position.x = self.global_position.x - 20
+				bullet.shoot(MegamanBullet.Direction.LEFT)
+			return
+	pass
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	print("megaman touched ladder")
@@ -86,7 +122,8 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
-	if (state_machine.state is MegaMan_State_Climbing) and has_control:
+	if ((state_machine.state is MegaMan_State_Climbing) and has_control) or \
+		state_machine.state is not MegaMan_State_Climbing:
 		print("megaman untouched ladder")
 		is_touching_ladder = false
 		has_grabbed_ladder = false

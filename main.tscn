@@ -27,7 +27,7 @@
 [ext_resource type="PackedScene" uid="uid://bo4j5sdbdyafy" path="res://Stages/CutMan/scene_23.tscn" id="23_htxhm"]
 [ext_resource type="PackedScene" uid="uid://dwk3qdllbbw5" path="res://Stages/CutMan/scene_24.tscn" id="24_jq2sk"]
 
-[node name="Node2D" type="Node2D" unique_id=967458337]
+[node name="MainNode" type="Node2D" unique_id=967458337]
 texture_filter = 1
 
 [node name="Rooms" type="Node2D" parent="." unique_id=469433397 node_paths=PackedStringArray("player", "camera")]
@@ -107,7 +107,8 @@ position = Vector2(2816, -1280)
 position = Vector2(3072, -1280)
 
 [node name="CharacterBody2D2" parent="." unique_id=1964672799 instance=ExtResource("4_lquwl")]
-position = Vector2(128, 145)
+position = Vector2(128, 30)
+metadata/_edit_group_ = true
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D2" unique_id=1590895567]
 texture_filter = 1
@@ -117,15 +118,5 @@ drag_left_margin = 0.0
 drag_top_margin = 0.0
 drag_right_margin = 0.0
 drag_bottom_margin = 0.0
-
-[node name="Camera2D_old" type="Camera2D" parent="." unique_id=31807017]
-visible = false
-enabled = false
-limit_left = 0
-limit_top = 0
-limit_right = 1024
-limit_bottom = 240
-editor_draw_limits = true
-editor_draw_drag_margin = true
 
 [editable path="Rooms/Scene_1"]

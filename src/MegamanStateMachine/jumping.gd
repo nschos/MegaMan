@@ -1,7 +1,7 @@
 class_name MegaMan_State_Jumping extends MegaManState
 
 func enter(previous_state_path: String, data := {}) -> void:
-	print("jumping!")
+	#print("jumping!")
 	megaman.animation_player.play("jump")
 	megaman.animation_player.position.y += 7
 	megaman.velocity.y = megaman.JUMP_VELOCITY
@@ -34,4 +34,4 @@ func physics_update(_delta: float) -> void:
 	
 func exit():
 	megaman.animation_player.position.y -= 7
-	print("jump ended!")
+	#print("jump ended!")

@@ -4,11 +4,11 @@ var flip_sprite_window := 9
 var frame_counter := 0
 
 func enter(previous_state_path: String, data := {}) -> void:
-	print("climbing!!")
+	#print("climbing!!")
 	megaman.set_collision_mask_value(3, false)
 	#megaman.set_collision_mask_value(1, false)
-	if megaman.collision_shape.shape is RectangleShape2D:
-		print("teste!")
+	#if megaman.collision_shape.shape is RectangleShape2D:
+		#print("teste!")
 	megaman.velocity = Vector2(0,0)
 	megaman.animation_player.play("climb_R")
 	megaman.animation_player.position.y += 7
@@ -21,6 +21,9 @@ func exit() -> void:
 	#megaman.set_collision_mask_value(1, true)
 	megaman.animation_player.position.y -= 7
 	pass
+	
+func handle_shoot() -> void:
+	print("shooting while climbing!")
 
 func physics_update(_delta: float) -> void:
 	megaman.velocity.x = 0
