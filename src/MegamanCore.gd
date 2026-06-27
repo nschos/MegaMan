@@ -10,7 +10,7 @@ const GRAVITY = 15
 
 enum Direction { LEFT = -1, RIGHT = 1 }
 
-var is_facing_direction: Direction
+var is_facing_direction: Direction = Direction.RIGHT
 
 const shooting_window := 15
 var shooting_frame_counter := 0
@@ -52,7 +52,7 @@ func _ready() -> void:
 			bullets.append(child)
 	
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	#print(Engine.get_physics_frames())
 	
 	if is_shooting:
@@ -145,7 +145,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	pass # Replace with function body.
 
 
-func _on_area_2d_body_exited(body: Node2D) -> void:
+func _on_area_2d_body_exited(_body: Node2D) -> void:
 	if ((state_machine.state is MegaMan_State_Climbing) and has_control) or \
 		state_machine.state is not MegaMan_State_Climbing:
 		print("megaman untouched ladder")
@@ -165,7 +165,7 @@ func _on_lower_ladder_detection_body_entered(body: Node2D) -> void:
 	pass # Replace with function body.
 
 
-func _on_lower_ladder_detection_body_exited(body: Node2D) -> void:
+func _on_lower_ladder_detection_body_exited(_body: Node2D) -> void:
 	if has_control:
 		print("no ladder under!")
 		has_ladder_under = false
@@ -176,7 +176,7 @@ func _calculate_ladder_x(body: Node2D) -> void:
 	var tile_grid_coords: Vector2i = body.local_to_map(local_pos)
 	var tile_local_center: Vector2 = body.map_to_local(tile_grid_coords)
 	var tile_global_pos: Vector2 = body.to_global(tile_local_center)
-	ladder_x = tile_global_pos.x
+	ladder_x = int(tile_global_pos.x)
 	pass
 	
 func death() -> void:

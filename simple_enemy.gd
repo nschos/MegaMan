@@ -6,7 +6,7 @@ func _ready() -> void:
 	print("sub class ready!")
 	pass # Replace with function body.
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	$Label.text = str(self.current_HP)
 
 func _on_timer_timeout() -> void:

@@ -1,6 +1,6 @@
 class_name MegaMan_State_Idle extends MegaManState
 
-func enter(previous_state_path: String, data := {}) -> void:
+func enter(_previous_state_path: String, _data := {}) -> void:
 	#print("idle!")
 	megaman.animation_player.play("idle")
 	pass

@@ -6,7 +6,7 @@ extends Node2D
 const ROOM_WIDTH = 256
 const ROOM_HEIGHT = 256
 const VIEWPORT_HEIGHT = 224
-const VERTICAL_MARGIN = (ROOM_HEIGHT - VIEWPORT_HEIGHT) / 2 
+const VERTICAL_MARGIN: int = int((ROOM_HEIGHT - VIEWPORT_HEIGHT) / 2.0)
 
 var rooms_data = []
 var current_room = null
@@ -87,8 +87,8 @@ func _apply_corridor_limits(target_room):
 	camera.limit_right = int(c_right)
 
 	var room_center_y = target_room.rect.get_center().y
-	camera.limit_top = int(room_center_y - (VIEWPORT_HEIGHT / 2))
-	camera.limit_bottom = int(room_center_y + (VIEWPORT_HEIGHT / 2))
+	camera.limit_top = int(room_center_y - (VIEWPORT_HEIGHT / 2.0))
+	camera.limit_bottom = int(room_center_y + (VIEWPORT_HEIGHT / 2.0))
 	
 	total_corridor_width = c_right - c_left
 

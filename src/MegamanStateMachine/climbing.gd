@@ -3,7 +3,7 @@ class_name MegaMan_State_Climbing extends MegaManState
 var flip_sprite_window := 9
 var frame_counter := 0
 
-func enter(previous_state_path: String, data := {}) -> void:
+func enter(_previous_state_path: String, _data := {}) -> void:
 	#print("climbing!!")
 	megaman.set_collision_mask_value(3, false)
 	#megaman.set_collision_mask_value(1, false)

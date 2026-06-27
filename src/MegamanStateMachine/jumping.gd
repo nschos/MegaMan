@@ -1,6 +1,6 @@
 class_name MegaMan_State_Jumping extends MegaManState
 
-func enter(previous_state_path: String, data := {}) -> void:
+func enter(_previous_state_path: String, _data := {}) -> void:
 	#print("jumping!")
 	megaman.animation_player.play("jump")
 	megaman.animation_player.position.y += 7

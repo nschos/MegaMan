@@ -1,6 +1,6 @@
 class_name MegamanBullet extends Area2D
 
-var current_direction: MegaMan.Direction
+var current_direction: MegaMan.Direction = MegaMan.Direction.RIGHT
 var bullet_moving := false
 
 const bullet_velocity := 240
@@ -33,7 +33,7 @@ func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 
 
 
-func _on_body_entered(body: Node2D) -> void:
+func _on_body_entered(_body: Node2D) -> void:
 	print("shoot!")
 	pass # Replace with function body.
 

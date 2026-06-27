@@ -13,7 +13,7 @@ enum Velocity { ACCELERATE, DECELERATE, FULLSPEED, DECELERATE_FROM_FULLSPEED, FU
 var current_velocity: Velocity = Velocity.FULLHALT
 
 
-func enter(previous_state_path: String, data := {}) -> void:
+func enter(_previous_state_path: String, _data := {}) -> void:
 	#print("running!")
 	
 	#megaman.animation_player.play("walk")
