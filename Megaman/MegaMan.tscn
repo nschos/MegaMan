@@ -104,7 +104,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_oehvy")
 }],
-"loop": false,
+"loop": 0,
 "name": &"climb_L",
 "speed": 6.0
 }, {
@@ -112,7 +112,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_j74xd")
 }],
-"loop": false,
+"loop": 0,
 "name": &"climb_R",
 "speed": 6.0
 }, {
@@ -120,7 +120,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ng6ce")
 }],
-"loop": false,
+"loop": 0,
 "name": &"climb_top",
 "speed": 5.0
 }, {
@@ -137,7 +137,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_shp44")
 }],
-"loop": true,
+"loop": 1,
 "name": &"death",
 "speed": 10.0
 }, {
@@ -145,7 +145,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_272x0")
 }],
-"loop": true,
+"loop": 1,
 "name": &"hurt",
 "speed": 5.0
 }, {
@@ -153,7 +153,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_5c5su")
 }],
-"loop": false,
+"loop": 0,
 "name": &"idle",
 "speed": 1.0
 }, {
@@ -161,7 +161,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_8isr6")
 }],
-"loop": false,
+"loop": 0,
 "name": &"idle_blink",
 "speed": 5.0
 }, {
@@ -169,7 +169,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("3_thwjo")
 }],
-"loop": false,
+"loop": 0,
 "name": &"idle_shooting",
 "speed": 5.0
 }, {
@@ -177,7 +177,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("CompressedTexture2D_thwjo")
 }],
-"loop": true,
+"loop": 1,
 "name": &"inch",
 "speed": 5.0
 }, {
@@ -185,7 +185,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_cu0v6")
 }],
-"loop": true,
+"loop": 1,
 "name": &"jump",
 "speed": 5.0
 }, {
@@ -199,7 +199,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_w1ucb")
 }],
-"loop": true,
+"loop": 1,
 "name": &"shooting_walk",
 "speed": 10.0
 }, {
@@ -207,7 +207,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_fyho2")
 }],
-"loop": true,
+"loop": 1,
 "name": &"stun",
 "speed": 5.0
 }, {
@@ -221,7 +221,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_kl221")
 }],
-"loop": true,
+"loop": 1,
 "name": &"teleport",
 "speed": 10.0
 }, {
@@ -235,7 +235,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_pvja8")
 }],
-"loop": true,
+"loop": 1,
 "name": &"walk",
 "speed": 8.57
 }]

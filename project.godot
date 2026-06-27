@@ -16,6 +16,10 @@ config/features=PackedStringArray("4.6", "Forward Plus")
 boot_splash/image="uid://rqgccugx1n6q"
 config/icon="res://icon.svg"
 
+[autoload]
+
+FrameAdvanceDebugTool="*uid://ime4cv5cf4eq"
+
 [display]
 
 window/size/viewport_width=256

@@ -20,10 +20,10 @@ func physics_update(_delta: float) -> void:
 	else:
 		megaman.velocity.x = 0
 	
-	if megaman.velocity.x > 0:
-		megaman.animation_player.flip_h = true
-	else:
-		megaman.animation_player.flip_h = false
+	#if megaman.velocity.x > 0:
+		#megaman.animation_player.flip_h = true
+	#else:
+		#megaman.animation_player.flip_h = false
 	
 	if megaman.is_on_floor():
 		if megaman.velocity.x != 0:

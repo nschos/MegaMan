@@ -8,6 +8,10 @@ const JUMP_VELOCITY = -292.265625
 const CLIMB_SPEED = 45
 const GRAVITY = 15
 
+enum Direction { LEFT = -1, RIGHT = 1 }
+
+var is_facing_direction: Direction
+
 var respawn_position: Vector2
 var has_control: bool = true
 
@@ -60,6 +64,13 @@ func _physics_process(delta: float) -> void:
 	#print(position)
 	#print(get_slide_collision_count())
 	
+	if velocity.x > 0:
+		is_facing_direction = Direction.RIGHT
+		animation_player.flip_h = true
+	elif velocity.x < 0:
+		is_facing_direction = Direction.LEFT
+		animation_player.flip_h = false
+	
 	if not is_on_floor() and state_machine.state is not MegaMan_State_Climbing:
 		velocity.y += GRAVITY
 	
@@ -105,10 +116,10 @@ func _shoot_bullet() -> void:
 			bullet.position.y = self.global_position.y + 4
 			if animation_player.flip_h:
 				bullet.position.x = self.global_position.x + 20
-				bullet.shoot(MegamanBullet.Direction.RIGHT)
+				bullet.shoot(Direction.RIGHT)
 			else:
 				bullet.position.x = self.global_position.x - 20
-				bullet.shoot(MegamanBullet.Direction.LEFT)
+				bullet.shoot(Direction.LEFT)
 			return
 	pass
 
