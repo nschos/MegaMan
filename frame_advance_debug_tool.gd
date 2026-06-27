@@ -8,8 +8,6 @@ const hold_window := 0.4
 var hold_timer := 0.0
 
 func _ready() -> void:
-	# CRITICAL: This allows this specific debug node to keep listening to keys
-	# even when the entire SceneTree is completely frozen/paused.
 	process_mode = Node.PROCESS_MODE_ALWAYS
 
 var frame_advance := true
