@@ -28,6 +28,14 @@ window/stretch/mode="viewport"
 window/stretch/aspect="expand"
 window/stretch/scale_mode="integer"
 
+[file_customization]
+
+folder_colors={
+"res://Enemies/Beak/": "red",
+"res://Megaman/": "blue",
+"res://src/": "yellow"
+}
+
 [global_group]
 
 player="Megaman"

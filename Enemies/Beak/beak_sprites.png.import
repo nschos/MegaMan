@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://brtyjqya16fq1"
-path="res://.godot/imported/bullet_inimigo2.png-2faec5ec2d0083744bba271ef5994352.ctex"
+uid="uid://cykdxcgytwp6g"
+path="res://.godot/imported/beak_sprites.png-e062cbe0a990f5925b7bca69daebe21c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Bullets/bullet_inimigo2.png"
-dest_files=["res://.godot/imported/bullet_inimigo2.png-2faec5ec2d0083744bba271ef5994352.ctex"]
+source_file="res://Enemies/Beak/beak_sprites.png"
+dest_files=["res://.godot/imported/beak_sprites.png-e062cbe0a990f5925b7bca69daebe21c.ctex"]
 
 [params]
 

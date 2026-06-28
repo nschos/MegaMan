@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://buxgb3lb0anxw"
-path="res://.godot/imported/inimigo_2.png-4421255ae63400fdf0dc4e1fba33ca32.ctex"
+path="res://.godot/imported/inimigo_2.png-5a2113dbcafb5b3e3977c6426e1fc767.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Enemies/inimigo_2.png"
-dest_files=["res://.godot/imported/inimigo_2.png-4421255ae63400fdf0dc4e1fba33ca32.ctex"]
+source_file="res://Enemies/Beak/inimigo_2.png"
+dest_files=["res://.godot/imported/inimigo_2.png-5a2113dbcafb5b3e3977c6426e1fc767.ctex"]
 
 [params]
 

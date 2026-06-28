@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://d07dt6dy416jv"]
 
-[ext_resource type="Texture2D" uid="uid://brtyjqya16fq1" path="res://Bullets/bullet_inimigo2.png" id="1_adlfy"]
+[ext_resource type="Texture2D" uid="uid://brtyjqya16fq1" path="res://Enemies/Beak/beak_bullet.png" id="1_adlfy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_adlfy"]
 size = Vector2(6, 6)

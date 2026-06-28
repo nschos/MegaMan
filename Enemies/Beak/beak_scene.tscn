@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://ryjojjw78lhj"]
+
+[ext_resource type="Script" uid="uid://bv0eqclemveuu" path="res://Enemies/Beak/beak_acript.gd" id="1_rxwto"]
+[ext_resource type="Texture2D" uid="uid://cykdxcgytwp6g" path="res://Enemies/Beak/beak_sprites.png" id="2_cukvm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u0us0"]
+atlas = ExtResource("2_cukvm")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3oles"]
+atlas = ExtResource("2_cukvm")
+region = Rect2(17, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h4ik0"]
+atlas = ExtResource("2_cukvm")
+region = Rect2(34, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_neox6"]
+atlas = ExtResource("2_cukvm")
+region = Rect2(51, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ir1ur"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u0us0")
+}],
+"loop": 0,
+"name": &"close",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3oles")
+}],
+"loop": 0,
+"name": &"open_1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h4ik0")
+}],
+"loop": 0,
+"name": &"open_2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_neox6")
+}],
+"loop": 0,
+"name": &"open_3",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ihqit"]
+size = Vector2(8, 16)
+
+[node name="beak" type="Area2D" unique_id=401106870]
+script = ExtResource("1_rxwto")
+
+[node name="beak_sprites" type="AnimatedSprite2D" parent="." unique_id=616641770]
+sprite_frames = SubResource("SpriteFrames_ir1ur")
+animation = &"close"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=540963719]
+position = Vector2(4, 0)
+shape = SubResource("RectangleShape2D_ihqit")
