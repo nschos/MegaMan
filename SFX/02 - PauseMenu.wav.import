@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cgo0s6jeu64n"
+path="res://.godot/imported/02 - PauseMenu.wav-e0f38027595dbadf51b199a18d263dff.sample"
+
+[deps]
+
+source_file="res://SFX/02 - PauseMenu.wav"
+dest_files=["res://.godot/imported/02 - PauseMenu.wav-e0f38027595dbadf51b199a18d263dff.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

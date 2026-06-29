@@ -181,7 +181,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_e8puy")
 }],
-"loop": false,
+"loop": 0,
 "name": &"Appear",
 "speed": 20.0
 }, {
@@ -231,7 +231,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_jhyg5")
 }],
-"loop": false,
+"loop": 0,
 "name": &"Disappear",
 "speed": 20.0
 }, {
@@ -239,7 +239,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_000ms")
 }],
-"loop": false,
+"loop": 0,
 "name": &"Idle",
 "speed": 5.0
 }]
@@ -262,7 +262,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_fjepk")
 }],
-"loop": true,
+"loop": 1,
 "name": &"no_select",
 "speed": 5.0
 }, {
@@ -273,7 +273,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_fw88a")
 }],
-"loop": true,
+"loop": 1,
 "name": &"select",
 "speed": 5.0
 }]
@@ -296,7 +296,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_j7b58")
 }],
-"loop": true,
+"loop": 1,
 "name": &"no_select",
 "speed": 5.0
 }, {
@@ -307,7 +307,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_sr7cp")
 }],
-"loop": true,
+"loop": 1,
 "name": &"select",
 "speed": 5.0
 }]
@@ -320,7 +320,7 @@ texture = ExtResource("1_n3jpt")
 
 [node name="PauseMenu" type="AnimatedSprite2D" parent="." unique_id=1978445778]
 sprite_frames = SubResource("SpriteFrames_fjepk")
-animation = &"Idle"
+animation = &"Appear"
 
 [node name="C" type="AnimatedSprite2D" parent="." unique_id=685242199]
 visible = false
@@ -330,6 +330,7 @@ animation = &"no_select"
 autoplay = "no_select"
 
 [node name="P" type="AnimatedSprite2D" parent="." unique_id=132096210]
+visible = false
 position = Vector2(-30, 56)
 sprite_frames = SubResource("SpriteFrames_wcx6n")
 animation = &"select"
