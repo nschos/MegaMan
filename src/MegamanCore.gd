@@ -12,6 +12,10 @@ enum Direction { LEFT = -1, RIGHT = 1 }
 
 var last_direction := Direction.RIGHT
 
+var god_mode := false
+const god_mode_window := 120
+var god_mode_frame_counter := 0
+
 var is_facing_direction: Direction = Direction.RIGHT
 
 const shooting_window := 15
@@ -34,7 +38,10 @@ var jump_flag := true
 
 var is_touching_ladder := false
 var has_ladder_under := false
+var has_ladder_above := false
 var ladder_x := 0
+
+var HP := 28
 	
 var has_grabbed_ladder = false
 
@@ -56,6 +63,12 @@ func _ready() -> void:
 
 func _physics_process(_delta: float) -> void:
 	#print(Engine.get_physics_frames())
+	
+	if god_mode:
+		god_mode_frame_counter += 1
+		if god_mode_frame_counter == god_mode_window:
+			god_mode = false
+			god_mode_frame_counter = 0
 	
 	if is_shooting:
 		shooting_frame_counter += 1
@@ -88,7 +101,8 @@ func _physics_process(_delta: float) -> void:
 	if state_machine.state is not MegaMan_State_Climbing:
 		
 		if ((Input.is_action_pressed("ui_up") and is_touching_ladder) or
-			(Input.is_action_pressed("ui_down") and has_ladder_under)):
+			(Input.is_action_pressed("ui_down") and has_ladder_under) or 
+			(Input.is_action_pressed("ui_up")  and has_ladder_above)):
 			#has_grabbed_ladder = true
 			#print(collision_mask)
 			state_machine.state.finished.emit(MegaManState.CLIMBING)
@@ -221,3 +235,27 @@ func respawn() -> void:
 	
 	if animation_player.sprite_frames.has_animation("idle"):
 		animation_player.play("idle")
+
+
+func _on_higher_ladder_detection_body_entered(body: Node2D) -> void:
+	has_ladder_above = true
+	_calculate_ladder_x(body)
+	pass # Replace with function body.
+
+
+func _on_higher_ladder_detection_body_exited(body: Node2D) -> void:
+	has_ladder_above = false
+	pass # Replace with function body.
+
+
+func take_damage(damage: int) -> void:
+	
+	if not god_mode:
+		self.HP -= damage
+		
+		god_mode = true
+		
+		if self.HP <= 0:
+			# TODO: death
+			pass
+	pass
