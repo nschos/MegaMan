@@ -61,17 +61,17 @@ load_path = "res://.godot/imported/Mega-Man-Inch.png-507a4409b65f04b6c7f8ef524f9
 atlas = ExtResource("3_ens4t")
 region = Rect2(0, 64, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_6dyes"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_wix26"]
 atlas = ExtResource("3_ens4t")
-region = Rect2(32, 192, 32, 32)
+region = Rect2(0, 192, 31, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_tpj2l"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_585kb"]
 atlas = ExtResource("3_ens4t")
-region = Rect2(0, 192, 32, 32)
+region = Rect2(31, 192, 31, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_w1ucb"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_301uh"]
 atlas = ExtResource("3_ens4t")
-region = Rect2(64, 192, 32, 32)
+region = Rect2(62, 192, 31, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fyho2"]
 atlas = ExtResource("3_ens4t")
@@ -210,17 +210,20 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_6dyes")
+"texture": SubResource("AtlasTexture_wix26")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_tpj2l")
+"texture": SubResource("AtlasTexture_585kb")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_w1ucb")
+"texture": SubResource("AtlasTexture_301uh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_585kb")
 }],
 "loop": 1,
 "name": &"shooting_walk",
-"speed": 10.0
+"speed": 8.57
 }, {
 "frames": [{
 "duration": 1.0,
@@ -253,6 +256,9 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_pvja8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bbxfj")
 }],
 "loop": 1,
 "name": &"walk",
@@ -289,7 +295,9 @@ visible = false
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1312357347]
 unique_name_in_owner = true
 sprite_frames = SubResource("SpriteFrames_riu6h")
-animation = &"hurt"
+animation = &"shooting_walk"
+frame = 2
+frame_progress = 0.09569439
 flip_h = true
 
 [node name="HigherLadderDetection" type="Area2D" parent="." unique_id=2070738451]
