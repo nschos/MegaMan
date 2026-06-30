@@ -5,6 +5,7 @@ const RUNNING = "Running"
 const JUMPING = "Jumping"
 const CLIMBING = "Climbing"
 const FALLING = "Falling"
+const HURT = "Hurt"
 
 var megaman: MegaMan
 

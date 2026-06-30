@@ -65,6 +65,8 @@ func _physics_process(_delta: float) -> void:
 	#print(Engine.get_physics_frames())
 	
 	if god_mode:
+		if god_mode_frame_counter % 2 == 0:
+			animation_player.visible = not animation_player.visible
 		god_mode_frame_counter += 1
 		if god_mode_frame_counter == god_mode_window:
 			god_mode = false
@@ -82,11 +84,7 @@ func _physics_process(_delta: float) -> void:
 	
 	if blink_timer > blink_max_time:
 		blink_timer = 0
-		
-	#print("char:",Engine.get_frames_drawn())
-	
-	#print(position)
-	#print(get_slide_collision_count())
+
 	
 	if velocity.x > 0:
 		is_facing_direction = Direction.RIGHT
@@ -122,7 +120,7 @@ func _physics_process(_delta: float) -> void:
 			jump_flag = true
 		
 	
-	if Input.is_action_just_pressed("NES_B_button"):
+	if Input.is_action_just_pressed("NES_B"):
 		_shoot_bullet()
 		
 		
@@ -252,10 +250,15 @@ func take_damage(damage: int) -> void:
 	
 	if not god_mode:
 		self.HP -= damage
-		
+		god_mode_frame_counter = 0
 		god_mode = true
+		self.state_machine.state.finished.emit(MegaManState.HURT)
 		
 		if self.HP <= 0:
 			# TODO: death
 			pass
+	pass
+
+
+func get_controller_input() -> void:
 	pass

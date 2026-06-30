@@ -6,6 +6,7 @@ const closed_window    := 120
 const open_1_window    := closed_window + 7
 const open_2_window    := open_1_window + 7
 const open_3_window    := open_2_window + 50
+const shoot_1          := open_3_window
 const closing_1_window := open_3_window + 7
 const closing_2_window := closing_1_window + 7
 
@@ -31,6 +32,8 @@ func _physics_process(_delta: float) -> void:
 	elif frame_counter <= open_3_window:
 		#current_sprite = Sprite.OPEN_3
 		animated_sprites.play("open_3")
+		if frame_counter == shoot_1:
+			shoot($Bullet1)
 	elif frame_counter <= closing_1_window:
 		#current_sprite = Sprite.OPEN_3
 		animated_sprites.play("open_2")
@@ -44,6 +47,16 @@ func _physics_process(_delta: float) -> void:
 	
 	frame_counter += 1
 	
-	
-	
 	pass
+	
+func shoot(bullet: Area2D) -> void:
+	var tween = get_tree().create_tween()
+	tween.tween_property(bullet, "position", self.position + Vector2(-500, 0), 1)
+	pass
+
+
+func _on_body_entered(body: Node2D) -> void:
+	if body is MegaMan:
+		#print("megaman direct impact!")
+		body.take_damage(1)
+	pass # Replace with function body.
