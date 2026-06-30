@@ -26,6 +26,9 @@
 [ext_resource type="PackedScene" uid="uid://rwrtv1co1amy" path="res://Stages/CutMan/scene_22.tscn" id="22_seu75"]
 [ext_resource type="PackedScene" uid="uid://bo4j5sdbdyafy" path="res://Stages/CutMan/scene_23.tscn" id="23_htxhm"]
 [ext_resource type="PackedScene" uid="uid://dwk3qdllbbw5" path="res://Stages/CutMan/scene_24.tscn" id="24_jq2sk"]
+[ext_resource type="Script" uid="uid://hcgrvrjex4wq" path="res://pause.gd" id="27_qsp4k"]
+[ext_resource type="PackedScene" uid="uid://cu0xt2xfiqnsy" path="res://WeaponsMenu/WeaponsMenu.tscn" id="28_kq58d"]
+[ext_resource type="Script" uid="uid://boie2ojqsb4pm" path="res://WeaponsMenu/weapons_menu.gd" id="29_seu75"]
 
 [node name="MainNode" type="Node2D" unique_id=967458337]
 texture_filter = 1
@@ -118,5 +121,13 @@ drag_left_margin = 0.0
 drag_top_margin = 0.0
 drag_right_margin = 0.0
 drag_bottom_margin = 0.0
+
+[node name="Pause" type="CanvasLayer" parent="." unique_id=1017261017]
+process_mode = 3
+script = ExtResource("27_qsp4k")
+
+[node name="WeaponsMenu" parent="Pause" unique_id=520652668 instance=ExtResource("28_kq58d")]
+position = Vector2(128, 112)
+script = ExtResource("29_seu75")
 
 [editable path="Rooms/Scene_1"]
