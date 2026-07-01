@@ -4,6 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://cykdxcgytwp6g" path="res://Enemies/Beak/beak_sprites.png" id="2_cukvm"]
 [ext_resource type="PackedScene" uid="uid://d07dt6dy416jv" path="res://Enemies/Beak/Bullet_inimigo2.tscn" id="3_u0us0"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ihqit"]
+size = Vector2(3, 18)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_u0us0"]
 atlas = ExtResource("2_cukvm")
 region = Rect2(0, 0, 16, 16)
@@ -55,31 +58,32 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ihqit"]
-size = Vector2(3, 18)
-
 [node name="beak" type="Area2D" unique_id=401106870]
 collision_layer = 32
 collision_mask = 8
 script = ExtResource("1_rxwto")
-
-[node name="beak_sprites" type="AnimatedSprite2D" parent="." unique_id=616641770]
-sprite_frames = SubResource("SpriteFrames_ir1ur")
-animation = &"close"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=540963719]
 position = Vector2(4, 0)
 shape = SubResource("RectangleShape2D_ihqit")
 
 [node name="Bullet1" parent="." unique_id=910349642 instance=ExtResource("3_u0us0")]
+visible = false
 
 [node name="Bullet2" parent="." unique_id=541299402 instance=ExtResource("3_u0us0")]
 visible = false
+angle_degrees = 188
 
 [node name="Bullet3" parent="." unique_id=697025883 instance=ExtResource("3_u0us0")]
 visible = false
+angle_degrees = 172
 
 [node name="Bullet4" parent="." unique_id=55743781 instance=ExtResource("3_u0us0")]
 visible = false
+angle_degrees = 135
+
+[node name="beak_sprites" type="AnimatedSprite2D" parent="." unique_id=616641770]
+sprite_frames = SubResource("SpriteFrames_ir1ur")
+animation = &"open_3"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

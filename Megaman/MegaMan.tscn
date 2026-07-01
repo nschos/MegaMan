@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://cobfoclnydwek" path="res://src/StateMachine.gd" id="4_rfobd"]
 [ext_resource type="Texture2D" uid="uid://b2yl40txffqul" path="res://Megaman/climb_shoot.png" id="4_v6i11"]
 [ext_resource type="Script" uid="uid://duto1pwce8oks" path="res://src/MegamanStateMachine/idle.gd" id="5_0po8d"]
+[ext_resource type="Texture2D" uid="uid://c7m025868j0y0" path="res://addons/Dmg_Blast.png" id="5_585kb"]
 [ext_resource type="Texture2D" uid="uid://blxdx2rg5cn3b" path="res://Megaman/jump_shoot.png" id="5_rqalg"]
 [ext_resource type="Script" uid="uid://dn1yvsufex57e" path="res://src/MegamanStateMachine/jumping.gd" id="6_0po8d"]
 [ext_resource type="Script" uid="uid://digqlqpd28l7q" path="res://src/MegamanStateMachine/climbing.gd" id="6_y4sv1"]
@@ -155,10 +156,13 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_272x0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_585kb")
 }],
-"loop": 0,
+"loop": 1,
 "name": &"hurt",
-"speed": 5.0
+"speed": 15.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -295,9 +299,8 @@ visible = false
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1312357347]
 unique_name_in_owner = true
 sprite_frames = SubResource("SpriteFrames_riu6h")
-animation = &"shooting_walk"
-frame = 2
-frame_progress = 0.09569439
+animation = &"hurt"
+frame_progress = 0.98463404
 flip_h = true
 
 [node name="HigherLadderDetection" type="Area2D" parent="." unique_id=2070738451]
