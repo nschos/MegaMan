@@ -3,13 +3,16 @@
 [ext_resource type="Texture2D" uid="uid://c0oldmbqntdb4" path="res://Stages/UI/UI Assets/SPRS_Select.png" id="1_qln63"]
 [ext_resource type="Script" uid="uid://bj0sbpfay0xsy" path="res://Stages/UI/stage_select.gd" id="1_yo44i"]
 [ext_resource type="PackedScene" uid="uid://b7vmoy454vfd" path="res://Stages/UI/stage_button.tscn" id="2_8ec8j"]
+[ext_resource type="FontFile" uid="uid://cnd4mbriefpra" path="res://Fonts/mega-man-1-2.otf" id="2_bug2t"]
 [ext_resource type="SpriteFrames" uid="uid://yoejs0d73cv7" path="res://Stages/UI/UI Assets/Sprites/Gutsman_Button.tres" id="3_8ec8j"]
 [ext_resource type="Texture2D" uid="uid://cui8u5rtavxyn" path="res://Stages/UI/UI Assets/placeholder.png" id="3_owd2e"]
 [ext_resource type="SpriteFrames" uid="uid://nydl2a6hcdtb" path="res://Stages/UI/UI Assets/Sprites/Cutman_Button.tres" id="3_yo44i"]
+[ext_resource type="SpriteFrames" uid="uid://d2ebg1d3c5ej" path="res://Enemies/Cutman/Cutman_Animations.tres" id="5_ky6rn"]
 [ext_resource type="SpriteFrames" uid="uid://bk5ixvkfhgij7" path="res://Stages/UI/UI Assets/Sprites/Iceman_Button.tres" id="6_84nb6"]
 [ext_resource type="SpriteFrames" uid="uid://d063j5r3mdut4" path="res://Stages/UI/UI Assets/Sprites/Elecman_Button.tres" id="6_f6gxm"]
 [ext_resource type="SpriteFrames" uid="uid://b5yulhphwman0" path="res://Stages/UI/UI Assets/Sprites/Fireman_Button.tres" id="7_3xu2o"]
 [ext_resource type="SpriteFrames" uid="uid://ncd0q1kdcru" path="res://Stages/UI/UI Assets/Sprites/Bombman_Button.tres" id="8_f6gxm"]
+[ext_resource type="Texture2D" uid="uid://5ljs8jqyg0ol" path="res://Stages/UI/UI Assets/placeholderstage.png" id="12_bug2t"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yo44i"]
 atlas = ExtResource("1_qln63")
@@ -33,6 +36,308 @@ animations = [{
 "speed": 4.0
 }]
 
+[sub_resource type="Animation" id="Animation_ngahr"]
+resource_name = "Cutman Stage"
+length = 8.0
+step = 0.016666668
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Cutman:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Cutman:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.40000004, 0.45000002, 1.0000001),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(96, 40), Vector2(96, 10.415), Vector2(96, 10.415), Vector2(96, 108)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Cutman:animation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(0, 0, 0),
+"update": 1,
+"values": [&"jump", &"idle_punch", &"default"]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("ColorRect/ColorRect:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("ColorRect/WhiteColorRect:color")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.16666667, 0.33333334, 0.5, 0.6666667, 0.8333334, 1, 1.1666666),
+"transitions": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("ColorRect/WhiteColorRect:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("ColorRect/ColorRect/RichTextLabel:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(2),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("ColorRect/ColorRect/RichTextLabel:visible_characters")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(2, 3.5000002),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0, 20]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("ColorRect/ColorRect/ScoreValue:visible")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0.0333333, 3.5166667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Cutman:frame")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(1, 1.9833333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 0]
+}
+
+[sub_resource type="Animation" id="Animation_vav1g"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Cutman:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Cutman:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(96, 40)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Cutman:animation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"jump"]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("ColorRect/ColorRect:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = false
+tracks/6/path = NodePath("ColorRect/WhiteColorRect:color")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = false
+tracks/7/path = NodePath("ColorRect/WhiteColorRect:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("ColorRect/ColorRect/RichTextLabel:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("ColorRect/ColorRect/RichTextLabel:visible_characters")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [-1]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("ColorRect/ColorRect/ScoreValue:visible")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Cutman:frame")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_s3c4o"]
+_data = {
+&"Cutman Stage": SubResource("Animation_ngahr"),
+&"RESET": SubResource("Animation_vav1g")
+}
+
 [node name="StageSelect" type="Control" unique_id=761284788]
 layout_mode = 3
 anchors_preset = 15
@@ -51,13 +356,76 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0.44313726, 0.9411765, 1)
 
+[node name="ColorRect" type="ColorRect" parent="ColorRect" unique_id=1738787960]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 72.0
+offset_bottom = -88.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0.22352941, 0.3647059, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ColorRect/ColorRect" unique_id=1687174273]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 136.0
+offset_top = 17.0
+offset_bottom = -23.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("2_bug2t")
+theme_override_font_sizes/normal_font_size = 8
+text = "CUTMAN
+
+CLEAR POINTS"
+fit_content = true
+
+[node name="ScoreValue" type="RichTextLabel" parent="ColorRect/ColorRect" unique_id=516021990]
+visible = false
+layout_mode = 0
+offset_left = 144.0
+offset_top = 49.0
+offset_right = 184.0
+offset_bottom = 64.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 0
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_fonts/normal_font = ExtResource("2_bug2t")
+theme_override_font_sizes/normal_font_size = 8
+text = "90000"
+scroll_active = false
+
+[node name="WhiteColorRect" type="ColorRect" parent="ColorRect" unique_id=643348681]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=399659128]
 position = Vector2(128, 108)
 sprite_frames = SubResource("SpriteFrames_ybl76")
 autoplay = "default"
 frame_progress = 0.6541228
 
-[node name="Cutman_Button" parent="." unique_id=55780788 instance=ExtResource("2_8ec8j")]
+[node name="Control" type="Control" parent="." unique_id=1575452813]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Cutman_Button" parent="Control" unique_id=55780788 instance=ExtResource("2_8ec8j")]
 layout_mode = 0
 offset_left = 72.0
 offset_top = 16.0
@@ -66,8 +434,9 @@ offset_bottom = 16.0
 focus_neighbor_left = NodePath("../Elecman_Button")
 focus_neighbor_right = NodePath("../Gutsman_Button")
 animation_frames = ExtResource("3_yo44i")
+character_boss = ExtResource("5_ky6rn")
 
-[node name="Gutsman_Button" parent="." unique_id=356963817 instance=ExtResource("2_8ec8j")]
+[node name="Gutsman_Button" parent="Control" unique_id=356963817 instance=ExtResource("2_8ec8j")]
 layout_mode = 0
 offset_left = 136.0
 offset_top = 16.0
@@ -75,7 +444,7 @@ offset_right = 136.0
 offset_bottom = 16.0
 animation_frames = ExtResource("3_8ec8j")
 
-[node name="Elecman_Button" parent="." unique_id=2121913715 instance=ExtResource("2_8ec8j")]
+[node name="Elecman_Button" parent="Control" unique_id=2121913715 instance=ExtResource("2_8ec8j")]
 layout_mode = 0
 offset_left = 40.0
 offset_top = 80.0
@@ -85,7 +454,7 @@ focus_neighbor_left = NodePath("../Fireman_Button")
 focus_neighbor_right = NodePath("../Cutman_Button")
 animation_frames = ExtResource("6_f6gxm")
 
-[node name="Iceman_Button" parent="." unique_id=1908216493 instance=ExtResource("2_8ec8j")]
+[node name="Iceman_Button" parent="Control" unique_id=1908216493 instance=ExtResource("2_8ec8j")]
 layout_mode = 0
 offset_left = 168.0
 offset_top = 80.0
@@ -95,7 +464,7 @@ focus_neighbor_left = NodePath("../Gutsman_Button")
 focus_neighbor_right = NodePath("../Bombman_Button3")
 animation_frames = ExtResource("6_84nb6")
 
-[node name="Fireman_Button" parent="." unique_id=2106718617 instance=ExtResource("2_8ec8j")]
+[node name="Fireman_Button" parent="Control" unique_id=2106718617 instance=ExtResource("2_8ec8j")]
 layout_mode = 0
 offset_left = 72.0
 offset_top = 144.0
@@ -105,7 +474,7 @@ focus_neighbor_left = NodePath("../Bombman_Button3")
 focus_neighbor_right = NodePath("../Elecman_Button")
 animation_frames = ExtResource("7_3xu2o")
 
-[node name="Bombman_Button3" parent="." unique_id=745757290 instance=ExtResource("2_8ec8j")]
+[node name="Bombman_Button3" parent="Control" unique_id=745757290 instance=ExtResource("2_8ec8j")]
 layout_mode = 0
 offset_left = 136.0
 offset_top = 144.0
@@ -121,4 +490,21 @@ modulate = Color(1, 1, 1, 0.10980392)
 position = Vector2(128, 112)
 texture = ExtResource("3_owd2e")
 
-[connection signal="pressed" from="Cutman_Button" to="." method="_on_cutman_button_pressed"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=202052820]
+libraries/ = SubResource("AnimationLibrary_s3c4o")
+
+[node name="Cutman" type="AnimatedSprite2D" parent="." unique_id=1276653714]
+visible = false
+position = Vector2(96, 40)
+sprite_frames = ExtResource("5_ky6rn")
+animation = &"jump"
+autoplay = "idle_punch"
+
+[node name="Placeholderstage" type="Sprite2D" parent="." unique_id=331792177]
+visible = false
+modulate = Color(1, 1, 1, 0.31764707)
+position = Vector2(128, 120)
+texture = ExtResource("12_bug2t")
+offset = Vector2(0, -8)
+
+[connection signal="pressed" from="Control/Cutman_Button" to="." method="_on_cutman_button_pressed"]
