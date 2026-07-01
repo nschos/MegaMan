@@ -1,6 +1,6 @@
 extends Button
 @export var animation_frames: SpriteFrames
-
+@export var character_boss: SpriteFrames 
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 
 func _ready() -> void:
