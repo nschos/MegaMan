@@ -3,7 +3,7 @@ Features que faltam:
 * Inimigos
     * Big Eye
     * Octopus Battery (Brayan)
-    * Blaster (Brayan)
+    * Beak (Nathan)
     * Blader
     * Screw Driver (Brayan)
     * Mambu
