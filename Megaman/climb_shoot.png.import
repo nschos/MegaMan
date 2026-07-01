@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://buxgb3lb0anxw"
-path="res://.godot/imported/inimigo_2.png-4421255ae63400fdf0dc4e1fba33ca32.ctex"
+uid="uid://b2yl40txffqul"
+path="res://.godot/imported/climb_shoot.png-bcc918f3fa2039abf6cdf59d704b73f1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Enemies/inimigo_2.png"
-dest_files=["res://.godot/imported/inimigo_2.png-4421255ae63400fdf0dc4e1fba33ca32.ctex"]
+source_file="res://Megaman/climb_shoot.png"
+dest_files=["res://.godot/imported/climb_shoot.png-bcc918f3fa2039abf6cdf59d704b73f1.ctex"]
 
 [params]
 

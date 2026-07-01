@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://d07dt6dy416jv"]
+
+[ext_resource type="Texture2D" uid="uid://brtyjqya16fq1" path="res://Enemies/Beak/beak_bullet.png" id="1_adlfy"]
+[ext_resource type="Script" uid="uid://c6mmr5mpsmydu" path="res://Enemies/Beak/beak_bullet.gd" id="1_x42tn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_adlfy"]
+size = Vector2(6, 6)
+
+[node name="BulletInimigo2" type="Area2D" unique_id=910349642]
+collision_layer = 64
+collision_mask = 8
+script = ExtResource("1_x42tn")
+
+[node name="bullet_inim2" type="Sprite2D" parent="." unique_id=1102331547]
+texture = ExtResource("1_adlfy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1531059901]
+shape = SubResource("RectangleShape2D_adlfy")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=579862838]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

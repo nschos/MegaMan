@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://3laav2je54rr"
-path="res://.godot/imported/idle_shooting.png-16e1098b327e487baf3f466adf348993.ctex"
+uid="uid://cykdxcgytwp6g"
+path="res://.godot/imported/beak_sprites.png-e062cbe0a990f5925b7bca69daebe21c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://idle_shooting.png"
-dest_files=["res://.godot/imported/idle_shooting.png-16e1098b327e487baf3f466adf348993.ctex"]
+source_file="res://Enemies/Beak/beak_sprites.png"
+dest_files=["res://.godot/imported/beak_sprites.png-e062cbe0a990f5925b7bca69daebe21c.ctex"]
 
 [params]
 

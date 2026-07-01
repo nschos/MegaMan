@@ -1,6 +1,6 @@
 class_name MegaMan_State_Jumping extends MegaManState
 
-func enter(previous_state_path: String, data := {}) -> void:
+func enter(_previous_state_path: String, _data := {}) -> void:
 	#print("jumping!")
 	megaman.animation_player.play("jump")
 	megaman.animation_player.position.y += 7
@@ -20,18 +20,25 @@ func physics_update(_delta: float) -> void:
 	else:
 		megaman.velocity.x = 0
 	
-	if megaman.velocity.x > 0:
-		megaman.animation_player.flip_h = true
-	else:
-		megaman.animation_player.flip_h = false
-	
 	if megaman.is_on_floor():
 		if megaman.velocity.x != 0:
 			finished.emit(RUNNING)
 		else:
 			finished.emit(IDLE)
+			
+			
+	if megaman.is_shooting:
+		megaman.animation_player.play("jump_shoot")
+	else:
+		megaman.animation_player.play("jump")
+			
 	pass
 	
+	
+#func handle_shoot() -> void:
+	#
+	#print("jump shoot!")
+
 func exit():
 	megaman.animation_player.position.y -= 7
 	#print("jump ended!")

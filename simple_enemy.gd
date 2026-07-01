@@ -6,7 +6,8 @@ func _ready() -> void:
 	print("sub class ready!")
 	pass # Replace with function body.
 
-
+func _process(_delta: float) -> void:
+	$Label.text = str(self.current_HP)
 
 func _on_timer_timeout() -> void:
 	$Sprite2D.flip_h = !$Sprite2D.flip_h

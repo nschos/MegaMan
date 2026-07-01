@@ -107,7 +107,7 @@ position = Vector2(2816, -1280)
 position = Vector2(3072, -1280)
 
 [node name="CharacterBody2D2" parent="." unique_id=1964672799 instance=ExtResource("4_lquwl")]
-position = Vector2(128, 30)
+position = Vector2(891, 123)
 metadata/_edit_group_ = true
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D2" unique_id=1590895567]

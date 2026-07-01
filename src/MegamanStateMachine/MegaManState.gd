@@ -5,18 +5,11 @@ const RUNNING = "Running"
 const JUMPING = "Jumping"
 const CLIMBING = "Climbing"
 const FALLING = "Falling"
+const HURT = "Hurt"
 
 var megaman: MegaMan
-
-signal shoot_pressed
-
-func handle_shoot() -> void:
-	print("shoot not implemented!")
-	pass
 
 func _ready() -> void:
 	await owner.ready
 	megaman = owner as MegaMan
 	assert(megaman != null, "The MegaManState state type must be used only in the player scene. It needs the owner to be a Player node.")
-	
-	shoot_pressed.connect(handle_shoot)

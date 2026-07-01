@@ -7,6 +7,8 @@
 size = Vector2(8, 6)
 
 [node name="BulletMegaman" type="Area2D" unique_id=400124483]
+collision_layer = 16
+collision_mask = 32
 script = ExtResource("1_t13hn")
 
 [node name="bullet_megaman" type="Sprite2D" parent="." unique_id=563051098]
@@ -17,4 +19,6 @@ shape = SubResource("RectangleShape2D_5oepi")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1652152058]
 
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

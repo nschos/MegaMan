@@ -8,6 +8,19 @@ const JUMP_VELOCITY = -292.265625
 const CLIMB_SPEED = 45
 const GRAVITY = 15
 
+enum Direction { LEFT = -1, RIGHT = 1 }
+
+var last_direction := Direction.RIGHT
+
+var god_mode := false
+const god_mode_window := 120
+var god_mode_frame_counter := 0
+
+var is_facing_direction: Direction = Direction.RIGHT
+
+const shooting_window := 15
+var shooting_frame_counter := 0
+
 var respawn_position: Vector2
 var has_control: bool = true
 
@@ -25,7 +38,10 @@ var jump_flag := true
 
 var is_touching_ladder := false
 var has_ladder_under := false
+var has_ladder_above := false
 var ladder_x := 0
+
+var HP := 28
 	
 var has_grabbed_ladder = false
 
@@ -45,8 +61,22 @@ func _ready() -> void:
 			bullets.append(child)
 	
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	#print(Engine.get_physics_frames())
+	
+	if god_mode:
+		if god_mode_frame_counter % 2 == 0:
+			animation_player.visible = not animation_player.visible
+		god_mode_frame_counter += 1
+		if god_mode_frame_counter == god_mode_window:
+			god_mode = false
+			god_mode_frame_counter = 0
+	
+	if is_shooting:
+		shooting_frame_counter += 1
+		if shooting_frame_counter == shooting_window:
+			is_shooting = false
+	
 	if not has_control:
 		velocity = Vector2.ZERO 
 		move_and_slide()
@@ -54,11 +84,14 @@ func _physics_process(delta: float) -> void:
 	
 	if blink_timer > blink_max_time:
 		blink_timer = 0
-		
-	#print("char:",Engine.get_frames_drawn())
+
 	
-	#print(position)
-	#print(get_slide_collision_count())
+	if velocity.x > 0:
+		is_facing_direction = Direction.RIGHT
+		animation_player.flip_h = true
+	elif velocity.x < 0:
+		is_facing_direction = Direction.LEFT
+		animation_player.flip_h = false
 	
 	if not is_on_floor() and state_machine.state is not MegaMan_State_Climbing:
 		velocity.y += GRAVITY
@@ -66,7 +99,8 @@ func _physics_process(delta: float) -> void:
 	if state_machine.state is not MegaMan_State_Climbing:
 		
 		if ((Input.is_action_pressed("ui_up") and is_touching_ladder) or
-			(Input.is_action_pressed("ui_down") and has_ladder_under)):
+			(Input.is_action_pressed("ui_down") and has_ladder_under) or 
+			(Input.is_action_pressed("ui_up")  and has_ladder_above)):
 			#has_grabbed_ladder = true
 			#print(collision_mask)
 			state_machine.state.finished.emit(MegaManState.CLIMBING)
@@ -84,10 +118,9 @@ func _physics_process(delta: float) -> void:
 			
 		if !Input.is_action_pressed("jump"):
 			jump_flag = true
-			
+		
 	
-	if Input.is_action_just_pressed("NES_B_button"):
-		state_machine.state.shoot_pressed.emit()
+	if Input.is_action_just_pressed("NES_B"):
 		_shoot_bullet()
 		
 		
@@ -103,12 +136,33 @@ func _shoot_bullet() -> void:
 		if not bullet.bullet_moving:
 			#bullet.position = self.global_position
 			bullet.position.y = self.global_position.y + 4
-			if animation_player.flip_h:
-				bullet.position.x = self.global_position.x + 20
-				bullet.shoot(MegamanBullet.Direction.RIGHT)
+			if state_machine.state is not MegaMan_State_Climbing:
+				if animation_player.flip_h:
+					bullet.position.x = self.global_position.x + 20
+					bullet.shoot(Direction.RIGHT)
+				else:
+					bullet.position.x = self.global_position.x - 20
+					bullet.shoot(Direction.LEFT)
 			else:
-				bullet.position.x = self.global_position.x - 20
-				bullet.shoot(MegamanBullet.Direction.LEFT)
+				if Input.is_action_pressed("ui_left"):
+					bullet.position.x = self.global_position.x - 20
+					bullet.shoot(Direction.LEFT)
+					animation_player.flip_h = false
+				elif Input.is_action_pressed("ui_right"):
+					bullet.position.x = self.global_position.x + 20
+					bullet.shoot(Direction.RIGHT)
+					animation_player.flip_h = true
+				else:
+					bullet.position.x = self.global_position.x + 20
+					bullet.shoot(Direction.RIGHT)
+					animation_player.flip_h = true
+					
+				
+				
+				
+			shooting_frame_counter = 0
+			is_shooting = true
+				
 			return
 	pass
 
@@ -121,7 +175,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	pass # Replace with function body.
 
 
-func _on_area_2d_body_exited(body: Node2D) -> void:
+func _on_area_2d_body_exited(_body: Node2D) -> void:
 	if ((state_machine.state is MegaMan_State_Climbing) and has_control) or \
 		state_machine.state is not MegaMan_State_Climbing:
 		print("megaman untouched ladder")
@@ -141,7 +195,7 @@ func _on_lower_ladder_detection_body_entered(body: Node2D) -> void:
 	pass # Replace with function body.
 
 
-func _on_lower_ladder_detection_body_exited(body: Node2D) -> void:
+func _on_lower_ladder_detection_body_exited(_body: Node2D) -> void:
 	if has_control:
 		print("no ladder under!")
 		has_ladder_under = false
@@ -152,7 +206,7 @@ func _calculate_ladder_x(body: Node2D) -> void:
 	var tile_grid_coords: Vector2i = body.local_to_map(local_pos)
 	var tile_local_center: Vector2 = body.map_to_local(tile_grid_coords)
 	var tile_global_pos: Vector2 = body.to_global(tile_local_center)
-	ladder_x = tile_global_pos.x
+	ladder_x = int(tile_global_pos.x)
 	pass
 	
 func death() -> void:
@@ -179,3 +233,32 @@ func respawn() -> void:
 	
 	if animation_player.sprite_frames.has_animation("idle"):
 		animation_player.play("idle")
+
+
+func _on_higher_ladder_detection_body_entered(body: Node2D) -> void:
+	has_ladder_above = true
+	_calculate_ladder_x(body)
+	pass # Replace with function body.
+
+
+func _on_higher_ladder_detection_body_exited(body: Node2D) -> void:
+	has_ladder_above = false
+	pass # Replace with function body.
+
+
+func take_damage(damage: int) -> void:
+	
+	if not god_mode:
+		self.HP -= damage
+		god_mode_frame_counter = 0
+		god_mode = true
+		self.state_machine.state.finished.emit(MegaManState.HURT)
+		
+		if self.HP <= 0:
+			# TODO: death
+			pass
+	pass
+
+
+func get_controller_input() -> void:
+	pass

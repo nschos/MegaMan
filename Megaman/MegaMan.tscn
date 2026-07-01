@@ -2,14 +2,18 @@
 
 [ext_resource type="Script" uid="uid://chnadb28tns6d" path="res://src/MegamanCore.gd" id="1_gt4lj"]
 [ext_resource type="Texture2D" uid="uid://bed2ktogim485" path="res://Megaman/SPR_MegaMan.png" id="3_ens4t"]
-[ext_resource type="Texture2D" uid="uid://3laav2je54rr" path="res://idle_shooting.png" id="3_thwjo"]
+[ext_resource type="Texture2D" uid="uid://3laav2je54rr" path="res://Megaman/idle_shooting.png" id="3_thwjo"]
 [ext_resource type="Script" uid="uid://cobfoclnydwek" path="res://src/StateMachine.gd" id="4_rfobd"]
+[ext_resource type="Texture2D" uid="uid://b2yl40txffqul" path="res://Megaman/climb_shoot.png" id="4_v6i11"]
 [ext_resource type="Script" uid="uid://duto1pwce8oks" path="res://src/MegamanStateMachine/idle.gd" id="5_0po8d"]
+[ext_resource type="Texture2D" uid="uid://c7m025868j0y0" path="res://addons/Dmg_Blast.png" id="5_585kb"]
+[ext_resource type="Texture2D" uid="uid://blxdx2rg5cn3b" path="res://Megaman/jump_shoot.png" id="5_rqalg"]
 [ext_resource type="Script" uid="uid://dn1yvsufex57e" path="res://src/MegamanStateMachine/jumping.gd" id="6_0po8d"]
 [ext_resource type="Script" uid="uid://digqlqpd28l7q" path="res://src/MegamanStateMachine/climbing.gd" id="6_y4sv1"]
 [ext_resource type="Script" uid="uid://dh4amutkswq76" path="res://src/MegamanStateMachine/running.gd" id="7_y4sv1"]
 [ext_resource type="Script" uid="uid://bvvahnqc4v15o" path="res://src/MegamanStateMachine/falling.gd" id="8_gtn4u"]
 [ext_resource type="PackedScene" uid="uid://bp0nxtiktgjt7" path="res://Bullets/Bullet_Megaman.tscn" id="10_6rr7a"]
+[ext_resource type="Script" uid="uid://rp61rc2w6xgh" path="res://Megaman/hurt.gd" id="13_wix26"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_oehvy"]
 atlas = ExtResource("3_ens4t")
@@ -58,17 +62,17 @@ load_path = "res://.godot/imported/Mega-Man-Inch.png-507a4409b65f04b6c7f8ef524f9
 atlas = ExtResource("3_ens4t")
 region = Rect2(0, 64, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_6dyes"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_wix26"]
 atlas = ExtResource("3_ens4t")
-region = Rect2(32, 192, 32, 32)
+region = Rect2(0, 192, 31, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_tpj2l"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_585kb"]
 atlas = ExtResource("3_ens4t")
-region = Rect2(0, 192, 32, 32)
+region = Rect2(31, 192, 31, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_w1ucb"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_301uh"]
 atlas = ExtResource("3_ens4t")
-region = Rect2(64, 192, 32, 32)
+region = Rect2(62, 192, 31, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fyho2"]
 atlas = ExtResource("3_ens4t")
@@ -104,7 +108,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_oehvy")
 }],
-"loop": false,
+"loop": 0,
 "name": &"climb_L",
 "speed": 6.0
 }, {
@@ -112,15 +116,23 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_j74xd")
 }],
-"loop": false,
+"loop": 0,
 "name": &"climb_R",
 "speed": 6.0
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("4_v6i11")
+}],
+"loop": 2,
+"name": &"climb_shoot",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_ng6ce")
 }],
-"loop": false,
+"loop": 0,
 "name": &"climb_top",
 "speed": 5.0
 }, {
@@ -137,23 +149,26 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_shp44")
 }],
-"loop": true,
+"loop": 1,
 "name": &"death",
 "speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_272x0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_585kb")
 }],
-"loop": true,
+"loop": 1,
 "name": &"hurt",
-"speed": 5.0
+"speed": 15.0
 }, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_5c5su")
 }],
-"loop": false,
+"loop": 0,
 "name": &"idle",
 "speed": 1.0
 }, {
@@ -161,7 +176,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_8isr6")
 }],
-"loop": false,
+"loop": 0,
 "name": &"idle_blink",
 "speed": 5.0
 }, {
@@ -169,7 +184,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("3_thwjo")
 }],
-"loop": false,
+"loop": 0,
 "name": &"idle_shooting",
 "speed": 5.0
 }, {
@@ -177,7 +192,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("CompressedTexture2D_thwjo")
 }],
-"loop": true,
+"loop": 1,
 "name": &"inch",
 "speed": 5.0
 }, {
@@ -185,29 +200,40 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_cu0v6")
 }],
-"loop": true,
+"loop": 1,
 "name": &"jump",
 "speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_6dyes")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_tpj2l")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_w1ucb")
+"texture": ExtResource("5_rqalg")
 }],
-"loop": true,
+"loop": 1,
+"name": &"jump_shoot",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wix26")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_585kb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_301uh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_585kb")
+}],
+"loop": 1,
 "name": &"shooting_walk",
-"speed": 10.0
+"speed": 8.57
 }, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_fyho2")
 }],
-"loop": true,
+"loop": 1,
 "name": &"stun",
 "speed": 5.0
 }, {
@@ -221,7 +247,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_kl221")
 }],
-"loop": true,
+"loop": 1,
 "name": &"teleport",
 "speed": 10.0
 }, {
@@ -234,11 +260,17 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_pvja8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bbxfj")
 }],
-"loop": true,
+"loop": 1,
 "name": &"walk",
 "speed": 8.57
 }]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6ycyo"]
+size = Vector2(8, 3.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_thwjo"]
 size = Vector2(7.9, 21)
@@ -250,6 +282,7 @@ size = Vector2(7.9, 3.5)
 size = Vector2(15.9, 23)
 
 [node name="Megaman" type="CharacterBody2D" unique_id=1964672799 groups=["player"]]
+collision_layer = 8
 collision_mask = 5
 script = ExtResource("1_gt4lj")
 
@@ -266,14 +299,23 @@ visible = false
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1312357347]
 unique_name_in_owner = true
 sprite_frames = SubResource("SpriteFrames_riu6h")
-animation = &"idle_blink"
+animation = &"hurt"
+frame_progress = 0.98463404
 flip_h = true
 
-[node name="UpperLadderDetection" type="Area2D" parent="." unique_id=1305862378]
+[node name="HigherLadderDetection" type="Area2D" parent="." unique_id=2070738451]
 collision_layer = 0
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="UpperLadderDetection" unique_id=829421064]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HigherLadderDetection" unique_id=879374334]
+position = Vector2(0, -11)
+shape = SubResource("RectangleShape2D_6ycyo")
+
+[node name="MiddleLadderDetection" type="Area2D" parent="." unique_id=1305862378]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MiddleLadderDetection" unique_id=829421064]
 position = Vector2(0, 3.5)
 shape = SubResource("RectangleShape2D_thwjo")
 
@@ -312,7 +354,13 @@ script = ExtResource("7_y4sv1")
 [node name="Falling" type="Node" parent="StateMachine" unique_id=695058213]
 script = ExtResource("8_gtn4u")
 
-[connection signal="body_entered" from="UpperLadderDetection" to="." method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="UpperLadderDetection" to="." method="_on_area_2d_body_exited"]
+[node name="Hurt" type="Node" parent="StateMachine" unique_id=435517030]
+script = ExtResource("13_wix26")
+metadata/_custom_type_script = "uid://q42fl3kshnry"
+
+[connection signal="body_entered" from="HigherLadderDetection" to="." method="_on_higher_ladder_detection_body_entered"]
+[connection signal="body_exited" from="HigherLadderDetection" to="." method="_on_higher_ladder_detection_body_exited"]
+[connection signal="body_entered" from="MiddleLadderDetection" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="MiddleLadderDetection" to="." method="_on_area_2d_body_exited"]
 [connection signal="body_entered" from="LowerLadderDetection" to="." method="_on_lower_ladder_detection_body_entered"]
 [connection signal="body_exited" from="LowerLadderDetection" to="." method="_on_lower_ladder_detection_body_exited"]

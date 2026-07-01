@@ -12,8 +12,13 @@ enum Velocity { ACCELERATE, DECELERATE, FULLSPEED, DECELERATE_FROM_FULLSPEED, FU
 
 var current_velocity: Velocity = Velocity.FULLHALT
 
+var current_animation := ""
 
-func enter(previous_state_path: String, data := {}) -> void:
+const WALK = "walk"
+const INCH = "inch"
+const SHOOTING_WALK = "shooting_walk"
+
+func enter(_previous_state_path: String, _data := {}) -> void:
 	#print("running!")
 	
 	#megaman.animation_player.play("walk")
@@ -33,6 +38,13 @@ func physics_update(_delta: float) -> void:
 	if Input.is_action_pressed("ui_left") or Input.is_action_pressed("ui_right"):
 		if direction != 0:
 			last_direction = direction
+			match direction:
+				-1:
+					megaman.last_direction = MegaMan.Direction.LEFT
+				1: 
+					megaman.last_direction = MegaMan.Direction.RIGHT
+				
+			#megaman.last_direction = MegaMan.Direction(direction)
 		
 		#print("direction: ",direction)
 
@@ -43,10 +55,12 @@ func physics_update(_delta: float) -> void:
 		elif current_velocity == Velocity.ACCELERATE:
 			frame_counter += 1
 			if frame_counter == frame_inch_window:
-				megaman.animation_player.play("inch")
+				#megaman.animation_player.play("inch")
+				current_animation = INCH
 			elif frame_counter >= frame_acceleration_window:
 				current_velocity = Velocity.FULLSPEED
-				megaman.animation_player.play("walk")
+				#megaman.animation_player.play("walk")
+				current_animation = WALK
 			
 		match current_velocity:
 			Velocity.FULLSPEED:
@@ -69,7 +83,8 @@ func physics_update(_delta: float) -> void:
 		elif current_velocity == Velocity.DECELERATE_FROM_FULLSPEED:
 			frame_counter += 1
 			if frame_counter == frame_inch_d_window:
-				megaman.animation_player.play("inch")
+				#megaman.animation_player.play("inch");
+				current_animation = INCH
 			elif frame_counter == frame_deceleration_window:
 				megaman.velocity.x = 0
 				current_velocity = Velocity.FULLHALT
@@ -83,6 +98,20 @@ func physics_update(_delta: float) -> void:
 		
 		pass
 	
+	
+	if megaman.is_shooting:
+		current_animation = SHOOTING_WALK
+	else:
+		current_animation = WALK
+	
+	if not megaman.animation_player.animation == current_animation:
+		var current_frame = megaman.animation_player.frame
+		megaman.animation_player.play(current_animation)
+		megaman.animation_player.frame = current_frame
+		
+	
+	
+	
 
 
 	if megaman.velocity.x > 0:
@@ -93,9 +122,6 @@ func physics_update(_delta: float) -> void:
 	
 	if not megaman.is_on_floor():
 		finished.emit(FALLING)
-	
-	
-	
 	
 func exit():
 	pass

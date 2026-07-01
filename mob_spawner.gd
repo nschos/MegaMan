@@ -44,6 +44,8 @@ func _ready() -> void:
 		
 func _enemy_died() -> void:
 	print("enemy died")
+	mob_node.process_mode = Node.PROCESS_MODE_DISABLED
+	mob_node.visible = false
 	can_spawn = true
 	pass
 

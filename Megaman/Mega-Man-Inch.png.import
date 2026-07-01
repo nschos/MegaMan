@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://brtyjqya16fq1"
-path="res://.godot/imported/bullet_inimigo2.png-2faec5ec2d0083744bba271ef5994352.ctex"
+uid="uid://by6tg15tr8m3h"
+path="res://.godot/imported/Mega-Man-Inch.png-a3855eee17b523a0807aa23ba3e733cf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Bullets/bullet_inimigo2.png"
-dest_files=["res://.godot/imported/bullet_inimigo2.png-2faec5ec2d0083744bba271ef5994352.ctex"]
+source_file="res://Megaman/Mega-Man-Inch.png"
+dest_files=["res://.godot/imported/Mega-Man-Inch.png-a3855eee17b523a0807aa23ba3e733cf.ctex"]
 
 [params]
 
