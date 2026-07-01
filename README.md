@@ -1,15 +1,15 @@
 Features que faltam:
-* Tiro (Nathan)
+* Tiro (Nathan) ✅
 * Inimigos
     * Big Eye
     * Octopus Battery (Brayan)
-    * Beak (Nathan)
+    * Beak (Nathan) ✅
     * Blader
     * Screw Driver (Brayan)
     * Mambu
     * Flea
     * Cutman
-* Enemy Spawner (Nathan)
+* Enemy Spawner (Nathan) ✅
 * HUD (Alexis)
     * Pontos
     * Vida
@@ -20,7 +20,7 @@ Features que faltam:
     * One-up
 * Megaman damage animation/system
 * Weapons Menu (Aléxis)
-* Pause
+* Pause (Nathan)
 * Stage Selection (Brayan)
 * Audio (Alexis)
     * Inimigos
