@@ -47,7 +47,6 @@ func _physics_process(_delta: float) -> void:
 		#current_sprite = Sprite.OPEN_3
 		animated_sprites.play("open_1")
 	else:
-		print(frame_counter)
 		frame_counter = 0
 	
 	
