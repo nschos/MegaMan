@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://g8o02a05edyv" path="res://Stages/UI/stage_button.gd" id="1_8w2my"]
 [ext_resource type="SpriteFrames" uid="uid://yoejs0d73cv7" path="res://Stages/UI/UI Assets/Sprites/Gutsman_Button.tres" id="2_8w2my"]
+[ext_resource type="SpriteFrames" uid="uid://d2ebg1d3c5ej" path="res://Enemies/Cutman/Cutman_Animations.tres" id="3_pc7b6"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8w2my"]
 
@@ -27,6 +28,11 @@ script = ExtResource("1_8w2my")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=269090675]
 sprite_frames = ExtResource("2_8w2my")
 animation = &"focus"
+centered = false
+
+[node name="BossAnimatedSprite" type="AnimatedSprite2D" parent="." unique_id=738363572]
+position = Vector2(8, 8)
+sprite_frames = ExtResource("3_pc7b6")
 centered = false
 
 [connection signal="focus_entered" from="." to="." method="_on_focus_entered"]
