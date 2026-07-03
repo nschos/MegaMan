@@ -25,16 +25,15 @@ script = ExtResource("3_em4d2")
 [node name="MobSpawner2" type="Node2D" parent="." unique_id=525395814]
 position = Vector2(120, 217)
 script = ExtResource("4_re1qq")
-mob_path = NodePath("beak2")
 metadata/_custom_type_script = "uid://bfyvjgp7j15n3"
 
 [node name="beak2" parent="MobSpawner2" unique_id=401106870 instance=ExtResource("5_hhtk4")]
 scale = Vector2(-1, 1)
+flip_beak = true
 
 [node name="MobSpawner3" type="Node2D" parent="." unique_id=2063246361]
 position = Vector2(184, 89)
 script = ExtResource("4_re1qq")
-mob_path = NodePath("../MobSpawner2/beak2")
 metadata/_custom_type_script = "uid://bfyvjgp7j15n3"
 
 [node name="beak2" parent="MobSpawner3" unique_id=572574934 instance=ExtResource("5_hhtk4")]
@@ -42,7 +41,6 @@ metadata/_custom_type_script = "uid://bfyvjgp7j15n3"
 [node name="MobSpawner4" type="Node2D" parent="." unique_id=528858682]
 position = Vector2(152, 41)
 script = ExtResource("4_re1qq")
-mob_path = NodePath("../MobSpawner2/beak2")
 metadata/_custom_type_script = "uid://bfyvjgp7j15n3"
 
 [node name="beak2" parent="MobSpawner4" unique_id=291091824 instance=ExtResource("5_hhtk4")]

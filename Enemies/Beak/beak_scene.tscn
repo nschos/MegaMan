@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://ryjojjw78lhj"]
 
-[ext_resource type="Script" uid="uid://bv0eqclemveuu" path="res://Enemies/Beak/beak_acript.gd" id="1_rxwto"]
+[ext_resource type="Script" uid="uid://bv0eqclemveuu" path="res://Enemies/Beak/beak_script.gd" id="1_rxwto"]
 [ext_resource type="Texture2D" uid="uid://cykdxcgytwp6g" path="res://Enemies/Beak/beak_sprites.png" id="2_cukvm"]
 [ext_resource type="PackedScene" uid="uid://d07dt6dy416jv" path="res://Enemies/Beak/Bullet_inimigo2.tscn" id="3_u0us0"]
 
@@ -72,18 +72,15 @@ visible = false
 
 [node name="Bullet2" parent="." unique_id=541299402 instance=ExtResource("3_u0us0")]
 visible = false
-angle_degrees = 188
 
 [node name="Bullet3" parent="." unique_id=697025883 instance=ExtResource("3_u0us0")]
 visible = false
-angle_degrees = 172
 
 [node name="Bullet4" parent="." unique_id=55743781 instance=ExtResource("3_u0us0")]
 visible = false
-angle_degrees = 135
 
 [node name="beak_sprites" type="AnimatedSprite2D" parent="." unique_id=616641770]
 sprite_frames = SubResource("SpriteFrames_ir1ur")
-animation = &"open_3"
+animation = &"close"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
