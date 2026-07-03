@@ -19,7 +19,6 @@ tile_set = ExtResource("1_ysxwa")
 [node name="MobSpawner" type="Node2D" parent="." unique_id=451020644]
 position = Vector2(216, 153)
 script = ExtResource("2_nh0ii")
-mob_path = NodePath("beak")
 metadata/_custom_type_script = "uid://bfyvjgp7j15n3"
 
 [node name="beak" parent="MobSpawner" unique_id=401106870 instance=ExtResource("3_x1br3")]
@@ -27,18 +26,16 @@ metadata/_custom_type_script = "uid://bfyvjgp7j15n3"
 [node name="MobSpawner2" type="Node2D" parent="." unique_id=369935996]
 position = Vector2(120, 89)
 script = ExtResource("2_nh0ii")
-mob_path = NodePath("../MobSpawner/beak")
 metadata/_custom_type_script = "uid://bfyvjgp7j15n3"
 
 [node name="beak" parent="MobSpawner2" unique_id=503419100 instance=ExtResource("3_x1br3")]
 
-[node name="MobSpawner" type="Node2D" parent="MobSpawner2" unique_id=790544021]
-position = Vector2(32, -32)
+[node name="MobSpawner3" type="Node2D" parent="." unique_id=790544021]
+position = Vector2(152, 57)
 script = ExtResource("2_nh0ii")
-mob_path = NodePath("beak")
 metadata/_custom_type_script = "uid://bfyvjgp7j15n3"
 
-[node name="beak" parent="MobSpawner2/MobSpawner" unique_id=119816446 instance=ExtResource("3_x1br3")]
+[node name="beak" parent="MobSpawner3" unique_id=119816446 instance=ExtResource("3_x1br3")]
 
 [node name="InvisibleWall" type="TileMapLayer" parent="." unique_id=107152679]
 tile_map_data = PackedByteArray("AAAAAAsAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAAwAAAAAAAAAAAA=")

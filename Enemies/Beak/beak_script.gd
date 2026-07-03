@@ -1,6 +1,13 @@
-extends Enemy
+@tool
+class_name BeakEnemy extends Enemy
 
 var frame_counter := 0
+
+@export var flip_beak := false:
+	set(value):
+		flip_beak = value
+		self.scale.x = 1 if not flip_beak else -1
+		queue_redraw()
 
 const closed_window    := 120
 const open_1_window    := closed_window + 7
@@ -20,13 +27,25 @@ const closing_2_window := closing_1_window + 7
 @onready var bullet_3 = $Bullet3
 @onready var bullet_4 = $Bullet4
 
-#enum Sprite { CLOSED, OPEN_1, OPEN_2, OPEN_3 }
-#
-#var current_sprite: Sprite = Sprite.CLOSED
+func _ready() -> void:
+	if not flip_beak:
+		bullet_1.angle_degrees = 225
+		bullet_2.angle_degrees = 188
+		bullet_3.angle_degrees = 172
+		bullet_4.angle_degrees = 135
+	else:
+		bullet_1.angle_degrees = -45
+		bullet_2.angle_degrees = -8
+		bullet_3.angle_degrees = 8
+		bullet_4.angle_degrees = 45
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(_delta: float) -> void:
+	
+	if Engine.is_editor_hint():
+		return
 	
 	if frame_counter <= closed_window:
 		#current_sprite = Sprite.CLOSED
@@ -52,29 +71,21 @@ func _physics_process(_delta: float) -> void:
 	
 	match frame_counter:
 		shoot_1:
-			bullet_1.position = Vector2.ZERO
+			#bullet_1.position = Vector2.ZERO
 			bullet_1.shoot()
 		shoot_2:
-			bullet_2.position = Vector2.ZERO
+			#bullet_2.position = Vector2.ZERO
 			bullet_2.shoot()
 		shoot_3:
-			bullet_3.position = Vector2.ZERO
+			#bullet_3.position = Vector2.ZERO
 			bullet_3.shoot()
 		shoot_4:
-			bullet_4.position = Vector2.ZERO
+			#bullet_4.position = Vector2.ZERO
 			bullet_4.shoot()
 	
 	
 	frame_counter += 1
 	
-	pass
-	
-func shoot(bullet: Area2D) -> void:
-	if bullet is BeakBullet:
-		bullet.angle_degrees = 225
-		bullet.shoot()
-	#var tween = get_tree().create_tween()
-	#tween.tween_property(bullet, "position", self.position + Vector2(-500, 0), 1)
 	pass
 
 

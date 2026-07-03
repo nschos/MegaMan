@@ -17,7 +17,6 @@ tile_set = ExtResource("1_2ejbi")
 [node name="MobSpawner" type="Node2D" parent="." unique_id=1421748086]
 position = Vector2(56, 73)
 script = ExtResource("2_2ejbi")
-mob_path = NodePath("beak")
 metadata/_custom_type_script = "uid://bfyvjgp7j15n3"
 
 [node name="beak" parent="MobSpawner" unique_id=401106870 instance=ExtResource("3_cl53g")]
@@ -25,7 +24,6 @@ metadata/_custom_type_script = "uid://bfyvjgp7j15n3"
 [node name="MobSpawner2" type="Node2D" parent="." unique_id=910416822]
 position = Vector2(184, 121)
 script = ExtResource("2_2ejbi")
-mob_path = NodePath("beak2")
 metadata/_custom_type_script = "uid://bfyvjgp7j15n3"
 
 [node name="beak2" parent="MobSpawner2" unique_id=613775797 instance=ExtResource("3_cl53g")]

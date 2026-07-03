@@ -109,7 +109,7 @@ position = Vector2(2816, -1280)
 position = Vector2(3072, -1280)
 
 [node name="Megaman" parent="." unique_id=1964672799 instance=ExtResource("4_lquwl")]
-position = Vector2(891, 123)
+position = Vector2(785, 138)
 metadata/_edit_group_ = true
 
 [node name="Camera2D" type="Camera2D" parent="Megaman" unique_id=1590895567]
@@ -120,5 +120,18 @@ drag_left_margin = 0.0
 drag_top_margin = 0.0
 drag_right_margin = 0.0
 drag_bottom_margin = 0.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1506904820]
+
+[node name="Megaman_HP" type="Label" parent="CanvasLayer" unique_id=359959397]
+offset_right = 39.0
+offset_bottom = 49.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+text = "teste
+"
+
+[connection signal="Megaman_HP_changed" from="Megaman" to="." method="_on_megaman_megaman_hp_changed"]
 
 [editable path="Rooms/Scene_1"]
