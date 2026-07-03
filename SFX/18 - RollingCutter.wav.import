@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://drmiitu6f436y"
+path="res://.godot/imported/18 - RollingCutter.wav-90e37af39421a1b8c34e8046c63a330b.sample"
+
+[deps]
+
+source_file="res://SFX/18 - RollingCutter.wav"
+dest_files=["res://.godot/imported/18 - RollingCutter.wav-90e37af39421a1b8c34e8046c63a330b.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

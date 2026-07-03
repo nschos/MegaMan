@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://bswgvg5q3ai2c"]
+
+[ext_resource type="Script" uid="uid://hcgrvrjex4wq" path="res://pause.gd" id="1_6eyaj"]
+[ext_resource type="PackedScene" uid="uid://cu0xt2xfiqnsy" path="res://WeaponsMenu/WeaponsMenu.tscn" id="2_8u653"]
+[ext_resource type="Script" uid="uid://boie2ojqsb4pm" path="res://WeaponsMenu/weapons_menu.gd" id="3_bwtow"]
+
+[node name="Pause" type="CanvasLayer" unique_id=554879760]
+script = ExtResource("1_6eyaj")
+
+[node name="WeaponsMenu" parent="." unique_id=520652668 instance=ExtResource("2_8u653")]
+script = ExtResource("3_bwtow")

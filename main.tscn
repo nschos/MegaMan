@@ -27,6 +27,9 @@
 [ext_resource type="PackedScene" uid="uid://rwrtv1co1amy" path="res://Stages/CutMan/scene_22.tscn" id="22_seu75"]
 [ext_resource type="PackedScene" uid="uid://bo4j5sdbdyafy" path="res://Stages/CutMan/scene_23.tscn" id="23_htxhm"]
 [ext_resource type="PackedScene" uid="uid://dwk3qdllbbw5" path="res://Stages/CutMan/scene_24.tscn" id="24_jq2sk"]
+[ext_resource type="Script" uid="uid://hcgrvrjex4wq" path="res://pause.gd" id="27_qsp4k"]
+[ext_resource type="PackedScene" uid="uid://qgfd8we8b7by" path="res://UI.tscn" id="28_qsp4k"]
+[ext_resource type="Script" uid="uid://db4ox1ib3ygqw" path="res://UI.gd" id="29_kq58d"]
 
 [node name="MainNode" type="Node2D" unique_id=967458337]
 texture_filter = 1
@@ -133,5 +136,12 @@ text = "teste
 "
 
 [connection signal="Megaman_HP_changed" from="Megaman" to="." method="_on_megaman_megaman_hp_changed"]
+[node name="UI | Menu" type="CanvasLayer" parent="." unique_id=1017261017]
+process_mode = 3
+script = ExtResource("27_qsp4k")
+
+[node name="UI" parent="UI | Menu" unique_id=520652668 instance=ExtResource("28_qsp4k")]
+position = Vector2(128, 112)
+script = ExtResource("29_kq58d")
 
 [editable path="Rooms/Scene_1"]
