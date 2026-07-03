@@ -135,7 +135,6 @@ theme_override_constants/outline_size = 2
 text = "teste
 "
 
-[connection signal="Megaman_HP_changed" from="Megaman" to="." method="_on_megaman_megaman_hp_changed"]
 [node name="UI | Menu" type="CanvasLayer" parent="." unique_id=1017261017]
 process_mode = 3
 script = ExtResource("27_qsp4k")
@@ -143,5 +142,8 @@ script = ExtResource("27_qsp4k")
 [node name="UI" parent="UI | Menu" unique_id=520652668 instance=ExtResource("28_qsp4k")]
 position = Vector2(128, 112)
 script = ExtResource("29_kq58d")
+
+[connection signal="Megaman_HP_changed" from="Megaman" to="." method="_on_megaman_megaman_hp_changed"]
+[connection signal="Megaman_HP_changed" from="Megaman" to="UI | Menu/UI" method="_on_megaman_megaman_hp_changed"]
 
 [editable path="Rooms/Scene_1"]

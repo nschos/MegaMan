@@ -314,7 +314,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="UI" type="Area2D" unique_id=520652668]
+[node name="UI" type="Node2D" unique_id=348686817]
 
 [node name="base_menu" type="Sprite2D" parent="." unique_id=2101922408]
 visible = false

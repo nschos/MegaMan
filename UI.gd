@@ -1,4 +1,4 @@
-extends Area2D
+extends Node2D
 
 enum MenuState { CLOSED, OPENING, OPEN, CLOSING }
 
@@ -113,3 +113,7 @@ func _set_player_control(can_control: bool) -> void:
 	var player := get_tree().get_first_node_in_group("player")
 	if player and "has_control" in player:
 		player.has_control = can_control
+
+func _on_megaman_megaman_hp_changed(HP: int) -> void:
+	health_bar.value = HP
+	pass # Replace with function body.
