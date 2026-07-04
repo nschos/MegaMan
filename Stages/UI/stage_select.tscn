@@ -11,8 +11,13 @@
 [ext_resource type="SpriteFrames" uid="uid://bk5ixvkfhgij7" path="res://Stages/UI/UI Assets/Sprites/Iceman_Button.tres" id="6_84nb6"]
 [ext_resource type="SpriteFrames" uid="uid://d063j5r3mdut4" path="res://Stages/UI/UI Assets/Sprites/Elecman_Button.tres" id="6_f6gxm"]
 [ext_resource type="SpriteFrames" uid="uid://b5yulhphwman0" path="res://Stages/UI/UI Assets/Sprites/Fireman_Button.tres" id="7_3xu2o"]
+[ext_resource type="Texture2D" uid="uid://cytxcqavtcxtg" path="res://Enemies/Bosses/Gutsman/T_Gutsman.png" id="8_c1dh2"]
 [ext_resource type="SpriteFrames" uid="uid://ncd0q1kdcru" path="res://Stages/UI/UI Assets/Sprites/Bombman_Button.tres" id="8_f6gxm"]
+[ext_resource type="SpriteFrames" uid="uid://de8y36nqn4pm2" path="res://Enemies/Bosses/Elecman/Elecman_Sprites.tres" id="9_ngahr"]
 [ext_resource type="Texture2D" uid="uid://5ljs8jqyg0ol" path="res://Stages/UI/UI Assets/placeholderstage.png" id="12_bug2t"]
+[ext_resource type="Texture2D" uid="uid://qkrtf56y8m3c" path="res://Enemies/Bosses/Iceman/T_Iceman.png" id="12_e5d3h"]
+[ext_resource type="SpriteFrames" uid="uid://y4mbmune6xkv" path="res://Enemies/Bosses/Bombman/Bombman_sprites.tres" id="13_vav1g"]
+[ext_resource type="Texture2D" uid="uid://c2whmidso1xj6" path="res://Enemies/Bosses/Fireman/T_Fireman.png" id="14_7wodu"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yo44i"]
 atlas = ExtResource("1_qln63")
@@ -34,6 +39,39 @@ animations = [{
 "loop": 1,
 "name": &"default",
 "speed": 4.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_c1dh2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_c1dh2")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_s3c4o"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_e5d3h")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dfy1r"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_7wodu")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
 }]
 
 [sub_resource type="Animation" id="Animation_ngahr"]
@@ -184,6 +222,20 @@ tracks/11/keys = {
 "update": 1,
 "values": [0, 0]
 }
+tracks/12/type = "method"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath(".")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(3.5166667),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"start_score_sequence"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_vav1g"]
 length = 0.001
@@ -331,6 +383,17 @@ tracks/11/keys = {
 "update": 1,
 "values": [0]
 }
+tracks/12/type = "method"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath(".")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"values": []
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_s3c4o"]
 _data = {
@@ -389,7 +452,7 @@ fit_content = true
 [node name="ScoreValue" type="RichTextLabel" parent="ColorRect/ColorRect" unique_id=516021990]
 visible = false
 layout_mode = 0
-offset_left = 144.0
+offset_left = 136.0
 offset_top = 49.0
 offset_right = 184.0
 offset_bottom = 64.0
@@ -401,15 +464,16 @@ theme_override_fonts/normal_font = ExtResource("2_bug2t")
 theme_override_font_sizes/normal_font_size = 8
 text = "90000"
 scroll_active = false
+horizontal_alignment = 2
 
 [node name="WhiteColorRect" type="ColorRect" parent="ColorRect" unique_id=643348681]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+color = Color(1, 1, 1, 0)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=399659128]
 position = Vector2(128, 108)
@@ -443,6 +507,7 @@ offset_top = 16.0
 offset_right = 136.0
 offset_bottom = 16.0
 animation_frames = ExtResource("3_8ec8j")
+character_boss = SubResource("SpriteFrames_c1dh2")
 
 [node name="Elecman_Button" parent="Control" unique_id=2121913715 instance=ExtResource("2_8ec8j")]
 layout_mode = 0
@@ -453,6 +518,7 @@ offset_bottom = 80.0
 focus_neighbor_left = NodePath("../Fireman_Button")
 focus_neighbor_right = NodePath("../Cutman_Button")
 animation_frames = ExtResource("6_f6gxm")
+character_boss = ExtResource("9_ngahr")
 
 [node name="Iceman_Button" parent="Control" unique_id=1908216493 instance=ExtResource("2_8ec8j")]
 layout_mode = 0
@@ -463,6 +529,7 @@ offset_bottom = 80.0
 focus_neighbor_left = NodePath("../Gutsman_Button")
 focus_neighbor_right = NodePath("../Bombman_Button3")
 animation_frames = ExtResource("6_84nb6")
+character_boss = SubResource("SpriteFrames_s3c4o")
 
 [node name="Fireman_Button" parent="Control" unique_id=2106718617 instance=ExtResource("2_8ec8j")]
 layout_mode = 0
@@ -473,6 +540,7 @@ offset_bottom = 144.0
 focus_neighbor_left = NodePath("../Bombman_Button3")
 focus_neighbor_right = NodePath("../Elecman_Button")
 animation_frames = ExtResource("7_3xu2o")
+character_boss = SubResource("SpriteFrames_dfy1r")
 
 [node name="Bombman_Button3" parent="Control" unique_id=745757290 instance=ExtResource("2_8ec8j")]
 layout_mode = 0
@@ -483,6 +551,7 @@ offset_bottom = 144.0
 focus_neighbor_left = NodePath("../Iceman_Button")
 focus_neighbor_right = NodePath("../Fireman_Button")
 animation_frames = ExtResource("8_f6gxm")
+character_boss = ExtResource("13_vav1g")
 
 [node name="Placeholder" type="Sprite2D" parent="." unique_id=1002157506]
 visible = false
