@@ -42,17 +42,6 @@ func _ready() -> void:
 		bullet_4.angle_degrees = 45
 	pass
 	
-	spawned.connect(spawn_beak)
-	
-	
-	
-func spawn_beak():
-	print("spwan beak!")
-	bullet_1.reparent(self, false)
-	bullet_2.reparent(self, false)
-	bullet_3.reparent(self, false)
-	bullet_4.reparent(self, false)
-	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -62,22 +51,16 @@ func _physics_process(_delta: float) -> void:
 		return
 	
 	if frame_counter <= closed_window:
-		#current_sprite = Sprite.CLOSED
 		animated_sprites.play("close")
 	elif frame_counter <= open_1_window:
-		#current_sprite = Sprite.OPEN_1
 		animated_sprites.play("open_1")
 	elif frame_counter <= open_2_window:
-		#current_sprite = Sprite.OPEN_2
 		animated_sprites.play("open_2")
 	elif frame_counter <= open_3_window:
-		#current_sprite = Sprite.OPEN_3
 		animated_sprites.play("open_3")
 	elif frame_counter <= closing_1_window:
-		#current_sprite = Sprite.OPEN_3
 		animated_sprites.play("open_2")
 	elif frame_counter <= closing_2_window:
-		#current_sprite = Sprite.OPEN_3
 		animated_sprites.play("open_1")
 	else:
 		frame_counter = 0
@@ -85,16 +68,16 @@ func _physics_process(_delta: float) -> void:
 	
 	match frame_counter:
 		shoot_1:
-			#bullet_1.position = Vector2.ZERO
+			bullet_1.reparent(self, false)
 			bullet_1.shoot()
 		shoot_2:
-			#bullet_2.position = Vector2.ZERO
+			bullet_2.reparent(self, false)
 			bullet_2.shoot()
 		shoot_3:
-			#bullet_3.position = Vector2.ZERO
+			bullet_3.reparent(self, false)
 			bullet_3.shoot()
 		shoot_4:
-			#bullet_4.position = Vector2.ZERO
+			bullet_4.reparent(self, false)
 			bullet_4.shoot()
 	
 	
@@ -102,9 +85,9 @@ func _physics_process(_delta: float) -> void:
 	
 	pass
 
+func _reset() -> void:
+	frame_counter = 0
 
 func _on_body_entered(body: Node2D) -> void:
 	if body is MegaMan:
-		#print("megaman direct impact!")
 		body.take_damage(1)
-	pass # Replace with function body.

@@ -21,6 +21,7 @@ func _internal_super_ready() -> void:
 	print("1. CRITICAL SUPER CLASS INITIALIZATION RAN!")
 
 func spawn() -> void:
+	_reset()
 	print("enemy spawn!")
 	current_HP = initial_HP
 	self.visible = true
@@ -33,6 +34,8 @@ func _despawn() -> void:
 	self.process_mode = Node.PROCESS_MODE_DISABLED
 	despawned.emit()
 	
+func _reset() -> void:
+	pass
 
 signal died
 signal despawned
