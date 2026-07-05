@@ -12,24 +12,21 @@ const enemy_layer = 6
 @onready var visible_notifier: VisibleOnScreenNotifier2D = VisibleOnScreenNotifier2D.new()
 
 func _ready() -> void:
-	print("enemy _ready!")
+	#print("enemy _ready!")
 	add_child(visible_notifier)
 	visible_notifier.screen_exited.connect(_despawn)
 	self.set_collision_layer_value(enemy_layer, true)
 
-func _internal_super_ready() -> void:
-	print("1. CRITICAL SUPER CLASS INITIALIZATION RAN!")
-
 func spawn() -> void:
 	_reset()
-	print("enemy spawn!")
+	#print("enemy spawn!")
 	current_HP = initial_HP
 	self.visible = true
 	self.process_mode = Node.PROCESS_MODE_INHERIT
 	spawned.emit()
 
 func _despawn() -> void:
-	print("enemy despawned!")
+	#print("enemy despawned!")
 	self.visible = false
 	self.process_mode = Node.PROCESS_MODE_DISABLED
 	despawned.emit()
@@ -45,7 +42,7 @@ func cause_damage():
 	self.current_HP -= 20
 
 func set_health(value: int):
-	current_HP = max(0, value)  # Ensures health doesn't go below 0
+	current_HP = max(0, value)
 	if current_HP == 0:
 		died.emit()
 #

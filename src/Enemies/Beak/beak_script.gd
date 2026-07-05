@@ -29,7 +29,7 @@ const closing_2_window := closing_1_window + 7
 
 func _ready() -> void:
 	super()
-	print("beak _ready!")
+	#print("beak _ready!")
 	if not flip_beak:
 		bullet_1.angle_degrees = 225
 		bullet_2.angle_degrees = 188

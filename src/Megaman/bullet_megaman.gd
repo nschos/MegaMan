@@ -20,8 +20,8 @@ func shoot(direction: MegaMan.Direction):
 	bullet_moving = true
 	visible = true
 	#print(self.get_path())
-	if self.get_path() == NodePath("/root/MainNode/BulletMegaman1"):
-		print("node process mode inherited!")
+	#if self.get_path() == NodePath("/root/MainNode/BulletMegaman1"):
+		#print("node process mode inherited!")
 	current_direction = direction
 	pass
 
@@ -29,8 +29,8 @@ func shoot(direction: MegaMan.Direction):
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 	bullet_moving = false
 	#self.set_deferred("process_mode", Node.PROCESS_MODE_DISABLED)
-	if self.get_path() == NodePath("/root/MainNode/BulletMegaman1"):
-		print("node process mode disabeld!")
+	#if self.get_path() == NodePath("/root/MainNode/BulletMegaman1"):
+		#print("node process mode disabeld!")
 	self.visible = false
 	pass # Replace with function body.
 	
