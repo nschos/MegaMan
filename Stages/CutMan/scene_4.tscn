@@ -2,7 +2,7 @@
 
 [ext_resource type="TileSet" uid="uid://4sd5yyra0fl8" path="res://TileSet_Cut_Man_Stage.tres" id="1_2ejbi"]
 [ext_resource type="Script" uid="uid://bfyvjgp7j15n3" path="res://mob_spawner.gd" id="2_2ejbi"]
-[ext_resource type="PackedScene" uid="uid://ryjojjw78lhj" path="res://Enemies/Beak/beak_scene.tscn" id="3_cl53g"]
+[ext_resource type="PackedScene" uid="uid://ryjojjw78lhj" path="res://src/Enemies/Beak/beak_scene.tscn" id="3_cl53g"]
 
 [node name="Scene_4" type="Node2D" unique_id=1787977831]
 

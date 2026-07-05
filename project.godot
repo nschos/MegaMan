@@ -31,9 +31,10 @@ window/stretch/scale_mode="integer"
 [file_customization]
 
 folder_colors={
-"res://Enemies/Beak/": "red",
 "res://Megaman/": "blue",
-"res://src/": "yellow"
+"res://src/": "yellow",
+"res://src/Enemies/": "pink",
+"res://src/Enemies/Beak/": "red"
 }
 
 [global_group]
