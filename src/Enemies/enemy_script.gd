@@ -9,6 +9,8 @@ var current_HP: int = initial_HP:
 	
 const enemy_layer = 6
 
+const drop_scene := preload("res://Drops/drop.tscn")
+
 @onready var visible_notifier: VisibleOnScreenNotifier2D = VisibleOnScreenNotifier2D.new()
 
 func _ready() -> void:
@@ -41,9 +43,16 @@ signal spawned
 func cause_damage():
 	self.current_HP -= 20
 
+func spawn_drop() -> void:
+	var drop := drop_scene.instantiate()
+	get_tree().current_scene.add_child.call_deferred(drop)
+	drop.position = self.global_position
+	pass
+
 func set_health(value: int):
 	current_HP = max(0, value)
 	if current_HP == 0:
+		spawn_drop()
 		died.emit()
 #
 func get_health() -> int:

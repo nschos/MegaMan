@@ -31,6 +31,7 @@ window/stretch/scale_mode="integer"
 [file_customization]
 
 folder_colors={
+"res://Drops/": "red",
 "res://Megaman/": "blue",
 "res://src/": "yellow",
 "res://src/Enemies/": "pink",
@@ -124,6 +125,7 @@ open_menu={
 2d_physics/layer_5="MegamanBullet"
 2d_physics/layer_6="Enemy"
 2d_physics/layer_7="EnemyBullet"
+2d_physics/layer_8="Drop"
 
 [physics]
 

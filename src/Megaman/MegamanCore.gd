@@ -172,7 +172,7 @@ func _shoot_bullet() -> void:
 	pass
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	print("megaman touched ladder")
+	#print("megaman touched ladder")
 	is_touching_ladder = true
 	
 	_calculate_ladder_x(body)
@@ -183,7 +183,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 func _on_area_2d_body_exited(_body: Node2D) -> void:
 	if ((state_machine.state is MegaMan_State_Climbing) and has_control) or \
 		state_machine.state is not MegaMan_State_Climbing:
-		print("megaman untouched ladder")
+		#print("megaman untouched ladder")
 		is_touching_ladder = false
 		has_grabbed_ladder = false
 		self.set_collision_mask_value(3, true)
