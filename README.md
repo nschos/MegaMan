@@ -14,7 +14,7 @@ Features que faltam:
     * Pontos
     * Vida
     * Power-up (?)
-* Drops
+* Drops (Nathan)
     * Pontos
     * HP
     * One-up
