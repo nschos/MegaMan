@@ -1,0 +1,14 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://y4mbmune6xkv"]
+
+[ext_resource type="Texture2D" uid="uid://b1op2d6w8jfye" path="res://src/Enemies/Bosses/Bombman/T_Bombman.png" id="1_8dyvp"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_8dyvp")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]

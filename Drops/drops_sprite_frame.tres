@@ -1,0 +1,97 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://ckpnphvopfdk3"]
+
+[ext_resource type="Texture2D" uid="uid://c7mk6mynd2s06" path="res://Drops/drops_atlas.png" id="1_00wy4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u861x"]
+atlas = ExtResource("1_00wy4")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_47bii"]
+atlas = ExtResource("1_00wy4")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b4lgv"]
+atlas = ExtResource("1_00wy4")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xhtah"]
+atlas = ExtResource("1_00wy4")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_63lvp"]
+atlas = ExtResource("1_00wy4")
+region = Rect2(112, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xuss2"]
+atlas = ExtResource("1_00wy4")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_00wy4"]
+atlas = ExtResource("1_00wy4")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3v64l"]
+atlas = ExtResource("1_00wy4")
+region = Rect2(48, 0, 16, 16)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u861x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_47bii")
+}],
+"loop": 1,
+"name": &"big_energy_refill",
+"speed": 6.67
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b4lgv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xhtah")
+}],
+"loop": 1,
+"name": &"big_weapon_refill",
+"speed": 6.67
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_63lvp")
+}],
+"loop": 1,
+"name": &"bonus_pearl",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xuss2")
+}],
+"loop": 1,
+"name": &"extra_life",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": 1,
+"name": &"nothing",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_00wy4")
+}],
+"loop": 1,
+"name": &"small_energy_refill",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3v64l")
+}],
+"loop": 1,
+"name": &"small_weapon_refill",
+"speed": 5.0
+}]

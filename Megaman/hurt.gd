@@ -3,7 +3,7 @@ class_name MegaMan_State_Hurt extends MegaManState
 var frame_counter := 0
 
 func enter(_previous_state_path: String, _data := {}) -> void:
-	print("hurt!")
+	#print("hurt!")
 	megaman.animation_player.play("hurt")
 	megaman.animation_player.position.y += 8
 	#megaman.has_control = false
@@ -18,6 +18,6 @@ func physics_update(_delta: float) -> void:
 	pass
 	
 func exit():
-	print("hurt ended!")
+	#print("hurt ended!")
 	megaman.animation_player.position.y -= 8
 	#megaman.has_control = true

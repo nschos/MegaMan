@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bp0nxtiktgjt7"]
 
 [ext_resource type="Texture2D" uid="uid://c72lvbgkkekyv" path="res://Bullets/bullet_megaman.png" id="1_5oepi"]
-[ext_resource type="Script" uid="uid://b1nepvcwfvrwl" path="res://src/bullet_megaman.gd" id="1_t13hn"]
+[ext_resource type="Script" uid="uid://b1nepvcwfvrwl" path="res://src/Megaman/bullet_megaman.gd" id="1_t13hn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5oepi"]
 size = Vector2(8, 6)
