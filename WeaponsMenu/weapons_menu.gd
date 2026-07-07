@@ -47,6 +47,7 @@ func _unhandled_input(event: InputEvent) -> void:
 func _open_menu() -> void:
 	state = MenuState.OPENING
 
+	SFXManager.play(SFXManager.PAUSE_MENU)
 	get_tree().paused = true
 	_set_player_control(false)
 
@@ -84,6 +85,7 @@ func _on_pause_menu_animation_finished() -> void:
 		_set_player_control(true)
 
 func _move_selection(direction: int) -> void:
+	SFXManager.play(SFXManager.MENU_SELECT)
 	selected_index = wrapi(selected_index + direction, 0, weapon_slots.size())
 	_update_selection()
 

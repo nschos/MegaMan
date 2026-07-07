@@ -19,6 +19,7 @@ func _ready() -> void:
 
 
 func shoot() -> void:
+	SFXManager.play(SFXManager.ENEMY_SHOOT)
 	self.position = Vector2.ZERO
 	self.reparent(get_tree().current_scene)
 	self.visible = true
