@@ -1,0 +1,33 @@
+[gd_scene format=4 uid="uid://c5uavy53s26n5"]
+
+[ext_resource type="Script" uid="uid://cq3awc01dmaqc" path="res://src/Enemies/Super Cutter/CutterSpawner.gd" id="1_sffj4"]
+[ext_resource type="TileSet" uid="uid://4sd5yyra0fl8" path="res://TileSet_Cut_Man_Stage.tres" id="2_6vjed"]
+[ext_resource type="PackedScene" uid="uid://bfcbu71qa0142" path="res://src/Enemies/Super Cutter/super_cutter.tscn" id="2_vm21d"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+size = Vector2(128, 80)
+
+[node name="CutterSpawner" type="Node2D" unique_id=964127535]
+script = ExtResource("1_sffj4")
+cutter_scene = ExtResource("2_vm21d")
+spawn_cooldown = 0.5
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=636252024]
+tile_map_data = PackedByteArray("AAD9//3/AgADAAIAAAD9//7/AgAAAAUAAAD9////AgAAAAUAAAD9/wAAAgAAAAUAAAD9/wEAAgAAAAUAAAD+//3/AgAEAAIAAAD+//7/AgAFAAEAAAD+////AgAFAAEAAAD+/wAAAgAFAAEAAAD+/wEAAgAFAAEAAAD///3/AgAEAAIAAAD///7/AgAAAAQAAAD/////AgACAAQAAAD//wAAAgABAAUAAAD//wEAAgAAAAQAAAAAAP3/AgAEAAIAAAAAAP7/AgABAAQAAAAAAP//AgADAAQAAAAAAAAAAgACAAUAAAAAAAEAAgABAAQAAAABAP3/AgAEAAIAAAABAP7/AgAFAAEAAAABAP//AgAFAAEAAAABAAAAAgAFAAEAAAABAAEAAgAFAAEAAAACAP3/AgAFAAIAAAACAP7/AgADAAUAAAACAP//AgADAAUAAAACAAAAAgADAAUAAAACAAEAAgADAAUAAAA=")
+tile_set = ExtResource("2_6vjed")
+
+[node name="TriggerZone" type="Area2D" parent="." unique_id=762939014]
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TriggerZone" unique_id=32828929]
+position = Vector2(0, -8)
+shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="SpawnTimer" type="Timer" parent="." unique_id=479186669]
+
+[node name="SpawnPoint" type="Marker2D" parent="." unique_id=1966494524]
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1944995421]
+
+[connection signal="body_entered" from="TriggerZone" to="." method="_on_trigger_zone_body_entered"]
+[connection signal="body_exited" from="TriggerZone" to="." method="_on_trigger_zone_body_exited"]

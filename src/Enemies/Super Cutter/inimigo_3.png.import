@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ynkntjt68xfn"
-path="res://.godot/imported/inimigo_3.png-4093b736d1bc4fa234badf6c7b219bd8.ctex"
+path="res://.godot/imported/inimigo_3.png-9885418a59212622a460d0ecf3667878.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://src/Enemies/inimigo_3.png"
-dest_files=["res://.godot/imported/inimigo_3.png-4093b736d1bc4fa234badf6c7b219bd8.ctex"]
+source_file="res://src/Enemies/Super Cutter/inimigo_3.png"
+dest_files=["res://.godot/imported/inimigo_3.png-9885418a59212622a460d0ecf3667878.ctex"]
 
 [params]
 

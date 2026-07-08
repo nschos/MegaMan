@@ -112,7 +112,7 @@ position = Vector2(2816, -1280)
 position = Vector2(3072, -1280)
 
 [node name="Megaman" parent="." unique_id=1964672799 instance=ExtResource("4_lquwl")]
-position = Vector2(785, 138)
+position = Vector2(1023, -881)
 metadata/_edit_group_ = true
 
 [node name="Camera2D" type="Camera2D" parent="Megaman" unique_id=1590895567]
