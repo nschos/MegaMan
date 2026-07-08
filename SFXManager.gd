@@ -1,75 +1,63 @@
 extends CanvasLayer
 
-const GAME_START        := "GAME_START"
-const PAUSE_MENU        := "PAUSE_MENU"
-const MENU_SELECT       := "MENU_SELECT"
-const MEGAMAN_WARP      := "MEGAMAN_WARP"
-const MEGA_BUSTER       := "MEGA_BUSTER"
-const MEGAMAN_LAND      := "MEGAMAN_LAND"
-const MEGAMAN_DAMAGE    := "MEGAMAN_DAMAGE"
-const MEGAMAN_DEFEAT    := "MEGAMAN_DEFEAT"
-const ENEMY_DAMAGE      := "ENEMY_DAMAGE"
-const ENEMY_SHOOT       := "ENEMY_SHOOT"
-const DINK              := "DINK"
-const BIG_EYE           := "BIG_EYE"
-const EXPLOSION         := "EXPLOSION"
-const SUPER_ARM         := "SUPER_ARM"
-const GUTS_QUAKE        := "GUTS_QUAKE"
-const THUNDER_BEAM      := "THUNDER_BEAM"
-const BEAM              := "BEAM"
-const ROLLING_CUTTER    := "ROLLING_CUTTER"
-const CUTMAN_SNIP       := "CUTMAN_SNIP"
-const ICE_SLASHER       := "ICE_SLASHER"
-const WATER_SPLASH      := "WATER_SPLASH"
-const FIRE_STORM_1      := "FIRE_STORM_1"
-const FIRE_STORM_2      := "FIRE_STORM_2"
-const ENERGY_FILL       := "ENERGY_FILL"
-const ONE_UP            := "ONE_UP"
-const BONUS_BALL        := "BONUS_BALL"
-const POINT_TALLY       := "POINT_TALLY"
-const VANISHING_BLOCKS  := "VANISHING_BLOCKS"
-const CONVEYOR_LIFT     := "CONVEYOR_LIFT"
-const BOSS_GATE         := "BOSS_GATE"
-const WILY_SHIP         := "WILY_SHIP"
-const RUSHING_WATER     := "RUSHING_WATER"
-const ERR               := "ERR"
-const PI_PI_PI          := "PI_PI_PI"
+const GAME_START : = "GAME_START"
+const PAUSE_MENU : = "PAUSE_MENU"
+const MENU_SELECT : = "MENU_SELECT"
+const MEGAMAN_WARP : = "MEGAMAN_WARP"
+const MEGA_BUSTER : = "MEGA_BUSTER"
+const MEGAMAN_LAND : = "MEGAMAN_LAND"
+const MEGAMAN_DAMAGE : = "MEGAMAN_DAMAGE"
+const MEGAMAN_DEFEAT : = "MEGAMAN_DEFEAT"
+const ENEMY_DAMAGE : = "ENEMY_DAMAGE"
+const ENEMY_SHOOT : = "ENEMY_SHOOT"
+const DINK : = "DINK"
+const BIG_EYE : = "BIG_EYE"
+const EXPLOSION : = "EXPLOSION"
+const SUPER_ARM : = "SUPER_ARM"
+const THUNDER_BEAM : = "THUNDER_BEAM"
+const BEAM : = "BEAM"
+const ROLLING_CUTTER : = "ROLLING_CUTTER"
+const CUTMAN_SNIP : = "CUTMAN_SNIP"
+const ENERGY_FILL : = "ENERGY_FILL"
+const ONE_UP : = "ONE_UP"
+const BONUS_BALL : = "BONUS_BALL"
+const POINT_TALLY : = "POINT_TALLY"
+const VANISHING_BLOCKS : = "VANISHING_BLOCKS"
+const CONVEYOR_LIFT : = "CONVEYOR_LIFT"
+const BOSS_GATE : = "BOSS_GATE"
+const RUSHING_WATER : = "RUSHING_WATER"
+const ERR : = "ERR"
+const PI_PI_PI : = "PI_PI_PI"
 
-const SFX_PATHS := {
-	GAME_START:       "res://SFX/01 - GameStart.wav",
-	PAUSE_MENU:       "res://SFX/02 - PauseMenu.wav",
-	MENU_SELECT:      "res://SFX/03 - MenuSelect.wav",
-	MEGAMAN_WARP:     "res://SFX/04 - MegamanWarp.wav",
-	MEGA_BUSTER:      "res://SFX/05 - MegaBuster.wav",
-	MEGAMAN_LAND:     "res://SFX/06 - MegamanLand.wav",
-	MEGAMAN_DAMAGE:   "res://SFX/07 - MegamanDamage.wav",
-	MEGAMAN_DEFEAT:   "res://SFX/08 - MegamanDefeat.wav",
-	ENEMY_DAMAGE:     "res://SFX/09 - EnemyDamage.wav",
-	ENEMY_SHOOT:      "res://SFX/10 - EnemyShoot.wav",
-	DINK:             "res://SFX/11 - Dink.wav",
-	BIG_EYE:          "res://SFX/12 - BigEye.wav",
-	EXPLOSION:        "res://SFX/13 - Explosion.wav",
-	SUPER_ARM:        "res://SFX/14 - SuperArm.wav",
-	GUTS_QUAKE:       "res://SFX/15 - GutsQuake.wav",
-	THUNDER_BEAM:     "res://SFX/16 - ThunderBeam.wav",
-	BEAM:             "res://SFX/17 - Beam.wav",
-	ROLLING_CUTTER:   "res://SFX/18 - RollingCutter.wav",
-	CUTMAN_SNIP:      "res://SFX/19 - CutmanSnip.wav",
-	ICE_SLASHER:      "res://SFX/20 - IceSlasher.wav",
-	WATER_SPLASH:     "res://SFX/21 - WaterSplash.wav",
-	FIRE_STORM_1:     "res://SFX/22 - FireStorm1.wav",
-	FIRE_STORM_2:     "res://SFX/23 - FireStorm2.wav",
-	ENERGY_FILL:      "res://SFX/24 - EnergyFill.wav",
-	ONE_UP:           "res://SFX/25 - 1up.wav",
-	BONUS_BALL:       "res://SFX/26 - BonusBall.wav",
-	POINT_TALLY:      "res://SFX/27 - PointTally.wav",
+const SFX_PATHS : = {
+	GAME_START: "res://SFX/01 - GameStart.wav",
+	PAUSE_MENU: "res://SFX/02 - PauseMenu.wav",
+	MENU_SELECT: "res://SFX/03 - MenuSelect.wav",
+	MEGAMAN_WARP: "res://SFX/04 - MegamanWarp.wav",
+	MEGA_BUSTER: "res://SFX/05 - MegaBuster.wav",
+	MEGAMAN_LAND: "res://SFX/06 - MegamanLand.wav",
+	MEGAMAN_DAMAGE: "res://SFX/07 - MegamanDamage.wav",
+	MEGAMAN_DEFEAT: "res://SFX/08 - MegamanDefeat.wav",
+	ENEMY_DAMAGE: "res://SFX/09 - EnemyDamage.wav",
+	ENEMY_SHOOT: "res://SFX/10 - EnemyShoot.wav",
+	DINK: "res://SFX/11 - Dink.wav",
+	BIG_EYE: "res://SFX/12 - BigEye.wav",
+	EXPLOSION: "res://SFX/13 - Explosion.wav",
+	SUPER_ARM: "res://SFX/14 - SuperArm.wav",
+	THUNDER_BEAM: "res://SFX/16 - ThunderBeam.wav",
+	BEAM: "res://SFX/17 - Beam.wav",
+	ROLLING_CUTTER: "res://SFX/18 - RollingCutter.wav",
+	CUTMAN_SNIP: "res://SFX/19 - CutmanSnip.wav",
+	ENERGY_FILL: "res://SFX/24 - EnergyFill.wav",
+	ONE_UP: "res://SFX/25 - 1up.wav",
+	BONUS_BALL: "res://SFX/26 - BonusBall.wav",
+	POINT_TALLY: "res://SFX/27 - PointTally.wav",
 	VANISHING_BLOCKS: "res://SFX/28 - VanishingBlocks.wav",
-	CONVEYOR_LIFT:    "res://SFX/29 - ConveyorLift.wav",
-	BOSS_GATE:        "res://SFX/30 - BossGate.wav",
-	WILY_SHIP:        "res://SFX/31 - WilyShip.wav",
-	RUSHING_WATER:    "res://SFX/32 - RushingWater.wav",
-	ERR:              "res://SFX/33 - Err.wav",
-	PI_PI_PI:         "res://SFX/34 - PiPiPi.wav",
+	CONVEYOR_LIFT: "res://SFX/29 - ConveyorLift.wav",
+	BOSS_GATE: "res://SFX/30 - BossGate.wav",
+	RUSHING_WATER: "res://SFX/32 - RushingWater.wav",
+	ERR: "res://SFX/33 - Err.wav",
+	PI_PI_PI: "res://SFX/34 - PiPiPi.wav",
 }
 
 const POOL_SIZE := 8
