@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://c27m76nf6va12"]
+
+[ext_resource type="Texture2D" uid="uid://drdrrbxeab4mc" path="res://src/Enemies/SuperCutter/super_cutter.png" id="1_b48ei"]
+[ext_resource type="Script" uid="uid://bbwhcsnm0xu5e" path="res://src/Enemies/SuperCutter/super_cutter.gd" id="1_odgsb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6ycyo"]
+size = Vector2(117.5, 80.5)
+
+[node name="SuperCutter" type="Area2D" unique_id=349348394]
+collision_layer = 0
+collision_mask = 8
+script = ExtResource("1_odgsb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=143124175]
+shape = SubResource("RectangleShape2D_6ycyo")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1394167714]
+texture = ExtResource("1_b48ei")
+
+[node name="Timer" type="Timer" parent="." unique_id=1401075478]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

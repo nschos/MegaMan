@@ -35,7 +35,8 @@ folder_colors={
 "res://Megaman/": "blue",
 "res://src/": "yellow",
 "res://src/Enemies/": "pink",
-"res://src/Enemies/Beak/": "red"
+"res://src/Enemies/Beak/": "red",
+"res://src/Enemies/SuperCutter/": "gray"
 }
 
 [global_group]

@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://bnxd3s7e51arw"]
+
+[ext_resource type="Texture2D" uid="uid://drdrrbxeab4mc" path="res://src/Enemies/SuperCutter/super_cutter.png" id="1_pyw5h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6ycyo"]
+size = Vector2(17, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7q2pv"]
+atlas = ExtResource("1_pyw5h")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_deprp"]
+atlas = ExtResource("1_pyw5h")
+region = Rect2(16, 0, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6ycyo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7q2pv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_deprp")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 6.0
+}]
+
+[node name="SuperCutterBullet" type="Area2D" unique_id=2014957633]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=170505039]
+shape = SubResource("RectangleShape2D_6ycyo")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1937750345]
+sprite_frames = SubResource("SpriteFrames_6ycyo")
+frame_progress = 0.94105566
