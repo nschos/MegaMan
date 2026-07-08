@@ -2,11 +2,11 @@ Features que faltam:
 * Tiro (Nathan) ✅
 * Inimigos
     * Big Eye (BONUS ENEMY IF POSSIBLE)
-    * Octopus Battery (Brayan)
-    * Super Cutter (Brayan)
+    * Octopus Battery (Brayan) 🔄
+    * Super Cutter (Brayan) ✅
     * Beak (Nathan) ✅
     * Blader
-    * Screw Driver (Brayan)
+    * Screw Driver (Brayan) 
     * Mambu/Flying Shell
     * Flea/Kamadoma
     * Cutman
