@@ -2,6 +2,10 @@
 
 [ext_resource type="TileSet" uid="uid://4sd5yyra0fl8" path="res://TileSet_Cut_Man_Stage.tres" id="1_y6w0h"]
 [ext_resource type="Texture2D" uid="uid://dusrx0v5ik221" path="res://NES - Mega Man - Stages - Cut Man Stage.png" id="2_b0x5i"]
+[ext_resource type="Script" uid="uid://8lhqfng443s" path="res://Stages/CutMan/death_area_2d.gd" id="3_b0x5i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dws6g"]
+size = Vector2(32, 32)
 
 [node name="Scene_9" type="Node2D" unique_id=1030378226]
 
@@ -18,3 +22,15 @@ visible = false
 modulate = Color(1, 1, 1, 0.21568628)
 position = Vector2(640, 128)
 texture = ExtResource("2_b0x5i")
+
+[node name="Death_Area2D" type="Area2D" parent="." unique_id=2123518684]
+collision_layer = 0
+collision_mask = 8
+script = ExtResource("3_b0x5i")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Death_Area2D" unique_id=34146641]
+position = Vector2(176, 240)
+shape = SubResource("RectangleShape2D_dws6g")
+debug_color = Color(0.765029, 0, 0.20976987, 0.41960785)
+
+[connection signal="body_entered" from="Death_Area2D" to="Death_Area2D" method="_on_body_entered"]

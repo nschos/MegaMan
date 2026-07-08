@@ -1,9 +1,9 @@
 [gd_scene format=4 uid="uid://gw72rio30yss"]
 
 [ext_resource type="TileSet" uid="uid://4sd5yyra0fl8" path="res://TileSet_Cut_Man_Stage.tres" id="1_l2uxg"]
-[ext_resource type="Texture2D" uid="uid://dusrx0v5ik221" path="res://NES - Mega Man - Stages - Cut Man Stage.png" id="2_72dxv"]
 [ext_resource type="TileSet" uid="uid://bchmg0ysme7xv" path="res://invisible_tile_set.tres" id="3_i1ety"]
 [ext_resource type="Script" uid="uid://cxh8taod0stvc" path="res://invisible_wall_script.gd" id="4_0n7yp"]
+[ext_resource type="PackedScene" uid="uid://c5uavy53s26n5" path="res://src/Enemies/Super Cutter/CutterSpawner.tscn" id="4_i1ety"]
 
 [node name="Scene_8" type="Node2D" unique_id=37351230]
 
@@ -15,14 +15,11 @@ tile_set = ExtResource("1_l2uxg")
 tile_map_data = PackedByteArray("AAAEAA4AAgAEAAAAAAAEAA8AAgADAAAAAAAFAA4AAgADAAAAAAAFAA8AAgAEAAAAAAAGAA4AAgAEAAAAAAAGAA8AAgADAAAAAAAHAA4AAgADAAAAAAAHAA8AAgAEAAAAAAAIAA4AAgAEAAAAAAAIAA8AAgADAAAAAAAJAA4AAgADAAAAAAAJAA8AAgAEAAAAAAAKAA4AAgAEAAAAAAAKAA8AAgADAAAAAAALAA4AAgADAAAAAAALAA8AAgAEAAAAAAAMAA4AAgAEAAAAAAAMAA8AAgADAAAAAAANAA4AAgADAAAAAAANAA8AAgAEAAAAAAAOAA4AAgAEAAAAAAAOAA8AAgADAAAAAAAPAA4AAgADAAAAAAAPAA8AAgAEAAAAAAANAA0AAgAEAAAAAAAOAA0AAgADAAAAAAAPAA0AAgAEAAAAAAAMAA0AAgADAAAAAAAEAA0AAgACAAAAAAAFAA0AAgACAAAAAAAGAA0AAgACAAAAAAAHAA0AAgACAAAAAAAIAA0AAgACAAAAAAAJAA0AAgACAAAAAAAKAA0AAgACAAAAAAALAA0AAgACAAAAAAAMAAwAAgACAAAAAAANAAwAAgACAAAAAAAOAAwAAgACAAAAAAAPAAwAAgACAAAAAAADAA0AAgAFAAAAAAADAA4AAgAFAAAAAwADAA8AAgAFAAAABAA=")
 tile_set = ExtResource("1_l2uxg")
 
-[node name="NesMegaManStagesCutManStage" type="Sprite2D" parent="." unique_id=486655598]
-visible = false
-modulate = Color(1, 1, 1, 0.21568628)
-position = Vector2(896, 128)
-texture = ExtResource("2_72dxv")
-
 [node name="InvisibleWall" type="TileMapLayer" parent="." unique_id=1869223166]
 tile_map_data = PackedByteArray("AAAAAAsAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA0AAAAAAAAAAAAAAAwAAAAAAAAAAAA=")
 tile_set = ExtResource("3_i1ety")
 collision_visibility_mode = 1
 script = ExtResource("4_0n7yp")
+
+[node name="CutterSpawner" parent="." unique_id=964127535 instance=ExtResource("4_i1ety")]
+position = Vector2(144, 176)
