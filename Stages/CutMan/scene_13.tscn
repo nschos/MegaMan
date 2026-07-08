@@ -2,6 +2,8 @@
 
 [ext_resource type="TileSet" uid="uid://4sd5yyra0fl8" path="res://TileSet_Cut_Man_Stage.tres" id="1_t170k"]
 [ext_resource type="Texture2D" uid="uid://dusrx0v5ik221" path="res://NES - Mega Man - Stages - Cut Man Stage.png" id="2_sqrqf"]
+[ext_resource type="Script" uid="uid://bfyvjgp7j15n3" path="res://mob_spawner.gd" id="3_6giiu"]
+[ext_resource type="PackedScene" uid="uid://c1xi10s7l12v8" path="res://src/Enemies/Octopus Battery/octopus_battery_enemy.tscn" id="4_2bucf"]
 
 [node name="Scene_13" type="Node2D" unique_id=2074448629]
 
@@ -18,3 +20,69 @@ visible = false
 modulate = Color(1, 1, 1, 0.21568628)
 position = Vector2(384, 896)
 texture = ExtResource("2_sqrqf")
+
+[node name="MobSpawner" type="Node2D" parent="." unique_id=880123807]
+position = Vector2(32, 160)
+script = ExtResource("3_6giiu")
+metadata/_custom_type_script = "uid://bfyvjgp7j15n3"
+
+[node name="OctopusBattery" parent="MobSpawner" unique_id=369708287 instance=ExtResource("4_2bucf")]
+position = Vector2(8, 8)
+
+[node name="TargetMarker" parent="MobSpawner/OctopusBattery" index="2" unique_id=1831269640]
+position = Vector2(16, 0)
+gizmo_extents = 8.0
+
+[node name="MobSpawner2" type="Node2D" parent="." unique_id=412499801]
+position = Vector2(48, 112)
+script = ExtResource("3_6giiu")
+metadata/_custom_type_script = "uid://bfyvjgp7j15n3"
+
+[node name="OctopusBattery" parent="MobSpawner2" unique_id=1764374423 instance=ExtResource("4_2bucf")]
+position = Vector2(8, 8)
+
+[node name="TargetMarker" parent="MobSpawner2/OctopusBattery" index="2" unique_id=1831269640]
+position = Vector2(0, 80)
+gizmo_extents = 8.0
+
+[node name="MobSpawner3" type="Node2D" parent="." unique_id=496045214]
+position = Vector2(128, 128)
+script = ExtResource("3_6giiu")
+metadata/_custom_type_script = "uid://bfyvjgp7j15n3"
+
+[node name="OctopusBattery" parent="MobSpawner3" unique_id=1253324269 instance=ExtResource("4_2bucf")]
+position = Vector2(8, 8)
+
+[node name="TargetMarker" parent="MobSpawner3/OctopusBattery" index="2" unique_id=1831269640]
+position = Vector2(48, 0)
+gizmo_extents = 8.0
+
+[node name="MobSpawner4" type="Node2D" parent="." unique_id=1967683853]
+position = Vector2(32, 64)
+script = ExtResource("3_6giiu")
+metadata/_custom_type_script = "uid://bfyvjgp7j15n3"
+
+[node name="OctopusBattery" parent="MobSpawner4" unique_id=1857649106 instance=ExtResource("4_2bucf")]
+position = Vector2(8, 8)
+
+[node name="TargetMarker" parent="MobSpawner4/OctopusBattery" index="2" unique_id=1831269640]
+position = Vector2(176, 0)
+gizmo_extents = 8.0
+
+[node name="MobSpawner5" type="Node2D" parent="." unique_id=1563965331]
+position = Vector2(192, 32)
+script = ExtResource("3_6giiu")
+metadata/_custom_type_script = "uid://bfyvjgp7j15n3"
+
+[node name="OctopusBattery" parent="MobSpawner5" unique_id=1877067397 instance=ExtResource("4_2bucf")]
+position = Vector2(8, 8)
+
+[node name="TargetMarker" parent="MobSpawner5/OctopusBattery" index="2" unique_id=1831269640]
+position = Vector2(0, 48)
+gizmo_extents = 8.0
+
+[editable path="MobSpawner/OctopusBattery"]
+[editable path="MobSpawner2/OctopusBattery"]
+[editable path="MobSpawner3/OctopusBattery"]
+[editable path="MobSpawner4/OctopusBattery"]
+[editable path="MobSpawner5/OctopusBattery"]
