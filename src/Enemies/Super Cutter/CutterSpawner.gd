@@ -7,7 +7,7 @@ extends Node2D
 
 @onready var spawn_timer: Timer = $SpawnTimer
 @onready var spawn_point: Marker2D = $SpawnPoint
-@onready var trigger_zone: Area2D = $TriggerZone # Adicionada a referência ao nó
+@onready var trigger_zone: Area2D = $TriggerZone 
 
 var player_ref: Node2D = null
 
@@ -43,20 +43,16 @@ func _spawn_cutter() -> void:
 		
 	var cutter = cutter_scene.instantiate()
 	
-	# Posição inicial da tesoura
+
 	cutter.global_position = spawn_point.global_position
 	
 	if player_ref:
-		# 1. Qual a distância horizontal entre a máquina e o Mega Man?
 		var distance_x = abs(player_ref.global_position.x - global_position.x)
 		
-		# 2. Calcula o tempo total que a tesoura ficará no ar (Subida + Descida)
 		var time_in_air = (2.0 * abs(cutter.jump_force)) / cutter.fall_gravity
 		
-		# 3. Ajusta a velocidade horizontal para cobrir a distância nesse tempo exato
 		cutter.horizontal_speed = distance_x / time_in_air
 		
-		# 4. Define a direção para a qual ela deve voar
 		if player_ref.global_position.x < global_position.x:
 			cutter.direction = -1
 			cutter.get_node("inimigo3").flip_h = false
@@ -64,12 +60,9 @@ func _spawn_cutter() -> void:
 			cutter.direction = 1
 			cutter.get_node("inimigo3").flip_h = true
 	else:
-		# Se não houver alvo, joga com a direção padrão
 		cutter.direction = default_direction
 
-	# Adiciona a tesoura à cena
 	get_tree().current_scene.call_deferred("add_child", cutter)
 		
-	# Inicia o movimento com os novos valores
 	if cutter.has_method("spawn"):
 		cutter.spawn()
