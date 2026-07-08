@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://41lrhnf41t2r"
-path="res://.godot/imported/inimigo_5.png-80bf68244f5425ea5fb26f5aa891c733.ctex"
+path="res://.godot/imported/inimigo_5.png-b6ca91d0cb7efa29cc3570649e44b43b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://src/Enemies/inimigo_5.png"
-dest_files=["res://.godot/imported/inimigo_5.png-80bf68244f5425ea5fb26f5aa891c733.ctex"]
+source_file="res://src/Enemies/Octopus Battery/inimigo_5.png"
+dest_files=["res://.godot/imported/inimigo_5.png-b6ca91d0cb7efa29cc3570649e44b43b.ctex"]
 
 [params]
 
