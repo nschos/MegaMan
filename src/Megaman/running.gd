@@ -108,11 +108,7 @@ func physics_update(_delta: float) -> void:
 		var current_frame = megaman.animation_player.frame
 		megaman.animation_player.play(current_animation)
 		megaman.animation_player.frame = current_frame
-		
 	
-	
-	
-
 
 	if megaman.velocity.x > 0:
 		megaman.animation_player.flip_h = true

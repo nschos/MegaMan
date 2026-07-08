@@ -10,6 +10,7 @@ var current_HP: int = initial_HP:
 const enemy_layer = 6
 
 const drop_scene := preload("res://Drops/drop.tscn")
+const death_scene := preload("res://enemy_death_scene.tscn")
 
 @onready var visible_notifier: VisibleOnScreenNotifier2D = VisibleOnScreenNotifier2D.new()
 
@@ -53,7 +54,13 @@ func set_health(value: int):
 	current_HP = max(0, value)
 	if current_HP == 0:
 		spawn_drop()
+		explosion_animation()
 		died.emit()
-#
+
+func explosion_animation() -> void:
+	var explosion: Node2D = death_scene.instantiate()
+	get_tree().current_scene.add_child(explosion)
+	explosion.position = self.global_position
+
 func get_health() -> int:
 	return current_HP
