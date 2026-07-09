@@ -137,6 +137,7 @@ func _physics_process(_delta: float) -> void:
 	blink_timer += 1
 
 func _shoot_bullet() -> void:
+	SFXManager.play(SFXManager.MEGA_BUSTER)
 	for bullet in bullets:
 		if not bullet.bullet_moving:
 			#bullet.position = self.global_position
@@ -216,6 +217,7 @@ func _calculate_ladder_x(body: Node2D) -> void:
 	
 func death() -> void:
 	print("O jogador morreu!")
+	SFXManager.play(SFXManager.MEGAMAN_DEFEAT)
 	
 	has_control = false
 	velocity = Vector2.ZERO
@@ -257,6 +259,7 @@ func take_damage(damage: int) -> void:
 		self.HP -= damage
 		god_mode_frame_counter = 0
 		god_mode = true
+		SFXManager.play(SFXManager.MEGAMAN_DAMAGE)
 		self.state_machine.state.finished.emit(MegaManState.HURT)
 		
 		if self.HP <= 0:

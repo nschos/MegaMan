@@ -10,6 +10,7 @@ const HP_format = "HP: %d"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	SFXManager.play(SFXManager.GAME_START)
 	megaman_HP.text = HP_format % megaman.HP
 	pass # Replace with function body.
 

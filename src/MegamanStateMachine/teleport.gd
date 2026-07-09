@@ -4,6 +4,7 @@ class_name MegaMan_State_Teleport extends MegaManState
 
 func enter(_previous_state_path: String, _data := {}) -> void:
 	print("teleport!")
+	SFXManager.play(SFXManager.MEGAMAN_WARP)
 	megaman.animation_player.play("teleport")
 	megaman.has_control = false
 	await megaman.animation_player.animation_finished
