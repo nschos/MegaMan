@@ -25,6 +25,7 @@ func _process(delta: float) -> void:
 				isAttacking = false
 				self.visible = false
 				cutman.assembled = true
+				cutman.take_rolling_cutter()
 		pass
 	pass
 
