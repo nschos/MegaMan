@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://bjr1uou5v8wco" path="res://WeaponsMenu/FullAmmo.png" id="8_5fe0t"]
 [ext_resource type="Texture2D" uid="uid://gey1tpgl0j83" path="res://EnergyBars/EmptyHealth.png" id="9_q77pa"]
 [ext_resource type="Texture2D" uid="uid://cy6pbfeqfp5wk" path="res://EnergyBars/FullHealth.png" id="10_n8582"]
+[ext_resource type="FontFile" uid="uid://cnd4mbriefpra" path="res://Fonts/mega-man-1-2.otf" id="11_score"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_l0kyh"]
 atlas = ExtResource("2_djx8a")
@@ -370,3 +371,19 @@ fill_mode = 3
 texture_under = ExtResource("9_q77pa")
 texture_progress = ExtResource("10_n8582")
 texture_progress_offset = Vector2(1, 1)
+
+[node name="ScoreLabel" type="RichTextLabel" parent="." unique_id=713529841]
+visible = false
+offset_left = -27.0
+offset_top = -97.0
+offset_right = 29.0
+offset_bottom = -89.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 0
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_fonts/normal_font = ExtResource("11_score")
+theme_override_font_sizes/normal_font_size = 8
+text = "0000000"
+fit_content = true
+scroll_active = false

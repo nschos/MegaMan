@@ -16,21 +16,23 @@ var tick_timer: float = 0.0
 var tick_speed: float = 0.05 
 
 func _ready() -> void:
+	SFXManager.play_music(SFXManager.STAGE_SELECT)
 	initial_button.grab_focus()
 	score_value.text = "" 
 
 
 func _on_cutman_button_pressed() -> void:
+	SFXManager.play(SFXManager.GAME_START)
 	anim_player.play("Cutman Stage")
+	SFXManager.play_music(SFXManager.ENEMY_CHOSEN)
 	await anim_player.animation_finished
 	get_tree().change_scene_to_file("res://main.tscn")
+	SFXManager.play_music(SFXManager.CUTMAN_MUSIC)
 
 func start_score_sequence() -> void:
 	randomize() 
 	final_score = randi_range(5, 10) * 10000
-	
-	#final_score = 100000
-	
+	current_display_score = 0
 	is_randomizing = true
 	current_time = 0.0
 	tick_timer = 0.0

@@ -19,6 +19,8 @@ config/icon="res://icon.svg"
 [autoload]
 
 FrameAdvanceDebugTool="*uid://ime4cv5cf4eq"
+SFXManager="*res://SFXManager.gd"
+ScoreManager="*res://ScoreManager.gd"
 
 [display]
 

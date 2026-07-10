@@ -21,6 +21,7 @@ func physics_update(_delta: float) -> void:
 		megaman.animation_player.flip_h = false
 	
 	if megaman.is_on_floor():
+		SFXManager.play(SFXManager.MEGAMAN_LAND)
 		if megaman.velocity.x != 0:
 			finished.emit(RUNNING)
 		else:

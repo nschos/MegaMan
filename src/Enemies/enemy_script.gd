@@ -52,10 +52,12 @@ func spawn_drop() -> void:
 	pass
 
 func set_health(value: int):
+	var was_alive := current_HP > 0
 	current_HP = max(0, value)
-	if current_HP == 0:
+	if current_HP == 0 and was_alive:
 		spawn_drop()
 		explosion_animation()
+		ScoreManager.add_enemy_kill_score()
 		died.emit()
 
 func explosion_animation() -> void:

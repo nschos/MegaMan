@@ -16,6 +16,7 @@ func _ready() -> void:
 func _on_focus_entered() -> void:
 	sprite.play("focus")
 	sprite.frame = 1
+	SFXManager.play(SFXManager.MENU_SELECT)
 
 func _on_focus_exited() -> void:
 	sprite.stop()
