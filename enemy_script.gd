@@ -38,8 +38,10 @@ func cause_damage():
 	self.current_HP -= 20
 
 func set_health(value: int):
+	var was_alive := current_HP > 0
 	current_HP = max(0, value)  # Ensures health doesn't go below 0
-	if current_HP == 0:
+	if current_HP == 0 and was_alive:
+		ScoreManager.add_enemy_kill_score()
 		died.emit()
 #
 func get_health() -> int:

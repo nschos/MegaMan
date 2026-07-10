@@ -13,16 +13,19 @@ var final_score: int = 90000
 var current_display_score: int = 0
 
 func _ready() -> void:
+	SFXManager.play_music(SFXManager.STAGE_SELECT)
 	initial_button.grab_focus()
 	randomize()
 
 func _on_cutman_button_pressed() -> void:
 	print("Botão pressionado!")
+	SFXManager.play(SFXManager.GAME_START)
 	
 	$AnimationPlayer.play("Cutman Stage")
+	SFXManager.play_music(SFXManager.ENEMY_CHOSEN)
 	await $AnimationPlayer.animation_finished
 	get_tree().change_scene_to_file("res://main.tscn")
-
+	SFXManager.play_music(SFXManager.CUTMAN_MUSIC)
 
 func start_score_sequence(target_score: int) -> void:
 	final_score = target_score

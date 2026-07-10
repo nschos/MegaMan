@@ -8,6 +8,9 @@ enum MenuState { CLOSED, OPENING, OPEN, CLOSING }
 @onready var cursor_p: AnimatedSprite2D = $P
 @onready var ammo_bar: TextureProgressBar = $TextureProgressBarAmmo
 @onready var health_bar: TextureProgressBar = $TextureProgressBarHealth
+@onready var score_label: RichTextLabel = $ScoreLabel
+
+const SCORE_format := "%07d"
 
 var weapon_slots: Array[AnimatedSprite2D]
 var selected_index: int = 0
@@ -24,6 +27,9 @@ func _ready() -> void:
 	base_menu.visible = false
 	ammo_bar.visible = false
 	health_bar.visible = true
+	score_label.visible = true
+	score_label.text = SCORE_format % ScoreManager.score
+	ScoreManager.score_changed.connect(_on_score_changed)
 	_hide_cursors()
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -56,6 +62,7 @@ func _open_menu() -> void:
 	base_menu.visible = false
 	ammo_bar.visible = false
 	health_bar.visible = false
+	score_label.visible = false
 	_hide_cursors()
 
 	pause_menu.visible = true
@@ -84,6 +91,7 @@ func _on_pause_menu_animation_finished() -> void:
 		state = MenuState.CLOSED
 		pause_menu.visible = false
 		health_bar.visible = true
+		score_label.visible = true
 
 		get_tree().paused = false
 		_set_player_control(true)
@@ -118,4 +126,8 @@ func _set_player_control(can_control: bool) -> void:
 
 func _on_megaman_megaman_hp_changed(HP: int) -> void:
 	health_bar.value = HP
+	pass # Replace with function body.
+
+func _on_score_changed(new_score: int) -> void:
+	score_label.text = SCORE_format % new_score
 	pass # Replace with function body.
