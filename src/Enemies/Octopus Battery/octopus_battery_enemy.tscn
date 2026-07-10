@@ -1,0 +1,89 @@
+[gd_scene format=3 uid="uid://c1xi10s7l12v8"]
+
+[ext_resource type="Script" uid="uid://dcr07oyf16o20" path="res://src/Enemies/Octopus Battery/octopus_battery_script.gd" id="1_4ppj2"]
+[ext_resource type="Texture2D" uid="uid://41lrhnf41t2r" path="res://src/Enemies/Octopus Battery/inimigo_5.png" id="1_ojjfh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vo26e"]
+atlas = ExtResource("1_ojjfh")
+region = Rect2(0, 0, 18, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qx5x6"]
+atlas = ExtResource("1_ojjfh")
+region = Rect2(0, 0, 18, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gmtbm"]
+atlas = ExtResource("1_ojjfh")
+region = Rect2(18, 0, 18, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qyxm7"]
+atlas = ExtResource("1_ojjfh")
+region = Rect2(18, 0, 18, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yvbf1"]
+atlas = ExtResource("1_ojjfh")
+region = Rect2(0, 0, 18, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kwmg1"]
+atlas = ExtResource("1_ojjfh")
+region = Rect2(36, 0, 18, 18)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p5x73"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vo26e")
+}],
+"loop": 0,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qx5x6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gmtbm")
+}],
+"loop": 0,
+"name": &"move_anim",
+"speed": 5.5
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qyxm7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yvbf1")
+}],
+"loop": 0,
+"name": &"move_stop",
+"speed": 5.5
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kwmg1")
+}],
+"loop": 1,
+"name": &"moving",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2oq0r"]
+size = Vector2(16, 16)
+
+[node name="OctopusBattery" type="Area2D" unique_id=369708287]
+collision_mask = 8
+script = ExtResource("1_4ppj2")
+speed = 100.0
+pause_time = 1.5
+initial_HP = 5
+
+[node name="inimigo5" type="AnimatedSprite2D" parent="." unique_id=1358088948]
+sprite_frames = SubResource("SpriteFrames_p5x73")
+animation = &"move_anim"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=564659518]
+visibility_layer = 8
+shape = SubResource("RectangleShape2D_2oq0r")
+
+[node name="TargetMarker" type="Marker2D" parent="." unique_id=1831269640]

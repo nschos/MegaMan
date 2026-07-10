@@ -1,71 +1,72 @@
 extends Control
 
 @onready var initial_button: Button = $Control/Cutman_Button
-
 @onready var score_value: RichTextLabel = $ColorRect/ColorRect/ScoreValue
 @onready var anim_player: AnimationPlayer = $AnimationPlayer
 
-var animation_duration: float = 1.5
-var tick_speed: float = 0.05          
-var score_increment: int = 10000   
+var final_score: int = 0 
+var score_increment: int = 10000
 
-var final_score: int = 90000
-var current_display_score: int = 0
+
+var is_randomizing: bool = false
+var current_time: float = 0.0
+var animation_duration: float = 1.5
+
+var tick_timer: float = 0.0
+var tick_speed: float = 0.05 
 
 func _ready() -> void:
 	SFXManager.play_music(SFXManager.STAGE_SELECT)
 	initial_button.grab_focus()
-	randomize()
+	score_value.text = "" 
+
 
 func _on_cutman_button_pressed() -> void:
-	print("Botão pressionado!")
 	SFXManager.play(SFXManager.GAME_START)
-	
-	$AnimationPlayer.play("Cutman Stage")
+	anim_player.play("Cutman Stage")
 	SFXManager.play_music(SFXManager.ENEMY_CHOSEN)
-	await $AnimationPlayer.animation_finished
+	await anim_player.animation_finished
 	get_tree().change_scene_to_file("res://main.tscn")
 	SFXManager.play_music(SFXManager.CUTMAN_MUSIC)
 
-func start_score_sequence(target_score: int) -> void:
-	final_score = target_score
+func start_score_sequence() -> void:
+	randomize() 
+	final_score = randi_range(5, 10) * 10000
 	current_display_score = 0
-	
-	# Start your AnimationPlayer visual sequence if needed
-	if anim_player.has_animation("Cutman Stage"):
-		anim_player.play("Cutman Stage")
-		
-	# Start the randomization loop
-	_roll_score_loop()
+	is_randomizing = true
+	current_time = 0.0
+	tick_timer = 0.0
 
-func _roll_score_loop() -> void:
-	var elapsed_time: float = 0.5
+func _process(delta: float) -> void:
+	if not is_randomizing:
+		return
+		
+	current_time += delta
+	tick_timer += delta
 	
-	# Loop until the elapsed timer runs past our desired duration
-	while elapsed_time < animation_duration:
-		# 1. Pick a random multiple of 10,000
-		# Calculates how many 10k blocks fit into the final score, picks a random block index, and multiplies it back
-		var max_blocks = final_score / score_increment
-		if max_blocks > 0:
-			var random_block = randi_range(1, max_blocks)
-			current_display_score = random_block * score_increment
-		else:
-			current_display_score = 0
+	if current_time >= animation_duration:
+		is_randomizing = false
+		
+	
+		score_value.text = _format_score(final_score)
+		
+		if final_score == 100000:
+			await get_tree().create_timer(0.1).timeout
+			score_value.text = "100000"
 			
-		# 2. Update display with thousands separator formatting (e.g., 20.000 or 20,000 depending on locale)
+		return
+		
+	if tick_timer >= tick_speed:
+		tick_timer = 0.0 
+		
+		var random_block = randi_range(0, 10)
+		var current_display_score = random_block * score_increment
+		
 		score_value.text = _format_score(current_display_score)
-		
-		# 3. This acts as our timer. It pauses this function for 'tick_speed' seconds before looping
-		await get_tree().create_timer(tick_speed).timeout
-		elapsed_time += tick_speed
-		
-	# TIMER ENDED: Lock in the final, true score
-	score_value.text = _format_score(final_score)
 
-# Helper function to format the number with a dot separator like classic retro games
+
 func _format_score(value: int) -> String:
-	var num_str = str(value)
-	if num_str.length() > 3:
-		# Inserts a dot before the last 3 digits (e.g., 10000 becomes 10.000)
-		return num_str.left(num_str.length() - 3) + "." + num_str.right(3)
-	return num_str
+	if value == 100000:
+		return "00000"
+	else:
+		return "%05d" % value

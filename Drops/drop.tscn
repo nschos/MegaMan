@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://8llddviavc4n"]
+
+[ext_resource type="Script" uid="uid://cvl3ec7darq6k" path="res://src/drop.gd" id="1_gehci"]
+[ext_resource type="SpriteFrames" uid="uid://ckpnphvopfdk3" path="res://Drops/drops_sprite_frame.tres" id="2_okpj3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_04gau"]
+size = Vector2(8, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tggb2"]
+size = Vector2(8, 8)
+
+[node name="Drop" type="CharacterBody2D" unique_id=888676202]
+collision_layer = 128
+script = ExtResource("1_gehci")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1025560713]
+shape = SubResource("RectangleShape2D_04gau")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1050092130]
+collision_layer = 128
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1664467832]
+shape = SubResource("RectangleShape2D_tggb2")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=894694669]
+sprite_frames = ExtResource("2_okpj3")
+animation = &"small_energy_refill"
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1451550822]
+rect = Rect2(-7, -8, 14, 16)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

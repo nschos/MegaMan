@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://dqiqo2yko63sc"]
+
+[ext_resource type="Texture2D" uid="uid://toos51biorce" path="res://src/Enemies/inimigo_4.png" id="1_le4hi"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3l34t"]
+atlas = ExtResource("1_le4hi")
+region = Rect2(0, 0, 16, 26)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tp0g4"]
+atlas = ExtResource("1_le4hi")
+region = Rect2(16, 0, 16, 26)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_il2eb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3l34t")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tp0g4")
+}],
+"loop": 1,
+"name": &"jump",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ptkcv"]
+size = Vector2(14, 22)
+
+[node name="Inim4" type="Area2D" unique_id=23845811]
+
+[node name="inimigo4" type="AnimatedSprite2D" parent="." unique_id=675593021]
+sprite_frames = SubResource("SpriteFrames_il2eb")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=547869208]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_ptkcv")

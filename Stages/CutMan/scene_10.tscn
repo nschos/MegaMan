@@ -2,6 +2,8 @@
 
 [ext_resource type="TileSet" uid="uid://4sd5yyra0fl8" path="res://TileSet_Cut_Man_Stage.tres" id="1_8uxfo"]
 [ext_resource type="Texture2D" uid="uid://dusrx0v5ik221" path="res://NES - Mega Man - Stages - Cut Man Stage.png" id="2_6nceh"]
+[ext_resource type="Script" uid="uid://bfyvjgp7j15n3" path="res://mob_spawner.gd" id="3_70ott"]
+[ext_resource type="PackedScene" uid="uid://c1xi10s7l12v8" path="res://src/Enemies/Octopus Battery/octopus_battery_enemy.tscn" id="4_2g3rr"]
 
 [node name="Scene_10" type="Node2D" unique_id=1842796285]
 
@@ -18,3 +20,42 @@ visible = false
 modulate = Color(1, 1, 1, 0.21568628)
 position = Vector2(384, 128)
 texture = ExtResource("2_6nceh")
+
+[node name="MobSpawner" type="Node2D" parent="." unique_id=59266983]
+position = Vector2(64, 160)
+script = ExtResource("3_70ott")
+metadata/_custom_type_script = "uid://bfyvjgp7j15n3"
+
+[node name="OctopusBattery" parent="MobSpawner" unique_id=369708287 instance=ExtResource("4_2g3rr")]
+position = Vector2(8, 8)
+
+[node name="TargetMarker" parent="MobSpawner/OctopusBattery" index="2" unique_id=1831269640]
+position = Vector2(0, 16)
+
+[node name="MobSpawner2" type="Node2D" parent="." unique_id=1795323034]
+position = Vector2(176, 128)
+script = ExtResource("3_70ott")
+metadata/_custom_type_script = "uid://bfyvjgp7j15n3"
+
+[node name="OctopusBattery" parent="MobSpawner2" unique_id=2094021290 instance=ExtResource("4_2g3rr")]
+position = Vector2(8, 8)
+
+[node name="TargetMarker" parent="MobSpawner2/OctopusBattery" index="2" unique_id=1831269640]
+position = Vector2(-96, 0)
+gizmo_extents = 8.0
+
+[node name="MobSpawner3" type="Node2D" parent="." unique_id=1878745387]
+position = Vector2(96, 96)
+script = ExtResource("3_70ott")
+metadata/_custom_type_script = "uid://bfyvjgp7j15n3"
+
+[node name="OctopusBattery" parent="MobSpawner3" unique_id=43636060 instance=ExtResource("4_2g3rr")]
+position = Vector2(8, 8)
+
+[node name="TargetMarker" parent="MobSpawner3/OctopusBattery" index="2" unique_id=1831269640]
+position = Vector2(0, 32)
+gizmo_extents = 8.0
+
+[editable path="MobSpawner/OctopusBattery"]
+[editable path="MobSpawner2/OctopusBattery"]
+[editable path="MobSpawner3/OctopusBattery"]

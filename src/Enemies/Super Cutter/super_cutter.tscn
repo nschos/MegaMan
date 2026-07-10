@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://bfcbu71qa0142"]
+
+[ext_resource type="Script" uid="uid://dmcrtue410icc" path="res://src/Enemies/Super Cutter/superCutter_script.gd" id="1_wjvib"]
+[ext_resource type="Texture2D" uid="uid://ynkntjt68xfn" path="res://src/Enemies/Super Cutter/inimigo_3.png" id="2_kdice"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ysqwu"]
+atlas = ExtResource("2_kdice")
+region = Rect2(0, 0, 18, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_63rmu"]
+atlas = ExtResource("2_kdice")
+region = Rect2(18, 0, 18, 22)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_irpwu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ysqwu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_63rmu")
+}],
+"loop": 1,
+"name": &"pac",
+"speed": 6.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ny0gp"]
+size = Vector2(16, 18)
+
+[node name="superCutter_scene" type="Area2D" unique_id=525042417]
+collision_mask = 9
+script = ExtResource("1_wjvib")
+jump_force = -300.0
+fall_gravity = 1000.0
+horizontal_speed = 50.0
+
+[node name="inimigo3" type="AnimatedSprite2D" parent="." unique_id=1940487154]
+sprite_frames = SubResource("SpriteFrames_irpwu")
+animation = &"pac"
+autoplay = "pac"
+frame_progress = 0.03788783
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=617238523]
+visibility_layer = 9
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_ny0gp")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
