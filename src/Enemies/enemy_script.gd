@@ -1,3 +1,4 @@
+@icon("uid://kbphqhfa66bp")
 class_name Enemy extends Area2D
 
 @export var initial_HP := 100:

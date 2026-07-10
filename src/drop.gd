@@ -60,7 +60,7 @@ func get_random_drop() -> DropType:
 		return DropType.NOTHING
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	#print("teste")
 	velocity.y += GRAVITY
 	#print(velocity.y)

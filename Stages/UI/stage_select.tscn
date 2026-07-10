@@ -7,7 +7,7 @@
 [ext_resource type="SpriteFrames" uid="uid://yoejs0d73cv7" path="res://Stages/UI/UI Assets/Sprites/Gutsman_Button.tres" id="3_8ec8j"]
 [ext_resource type="Texture2D" uid="uid://cui8u5rtavxyn" path="res://Stages/UI/UI Assets/placeholder.png" id="3_owd2e"]
 [ext_resource type="SpriteFrames" uid="uid://nydl2a6hcdtb" path="res://Stages/UI/UI Assets/Sprites/Cutman_Button.tres" id="3_yo44i"]
-[ext_resource type="SpriteFrames" uid="uid://d2ebg1d3c5ej" path="res://src/Enemies/Cutman/Cutman_Animations.tres" id="5_ky6rn"]
+[ext_resource type="SpriteFrames" uid="uid://d2ebg1d3c5ej" path="res://src/Enemies/Cutman_stage_selection/Cutman_Animations.tres" id="5_ky6rn"]
 [ext_resource type="SpriteFrames" uid="uid://bk5ixvkfhgij7" path="res://Stages/UI/UI Assets/Sprites/Iceman_Button.tres" id="6_84nb6"]
 [ext_resource type="SpriteFrames" uid="uid://d063j5r3mdut4" path="res://Stages/UI/UI Assets/Sprites/Elecman_Button.tres" id="6_f6gxm"]
 [ext_resource type="SpriteFrames" uid="uid://b5yulhphwman0" path="res://Stages/UI/UI Assets/Sprites/Fireman_Button.tres" id="7_3xu2o"]

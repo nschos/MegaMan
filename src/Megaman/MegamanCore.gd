@@ -246,7 +246,7 @@ func _on_higher_ladder_detection_body_entered(body: Node2D) -> void:
 	pass # Replace with function body.
 
 
-func _on_higher_ladder_detection_body_exited(body: Node2D) -> void:
+func _on_higher_ladder_detection_body_exited(_body: Node2D) -> void:
 	has_ladder_above = false
 	pass # Replace with function body.
 

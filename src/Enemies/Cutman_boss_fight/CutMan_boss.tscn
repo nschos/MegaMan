@@ -1,0 +1,182 @@
+[gd_scene format=3 uid="uid://dug5o5ney7fj5"]
+
+[ext_resource type="Script" uid="uid://n6mywl1cscmb" path="res://src/Enemies/Cutman_boss_fight/CutMan_Boss.gd" id="1_0vdtl"]
+[ext_resource type="Texture2D" uid="uid://beymgqb7575s8" path="res://src/Enemies/Cutman_boss_fight/CutMan_atlas.png" id="2_p77vg"]
+
+[sub_resource type="Animation" id="Animation_q0t41"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_p77vg"]
+resource_name = "assembled_idle"
+length = 0.3
+loop_mode = 1
+step = 0.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_0vdtl"]
+resource_name = "assembled_walk"
+length = 0.35
+loop_mode = 1
+step = 0.1167
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.11111111, 0.22222222),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [5, 4, 3]
+}
+
+[sub_resource type="Animation" id="Animation_on0tx"]
+resource_name = "desassembled_idle"
+length = 0.3
+loop_mode = 1
+step = 0.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [8, 9]
+}
+
+[sub_resource type="Animation" id="Animation_6mgda"]
+resource_name = "disassembled_walk"
+length = 0.35
+loop_mode = 1
+step = 0.1167
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1167, 0.2334),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [13, 12, 11]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_q0t41"]
+_data = {
+&"RESET": SubResource("Animation_q0t41"),
+&"assembled_idle": SubResource("Animation_p77vg"),
+&"assembled_walk": SubResource("Animation_0vdtl"),
+&"desassembled_idle": SubResource("Animation_on0tx"),
+&"disassembled_walk": SubResource("Animation_6mgda")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_p77vg"]
+animation = &"assembled_idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_q0t41"]
+animation = &"desassembled_idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_on0tx"]
+advance_mode = 2
+advance_expression = "assembled"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_g7onv"]
+advance_mode = 2
+advance_expression = "current_state != CutMAnState.IDLE"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_x61bh"]
+advance_mode = 2
+advance_expression = "not assembled"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_2pyre"]
+advance_mode = 2
+advance_expression = "current_state != CutManState.IDLE"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_papij"]
+advance_mode = 2
+advance_expression = "assembled"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_orcww"]
+advance_mode = 2
+advance_expression = "not assembled"
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_5ulwc"]
+states/End/position = Vector2(618, 112.625)
+states/Start/position = Vector2(188.5, 100.5)
+states/assembled_idle/node = SubResource("AnimationNodeAnimation_p77vg")
+states/assembled_idle/position = Vector2(384.56357, 52.5)
+states/desassembled_idle/node = SubResource("AnimationNodeAnimation_q0t41")
+states/desassembled_idle/position = Vector2(384.48544, 165)
+transitions = ["Start", "assembled_idle", SubResource("AnimationNodeStateMachineTransition_on0tx"), "assembled_idle", "End", SubResource("AnimationNodeStateMachineTransition_g7onv"), "Start", "desassembled_idle", SubResource("AnimationNodeStateMachineTransition_x61bh"), "desassembled_idle", "End", SubResource("AnimationNodeStateMachineTransition_2pyre"), "desassembled_idle", "assembled_idle", SubResource("AnimationNodeStateMachineTransition_papij"), "assembled_idle", "desassembled_idle", SubResource("AnimationNodeStateMachineTransition_orcww")]
+graph_offset = Vector2(34.1417, 0)
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_0vdtl"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_xniof"]
+states/End/position = Vector2(531.5, 83.897095)
+states/Start/position = Vector2(116, 83.78163)
+states/idle/node = SubResource("AnimationNodeStateMachine_5ulwc")
+states/idle/position = Vector2(331.5, 83.666176)
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_0vdtl")]
+graph_offset = Vector2(-40, -8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_04gau"]
+size = Vector2(24, 24)
+
+[node name="CutMan" type="CharacterBody2D" unique_id=1656311813]
+velocity = Vector2(0, 6964110)
+script = ExtResource("1_0vdtl")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1586171163]
+root_node = NodePath("../Sprite2D")
+libraries/ = SubResource("AnimationLibrary_q0t41")
+
+[node name="AnimationTree" type="AnimationTree" parent="." unique_id=461258988]
+root_node = NodePath("../Sprite2D")
+tree_root = SubResource("AnimationNodeStateMachine_xniof")
+advance_expression_base_node = NodePath("..")
+anim_player = NodePath("../AnimationPlayer")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=356290514]
+texture = ExtResource("2_p77vg")
+hframes = 8
+vframes = 2
+frame = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=527137444]
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_04gau")
+
+[node name="Timer" type="Timer" parent="." unique_id=846377271]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

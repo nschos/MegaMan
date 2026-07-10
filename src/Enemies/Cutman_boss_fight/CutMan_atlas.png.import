@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c40y6ajnymtis"
-path="res://.godot/imported/cutman_spritesheet.png-eca33ec24e8f0db63afc533c133697b5.ctex"
+uid="uid://beymgqb7575s8"
+path="res://.godot/imported/CutMan_atlas.png-1151fb827f981f9c245e003f64793084.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://src/Enemies/Cutman/cutman_spritesheet.png"
-dest_files=["res://.godot/imported/cutman_spritesheet.png-eca33ec24e8f0db63afc533c133697b5.ctex"]
+source_file="res://src/Enemies/Cutman_boss_fight/CutMan_atlas.png"
+dest_files=["res://.godot/imported/CutMan_atlas.png-1151fb827f981f9c245e003f64793084.ctex"]
 
 [params]
 

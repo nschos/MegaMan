@@ -16,6 +16,18 @@
 [ext_resource type="Script" uid="uid://rp61rc2w6xgh" path="res://Megaman/hurt.gd" id="13_wix26"]
 [ext_resource type="Script" uid="uid://dw8gbl727f2wp" path="res://src/Megaman/teleport.gd" id="15_301uh"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6ycyo"]
+size = Vector2(8, 3.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_thwjo"]
+size = Vector2(7.9, 21)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lquwl"]
+size = Vector2(7.9, 3.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0xm2m"]
+size = Vector2(15.9, 23)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_oehvy"]
 atlas = ExtResource("3_ens4t")
 region = Rect2(0, 96, 32, 32)
@@ -273,18 +285,6 @@ animations = [{
 "speed": 8.57
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_6ycyo"]
-size = Vector2(8, 3.5)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_thwjo"]
-size = Vector2(7.9, 21)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_lquwl"]
-size = Vector2(7.9, 3.5)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_0xm2m"]
-size = Vector2(15.9, 23)
-
 [node name="Megaman" type="CharacterBody2D" unique_id=1964672799 groups=["player"]]
 collision_layer = 8
 collision_mask = 5
@@ -300,14 +300,6 @@ visible = false
 
 [node name="BulletMegaman3" parent="." unique_id=72669066 instance=ExtResource("10_6rr7a")]
 visible = false
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1312357347]
-unique_name_in_owner = true
-sprite_frames = SubResource("SpriteFrames_riu6h")
-animation = &"teleport"
-frame = 3
-frame_progress = 1.0
-flip_h = true
 
 [node name="HigherLadderDetection" type="Area2D" parent="." unique_id=2070738451]
 collision_layer = 0
@@ -336,6 +328,12 @@ shape = SubResource("RectangleShape2D_lquwl")
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=17805679]
 position = Vector2(0, 3.5)
 shape = SubResource("RectangleShape2D_0xm2m")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1312357347]
+unique_name_in_owner = true
+sprite_frames = SubResource("SpriteFrames_riu6h")
+animation = &"idle"
+flip_h = true
 
 [node name="StateMachine" type="Node" parent="." unique_id=228864651 node_paths=PackedStringArray("initial_state")]
 script = ExtResource("4_rfobd")

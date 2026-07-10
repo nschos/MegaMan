@@ -35,7 +35,8 @@ folder_colors={
 "res://Megaman/": "blue",
 "res://src/": "yellow",
 "res://src/Enemies/": "pink",
-"res://src/Enemies/Beak/": "red"
+"res://src/Enemies/Beak/": "red",
+"res://src/Enemies/Cutman_stage_selection/": "yellow"
 }
 
 [global_group]
@@ -126,6 +127,8 @@ open_menu={
 2d_physics/layer_6="Enemy"
 2d_physics/layer_7="EnemyBullet"
 2d_physics/layer_8="Drop"
+2d_physics/layer_9="RollingCutter"
+2d_physics/layer_10="RollingCutterArena"
 
 [physics]
 
