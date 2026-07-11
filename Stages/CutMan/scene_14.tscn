@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://bxhh66qxk12ks"]
 
-[ext_resource type="TileSet" uid="uid://4sd5yyra0fl8" path="res://TileSet_Cut_Man_Stage.tres" id="1_1pc70"]
+[ext_resource type="TileSet" uid="uid://4sd5yyra0fl8" path="res://Stages/CutMan/TileSet_Cut_Man_Stage.tres" id="1_1pc70"]
 [ext_resource type="PackedScene" uid="uid://c5uavy53s26n5" path="res://src/Enemies/Super Cutter/CutterSpawner.tscn" id="2_1pc70"]
 
 [node name="Scene_14" type="Node2D" unique_id=401266934]

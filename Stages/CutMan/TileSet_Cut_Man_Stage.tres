@@ -1,6 +1,6 @@
 [gd_resource type="TileSet" format=3 uid="uid://4sd5yyra0fl8"]
 
-[ext_resource type="Texture2D" uid="uid://qp3oi4yyc33u" path="res://Cut_Man_Stage_Tiles.png" id="1_aws0i"]
+[ext_resource type="Texture2D" uid="uid://qp3oi4yyc33u" path="res://Cut_Man_Stage_Tiles.png" id="1_7diel"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_aws0i"]
 tile_data = PackedInt32Array(0, 196610, 0, 1, 262146, 0, 2, 196610, 0, 3, 262146, 0, 4, 196610, 0, 5, 262146, 0, 6, 196610, 0, 7, 262146, 0)
@@ -18,10 +18,11 @@ tile_data = PackedInt32Array(0, 262146, 0, 65536, 196610, 0, 1, 196610, 0, 65537
 tile_data = PackedInt32Array(0, 196610, 2, 65536, 2, 5, 131072, 2, 5, 196608, 2, 5, 262144, 2, 5, 1, 262146, 2, 65537, 327682, 1, 131073, 327682, 1, 196609, 327682, 1, 262145, 327682, 1, 2, 262146, 2, 65538, 2, 4, 131074, 131074, 4, 196610, 65538, 5, 262146, 2, 4, 3, 262146, 2, 65539, 65538, 4, 131075, 196610, 4, 196611, 131074, 5, 262147, 65538, 4, 4, 262146, 2, 65540, 327682, 1, 131076, 327682, 1, 196612, 327682, 1, 262148, 327682, 1, 5, 327682, 2, 65541, 196610, 5, 131077, 196610, 5, 196613, 196610, 5, 262149, 196610, 5)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y4q03"]
-texture = ExtResource("1_aws0i")
+texture = ExtResource("1_7diel")
 separation = Vector2i(1, 1)
 0:0/0 = 0
 1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 3:2/0 = 0
 3:3/0 = 0
 0:1/0 = 0

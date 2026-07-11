@@ -55,7 +55,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_xniof"]
 resource_name = "assembled_throw"
-length = 0.43329999999999996
+length = 0.4333
 step = 0.1333
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -76,11 +76,14 @@ tracks/1/path = NodePath("..")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.125),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0.1333, 0.4333),
+"transitions": PackedFloat32Array(1, 1),
 "values": [{
 "args": [],
 "method": &"throw_rolling_cutter"
+}, {
+"args": [],
+"method": &"throw_ended"
 }]
 }
 
@@ -103,7 +106,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_on0tx"]
-resource_name = "desassembled_idle"
+resource_name = "disassembled_idle"
 length = 0.3
 loop_mode = 1
 step = 0.15
@@ -162,13 +165,10 @@ _data = {
 &"assembled_jump": SubResource("Animation_g7onv"),
 &"assembled_throw": SubResource("Animation_xniof"),
 &"assembled_walk": SubResource("Animation_0vdtl"),
-&"desassembled_idle": SubResource("Animation_on0tx"),
+&"disassembled_idle": SubResource("Animation_on0tx"),
 &"disassembled_jump": SubResource("Animation_x61bh"),
 &"disassembled_walk": SubResource("Animation_6mgda")
 }
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_0vdtl"]
-animation = &"assembled_throw"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_p77vg"]
 animation = &"assembled_idle"
@@ -210,36 +210,44 @@ states/desassembled_idle/position = Vector2(384.48544, 165)
 transitions = ["Start", "assembled_idle", SubResource("AnimationNodeStateMachineTransition_on0tx"), "assembled_idle", "End", SubResource("AnimationNodeStateMachineTransition_g7onv"), "Start", "desassembled_idle", SubResource("AnimationNodeStateMachineTransition_x61bh"), "desassembled_idle", "End", SubResource("AnimationNodeStateMachineTransition_2pyre"), "desassembled_idle", "assembled_idle", SubResource("AnimationNodeStateMachineTransition_papij"), "assembled_idle", "desassembled_idle", SubResource("AnimationNodeStateMachineTransition_orcww")]
 graph_offset = Vector2(34.1417, 0)
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_2pyre"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_on0tx"]
 animation = &"assembled_jump"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_papij"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_g7onv"]
 animation = &"disassembled_jump"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_rttx1"]
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_mpa0j"]
 advance_mode = 2
 advance_expression = "assembled"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_tdapt"]
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_6vhil"]
 advance_mode = 2
 advance_expression = "not assembled"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_fkobp"]
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ajcwx"]
 advance_mode = 2
-advance_expression = "is_on_floor()"
+advance_expression = "current_state != CutManState.JUMP"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_6vhil"]
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_jwy1d"]
 advance_mode = 2
-advance_expression = "is_on_floor()"
+advance_expression = "current_state != CutManState.JUMP"
 
-[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_fkobp"]
-states/End/position = Vector2(625, 98.25)
-states/assembled_jump/node = SubResource("AnimationNodeAnimation_2pyre")
-states/assembled_jump/position = Vector2(408, 47)
-states/disassembled_jump/node = SubResource("AnimationNodeAnimation_papij")
-states/disassembled_jump/position = Vector2(417, 167.5)
-transitions = ["Start", "assembled_jump", SubResource("AnimationNodeStateMachineTransition_rttx1"), "Start", "disassembled_jump", SubResource("AnimationNodeStateMachineTransition_tdapt"), "assembled_jump", "End", SubResource("AnimationNodeStateMachineTransition_fkobp"), "disassembled_jump", "End", SubResource("AnimationNodeStateMachineTransition_6vhil")]
-graph_offset = Vector2(30, -10)
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_q4mcg"]
+advance_mode = 2
+advance_expression = "assembled"
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_0vdtl"]
+states/End/position = Vector2(600, 99)
+states/Start/position = Vector2(198, 120)
+states/assembled_jump/node = SubResource("AnimationNodeAnimation_on0tx")
+states/assembled_jump/position = Vector2(373, 72)
+states/disassembled_jump/node = SubResource("AnimationNodeAnimation_g7onv")
+states/disassembled_jump/position = Vector2(391, 189)
+transitions = ["Start", "assembled_jump", SubResource("AnimationNodeStateMachineTransition_mpa0j"), "Start", "disassembled_jump", SubResource("AnimationNodeStateMachineTransition_6vhil"), "assembled_jump", "End", SubResource("AnimationNodeStateMachineTransition_ajcwx"), "disassembled_jump", "End", SubResource("AnimationNodeStateMachineTransition_jwy1d"), "disassembled_jump", "assembled_jump", SubResource("AnimationNodeStateMachineTransition_q4mcg")]
+graph_offset = Vector2(-140, -60)
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_0vdtl"]
+animation = &"assembled_throw"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_6mgda"]
 animation = &"assembled_walk"
@@ -257,59 +265,61 @@ advance_expression = "not assembled"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_5ulwc"]
 advance_mode = 2
-advance_expression = "not walk"
+advance_expression = "current_state != CutManState.WALK"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_2jvo2"]
 advance_mode = 2
-advance_expression = "not walk"
+advance_expression = "current_state != CutManState.WALK"
 
-[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_6mgda"]
-states/End/position = Vector2(622.5, 100.5)
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_mpa0j"]
+states/End/position = Vector2(651, 153)
+states/Start/position = Vector2(247, 136)
 states/assembled_walk/node = SubResource("AnimationNodeAnimation_6mgda")
-states/assembled_walk/position = Vector2(411, 59.5)
+states/assembled_walk/position = Vector2(437, 114)
 states/disassembled_walk/node = SubResource("AnimationNodeAnimation_xniof")
-states/disassembled_walk/position = Vector2(411.5, 160.5)
+states/disassembled_walk/position = Vector2(445, 211)
 transitions = ["Start", "assembled_walk", SubResource("AnimationNodeStateMachineTransition_p77vg"), "Start", "disassembled_walk", SubResource("AnimationNodeStateMachineTransition_q0t41"), "assembled_walk", "End", SubResource("AnimationNodeStateMachineTransition_5ulwc"), "disassembled_walk", "End", SubResource("AnimationNodeStateMachineTransition_2jvo2")]
-graph_offset = Vector2(36, 8)
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_mpa0j"]
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_m8fjw"]
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_0vdtl"]
-states/End/position = Vector2(679.5, 96.6875)
-states/Start/position = Vector2(190.5, 112)
-states/jump/node = SubResource("AnimationNodeStateMachine_fkobp")
-states/jump/position = Vector2(442.25, 218.5)
-states/walk/node = SubResource("AnimationNodeStateMachine_6mgda")
-states/walk/position = Vector2(442, 87.59375)
-transitions = ["Start", "walk", SubResource("AnimationNodeStateMachineTransition_mpa0j"), "walk", "End", SubResource("AnimationNodeStateMachineTransition_m8fjw")]
-graph_offset = Vector2(-64, 22)
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_0vdtl"]
 advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_6mgda"]
 advance_mode = 2
-advance_expression = "throw == true"
+advance_expression = "current_state == CutManState.THROW"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_xniof"]
 switch_mode = 2
 advance_mode = 2
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_m8fjw"]
+advance_mode = 2
+advance_expression = "current_state == CutManState.JUMP"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_rttx1"]
+advance_mode = 2
+advance_expression = "current_state != CutManState.JUMP"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_tdapt"]
+advance_mode = 2
+advance_expression = "current_state == CutManState.WALK"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_fkobp"]
+advance_mode = 2
+advance_expression = "current_state != CutManState.WALK"
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_xniof"]
-states/End/position = Vector2(531.5, 83.897095)
-states/Start/position = Vector2(116, 83.78163)
-states/assembled_throw/node = SubResource("AnimationNodeAnimation_0vdtl")
-states/assembled_throw/position = Vector2(194.5, 221.0625)
+states/End/position = Vector2(641.5, 98.897095)
+states/Start/position = Vector2(110, 90.897095)
 states/idle/node = SubResource("AnimationNodeStateMachine_5ulwc")
-states/idle/position = Vector2(331, 83.83936)
-states/pursue/node = SubResource("AnimationNodeStateMachine_0vdtl")
-states/pursue/position = Vector2(465.5, 221.625)
-transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_0vdtl"), "idle", "assembled_throw", SubResource("AnimationNodeStateMachineTransition_6mgda"), "assembled_throw", "idle", SubResource("AnimationNodeStateMachineTransition_xniof")]
-graph_offset = Vector2(-152, 22)
+states/idle/position = Vector2(362, 90.897095)
+states/jump/node = SubResource("AnimationNodeStateMachine_0vdtl")
+states/jump/position = Vector2(589, 279.0625)
+states/throw/node = SubResource("AnimationNodeAnimation_0vdtl")
+states/throw/position = Vector2(136.5, 279.0625)
+states/walk/node = SubResource("AnimationNodeStateMachine_mpa0j")
+states/walk/position = Vector2(362, 385.0625)
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_0vdtl"), "idle", "throw", SubResource("AnimationNodeStateMachineTransition_6mgda"), "throw", "idle", SubResource("AnimationNodeStateMachineTransition_xniof"), "idle", "jump", SubResource("AnimationNodeStateMachineTransition_m8fjw"), "jump", "idle", SubResource("AnimationNodeStateMachineTransition_rttx1"), "idle", "walk", SubResource("AnimationNodeStateMachineTransition_tdapt"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_fkobp")]
+graph_offset = Vector2(-190.68958, 41.100403)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_04gau"]
 size = Vector2(24, 24)
@@ -317,6 +327,7 @@ size = Vector2(24, 24)
 [node name="CutMan" type="CharacterBody2D" unique_id=1656311813]
 velocity = Vector2(0, 6964110)
 script = ExtResource("1_0vdtl")
+current_state = 0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1586171163]
 root_node = NodePath("../Sprite2D")

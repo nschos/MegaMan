@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://c5uavy53s26n5"]
 
 [ext_resource type="Script" uid="uid://cq3awc01dmaqc" path="res://src/Enemies/Super Cutter/CutterSpawner.gd" id="1_sffj4"]
-[ext_resource type="TileSet" uid="uid://4sd5yyra0fl8" path="res://TileSet_Cut_Man_Stage.tres" id="2_6vjed"]
+[ext_resource type="TileSet" uid="uid://4sd5yyra0fl8" path="res://Stages/CutMan/TileSet_Cut_Man_Stage.tres" id="2_6vjed"]
 [ext_resource type="PackedScene" uid="uid://bfcbu71qa0142" path="res://src/Enemies/Super Cutter/super_cutter.tscn" id="2_vm21d"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]

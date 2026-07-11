@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://cogaxf2abkayq"]
 
 [ext_resource type="Script" uid="uid://8lhqfng443s" path="res://Stages/CutMan/death_area_2d.gd" id="2_igfye"]
-[ext_resource type="TileSet" uid="uid://4sd5yyra0fl8" path="res://TileSet_Cut_Man_Stage.tres" id="2_mqs8u"]
+[ext_resource type="TileSet" uid="uid://4sd5yyra0fl8" path="res://Stages/CutMan/TileSet_Cut_Man_Stage.tres" id="2_mqs8u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rctus"]
 size = Vector2(32, 32)

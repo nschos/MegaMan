@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://c3mllwpfadsr2"]
 
-[ext_resource type="TileSet" uid="uid://4sd5yyra0fl8" path="res://TileSet_Cut_Man_Stage.tres" id="1_0w0hu"]
+[ext_resource type="TileSet" uid="uid://4sd5yyra0fl8" path="res://Stages/CutMan/TileSet_Cut_Man_Stage.tres" id="1_0w0hu"]
 [ext_resource type="TileSet" uid="uid://bchmg0ysme7xv" path="res://invisible_tile_set.tres" id="2_0kxar"]
 [ext_resource type="Script" uid="uid://cxh8taod0stvc" path="res://invisible_wall_script.gd" id="3_ci0in"]
 

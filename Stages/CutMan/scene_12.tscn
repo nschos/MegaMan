@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://dsu7syadnvyv2"]
 
-[ext_resource type="TileSet" uid="uid://4sd5yyra0fl8" path="res://TileSet_Cut_Man_Stage.tres" id="1_7tv6v"]
+[ext_resource type="TileSet" uid="uid://4sd5yyra0fl8" path="res://Stages/CutMan/TileSet_Cut_Man_Stage.tres" id="1_7tv6v"]
 [ext_resource type="Texture2D" uid="uid://dusrx0v5ik221" path="res://NES - Mega Man - Stages - Cut Man Stage.png" id="2_finjv"]
 [ext_resource type="Script" uid="uid://bfyvjgp7j15n3" path="res://mob_spawner.gd" id="3_rkxvu"]
 [ext_resource type="PackedScene" uid="uid://c1xi10s7l12v8" path="res://src/Enemies/Octopus Battery/octopus_battery_enemy.tscn" id="4_6cm35"]

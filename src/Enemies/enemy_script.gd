@@ -4,7 +4,7 @@ class_name Enemy extends Area2D
 @export var initial_HP := 100:
 	set(value):
 		current_HP = value
-		
+		 
 var current_HP: int = initial_HP:
 	get = get_health, set = set_health
 	

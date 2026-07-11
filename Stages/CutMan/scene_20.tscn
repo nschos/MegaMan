@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://4x3h40f5vp17"]
 
-[ext_resource type="TileSet" uid="uid://4sd5yyra0fl8" path="res://TileSet_Cut_Man_Stage.tres" id="1_getby"]
+[ext_resource type="TileSet" uid="uid://4sd5yyra0fl8" path="res://Stages/CutMan/TileSet_Cut_Man_Stage.tres" id="1_getby"]
 
 [node name="Scene_20" type="Node2D" unique_id=1936994331]
 

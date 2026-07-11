@@ -1,19 +1,12 @@
 class_name RollingCutter extends Enemy
 
-
 var target: Vector2
 var direction: Vector2
 
 @export var cutman: CutMan
-
 @export var rolling_cutter_speed := 300
 
 var isAttacking := false
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -41,7 +34,7 @@ func attack(_target: Vector2):
 var return_to_cutman := false
 
 func _on_area_2d_area_exited(area: Area2D) -> void:
-	print("saiu da area!")
+	#print("saiu da area!")
 	direction = (self.global_position - cutman.global_position).normalized()
 	return_to_cutman = true
 	pass # Replace with function body.
