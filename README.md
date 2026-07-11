@@ -9,13 +9,13 @@ Features que faltam:
     * Screw Driver (Brayan) 
     * Mambu/Flying Shell
     * Flea/Kamadoma
-    * Cutman
+    * Cutman (Nathan)
 * Enemy Spawner (Nathan) ✅
 * HUD (Alexis)
     * Pontos
     * Vida
     * Power-up (?)
-* Drops (Nathan)
+* Drops (Nathan) ✅
     * Pontos
     * HP
     * One-up
