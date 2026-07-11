@@ -6,8 +6,8 @@ Features que faltam:
     * Super Cutter (Brayan) ✅
     * Beak (Nathan) ✅
     * Blader
-    * Screw Driver (Brayan) 
-    * Mambu/Flying Shell
+    * Screw Driver (Brayan) ✅ 
+    * Mambu/Flying Shell (Brayan) ((WIP))
     * Flea/Kamadoma
     * Cutman
 * Enemy Spawner (Nathan) ✅
