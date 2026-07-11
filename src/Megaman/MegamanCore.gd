@@ -41,11 +41,13 @@ var has_ladder_under := false
 var has_ladder_above := false
 var ladder_x := 0
 
-var HP := 28:
+const MAX_HP := 28
+
+var HP := MAX_HP:
 	set(value):
-		HP = value
-		Megaman_HP_changed.emit(value)
-		
+		HP = clamp(value, 0, MAX_HP)
+		Megaman_HP_changed.emit(HP)
+
 signal Megaman_HP_changed(HP: int)
 	
 var has_grabbed_ladder = false
@@ -237,6 +239,7 @@ func respawn() -> void:
 	process_mode = PROCESS_MODE_INHERIT
 	show()
 	has_control = true
+	self.HP = MAX_HP
 	
 	if animation_player.sprite_frames.has_animation("idle"):
 		animation_player.play("idle")
@@ -267,6 +270,8 @@ func take_damage(damage: int) -> void:
 			pass
 	pass
 
+func heal(amount: int) -> void:
+	self.HP = HP + amount
 
 func get_controller_input() -> void:
 	pass

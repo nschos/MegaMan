@@ -25,14 +25,14 @@ func _on_cutman_button_pressed() -> void:
 	SFXManager.play(SFXManager.GAME_START)
 	anim_player.play("Cutman Stage")
 	SFXManager.play_music(SFXManager.ENEMY_CHOSEN)
+	await get_tree().create_timer(7.0).timeout
+	SFXManager.stop_music()
 	await anim_player.animation_finished
 	get_tree().change_scene_to_file("res://main.tscn")
-	SFXManager.play_music(SFXManager.CUTMAN_MUSIC)
 
 func start_score_sequence() -> void:
 	randomize() 
 	final_score = randi_range(5, 10) * 10000
-	current_display_score = 0
 	is_randomizing = true
 	current_time = 0.0
 	tick_timer = 0.0

@@ -11,6 +11,7 @@ const HP_format = "HP: %d"
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	megaman_HP.text = HP_format % megaman.HP
+	SFXManager.play_music(SFXManager.CUTMAN_MUSIC)
 	pass # Replace with function body.
 
 
