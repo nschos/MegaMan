@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://h4jwajgl15j8"
-path="res://.godot/imported/inimigo_8.png-9cc8e85996756673a5f843eb9ff8229d.ctex"
+uid="uid://dykha5g56mp22"
+path="res://.godot/imported/mambu.png-7e0f211858eba4d56a3d88a4f7e2af61.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://src/Enemies/inimigo_8.png"
-dest_files=["res://.godot/imported/inimigo_8.png-9cc8e85996756673a5f843eb9ff8229d.ctex"]
+source_file="res://src/Enemies/Mambu/mambu.png"
+dest_files=["res://.godot/imported/mambu.png-7e0f211858eba4d56a3d88a4f7e2af61.ctex"]
 
 [params]
 

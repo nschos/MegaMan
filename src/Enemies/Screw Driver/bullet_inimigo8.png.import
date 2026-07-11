@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dij53huowkbhq"
-path="res://.godot/imported/bullet_inimigo6.png-b36f5bd82bbcabf19e95e937028cb707.ctex"
+uid="uid://c3irhwkoxjtht"
+path="res://.godot/imported/bullet_inimigo8.png-6edf20a79a075efbef9faeab0f186478.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Bullets/bullet_inimigo6.png"
-dest_files=["res://.godot/imported/bullet_inimigo6.png-b36f5bd82bbcabf19e95e937028cb707.ctex"]
+source_file="res://src/Enemies/Screw Driver/bullet_inimigo8.png"
+dest_files=["res://.godot/imported/bullet_inimigo8.png-6edf20a79a075efbef9faeab0f186478.ctex"]
 
 [params]
 

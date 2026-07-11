@@ -1,0 +1,119 @@
+[gd_scene format=3 uid="uid://c4i778ghqlbgc"]
+
+[ext_resource type="Script" uid="uid://cnpt6qhlaxh5h" path="res://src/Enemies/Screw Driver/screw_driver_script.gd" id="1_068mw"]
+[ext_resource type="Texture2D" uid="uid://h4jwajgl15j8" path="res://src/Enemies/Screw Driver/inimigo_8.png" id="2_lejyo"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_veaej"]
+atlas = ExtResource("2_lejyo")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qgf23"]
+atlas = ExtResource("2_lejyo")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_obqpj"]
+atlas = ExtResource("2_lejyo")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_62jut"]
+atlas = ExtResource("2_lejyo")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2kevg"]
+atlas = ExtResource("2_lejyo")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lkw51"]
+atlas = ExtResource("2_lejyo")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ckusb"]
+atlas = ExtResource("2_lejyo")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_maw2o"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_veaej")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qgf23")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_obqpj")
+}],
+"loop": 0,
+"name": &"close",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_62jut")
+}],
+"loop": 0,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_obqpj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qgf23")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_veaej")
+}],
+"loop": 0,
+"name": &"open",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2kevg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lkw51")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ckusb")
+}],
+"loop": 1,
+"name": &"spin_shoot",
+"speed": 12.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tab5q"]
+size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nbvrg"]
+size = Vector2(128, 72)
+
+[node name="Screw_Driver" type="Area2D" unique_id=757134308]
+collision_mask = 9
+script = ExtResource("1_068mw")
+
+[node name="BulletSpawnNode" type="Marker2D" parent="." unique_id=521902518]
+
+[node name="inimigo8" type="AnimatedSprite2D" parent="." unique_id=1489058169]
+sprite_frames = SubResource("SpriteFrames_maw2o")
+animation = &"spin_shoot"
+autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=897328309]
+shape = SubResource("RectangleShape2D_tab5q")
+debug_color = Color(0.9700238, 0, 0.46064687, 0.41960785)
+
+[node name="ShootTimer" type="Timer" parent="." unique_id=2070713889]
+
+[node name="PlayerDetector" type="Area2D" parent="." unique_id=1688372034]
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector" unique_id=1431737765]
+visibility_layer = 9
+position = Vector2(0, -28)
+shape = SubResource("RectangleShape2D_nbvrg")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_entered" from="PlayerDetector" to="." method="_on_player_detector_body_entered"]

@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dqda7fj5sxlng"]
 
-[ext_resource type="Texture2D" uid="uid://dykha5g56mp22" path="res://src/Enemies/inimigo_6.png" id="1_i4f44"]
+[ext_resource type="Texture2D" uid="uid://dykha5g56mp22" path="res://src/Enemies/Mambu/mambu.png" id="1_i4f44"]
+[ext_resource type="Script" uid="uid://dv8nv5krvb7vq" path="res://src/Enemies/Mambu/mambu_script.gd" id="1_xc56j"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wvmu3"]
 atlas = ExtResource("1_i4f44")
@@ -16,7 +17,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_wvmu3")
 }],
-"loop": true,
+"loop": 2,
 "name": &"idle",
 "speed": 5.0
 }, {
@@ -24,21 +25,33 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_fvpsp")
 }],
-"loop": true,
+"loop": 2,
 "name": &"shooting",
 "speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tab5q"]
-size = Vector2(17, 19)
+size = Vector2(18.25, 22)
 
-[node name="Inim6" type="Area2D" unique_id=757134308]
+[node name="Mambu_Enemy" type="Area2D" unique_id=757134308]
+collision_layer = 32
+collision_mask = 9
+script = ExtResource("1_xc56j")
+speed = 50.0
+attack_interval = 1.25
+patrol_distance = 240.0
 
 [node name="inimigo6" type="AnimatedSprite2D" parent="." unique_id=1489058169]
 sprite_frames = SubResource("SpriteFrames_maw2o")
-animation = &"idle"
+animation = &"shooting"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=897328309]
-position = Vector2(0, 1)
+position = Vector2(-0.125, 0)
 shape = SubResource("RectangleShape2D_tab5q")
+
+[node name="Timer" type="Timer" parent="." unique_id=1964925256]
+
+[node name="BulletSpawn" type="Marker2D" parent="." unique_id=1485780526]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
