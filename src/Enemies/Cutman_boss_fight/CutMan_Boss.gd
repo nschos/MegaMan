@@ -137,3 +137,9 @@ func throw_ended() -> void:
 func _throw_cooldown_timeout() -> void:
 	is_throw_in_colldown = false
 	pass
+
+
+func _on_damage_area_body_entered(body: Node2D) -> void:
+	if body is MegaMan:
+		body.take_damage(3)
+	pass # Replace with function body.

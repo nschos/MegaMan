@@ -52,4 +52,6 @@ func _on_body_entered(body: Node2D) -> void:
 			self.visible = false
 			set_deferred("self.process_mode", Node.PROCESS_MODE_DISABLED)
 			cutman.take_rolling_cutter()
+	if body is MegaMan:
+		body.take_damage(3)
 	pass # Replace with function body.

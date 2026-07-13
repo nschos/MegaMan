@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://gey1tpgl0j83" path="res://EnergyBars/EmptyHealth.png" id="1_1g66b"]
 [ext_resource type="Texture2D" uid="uid://2mhnpkmlast2" path="res://EnergyBars/CutManFull.png" id="2_1g66b"]
 
-[node name="CutManHealth" type="Area2D" unique_id=882701853]
+[node name="CutManHealth" type="Node2D" unique_id=566727470]
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="." unique_id=521080786]
 offset_right = 10.0

@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://dwk3qdllbbw5"]
 
 [ext_resource type="TileSet" uid="uid://4sd5yyra0fl8" path="res://Stages/CutMan/TileSet_Cut_Man_Stage.tres" id="1_jrvlw"]
+[ext_resource type="PackedScene" uid="uid://cb6k8pjlo83km" path="res://EnergyBars/CutManHealth.tscn" id="2_yw2c0"]
 
 [node name="Scene_24" type="Node2D" unique_id=1429679783]
 
@@ -15,3 +16,6 @@ tile_set = ExtResource("1_jrvlw")
 [node name="Door" type="TileMapLayer" parent="." unique_id=242866725]
 tile_map_data = PackedByteArray("AAAAAAYAAgABAAEAAAAAAAcAAgABAAEAAAAAAAgAAgABAAEAAAAAAAkAAgABAAEAAAA=")
 tile_set = ExtResource("1_jrvlw")
+
+[node name="CutManHealth" parent="." unique_id=566727470 instance=ExtResource("2_yw2c0")]
+position = Vector2(33, 8)

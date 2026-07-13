@@ -343,6 +343,9 @@ graph_offset = Vector2(-1202.4912, -613.4099)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_04gau"]
 size = Vector2(24, 24)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tggb2"]
+size = Vector2(20, 24)
+
 [node name="CutMan" type="CharacterBody2D" unique_id=1656311813]
 collision_layer = 1024
 velocity = Vector2(0, 6964110)
@@ -373,4 +376,13 @@ frame = 1
 wait_time = 0.433
 one_shot = true
 
+[node name="DamageArea" type="Area2D" parent="." unique_id=67016206]
+collision_layer = 32
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea" unique_id=1782316843]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_tggb2")
+
 [connection signal="timeout" from="ThrowCooldown" to="." method="_throw_cooldown_timeout"]
+[connection signal="body_entered" from="DamageArea" to="." method="_on_damage_area_body_entered"]
