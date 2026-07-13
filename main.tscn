@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://b7xvrhdh8b0ob" path="res://main.gd" id="1_a6jrf"]
 [ext_resource type="Script" uid="uid://bvm4qgu0mxbfo" path="res://Room_manager.gd" id="1_lswn8"]
 [ext_resource type="PackedScene" uid="uid://njymll7o5ile" path="res://Stages/CutMan/scene_1.tscn" id="2_lquwl"]
+[ext_resource type="Script" uid="uid://cvoraqh4npog7" path="res://horizontal_room_scroll.gd" id="3_4k2k6"]
 [ext_resource type="PackedScene" uid="uid://bsmqjr371mm51" path="res://Stages/CutMan/scene_2.tscn" id="3_7mycd"]
 [ext_resource type="PackedScene" uid="uid://bnuadflk8nhjv" path="res://Megaman/MegaMan.tscn" id="4_lquwl"]
 [ext_resource type="PackedScene" uid="uid://cogaxf2abkayq" path="res://Stages/CutMan/scene_3.tscn" id="7_efxa6"]
@@ -46,15 +47,19 @@ script = ExtResource("1_lswn8")
 player = NodePath("../Megaman")
 camera = NodePath("../Megaman/Camera2D")
 
-[node name="Scene_1" parent="Rooms" unique_id=861985110 instance=ExtResource("2_lquwl")]
+[node name="HorizontalRoomScroll" type="Node2D" parent="Rooms" unique_id=805532923]
+script = ExtResource("3_4k2k6")
+metadata/_custom_type_script = "uid://cvoraqh4npog7"
 
-[node name="Scene_2" parent="Rooms" unique_id=2044701076 instance=ExtResource("3_7mycd")]
+[node name="Scene_1" parent="Rooms/HorizontalRoomScroll" unique_id=861985110 instance=ExtResource("2_lquwl")]
+
+[node name="Scene_2" parent="Rooms/HorizontalRoomScroll" unique_id=2044701076 instance=ExtResource("3_7mycd")]
 position = Vector2(256, 0)
 
-[node name="Scene_3" parent="Rooms" unique_id=416176899 instance=ExtResource("7_efxa6")]
+[node name="Scene_3" parent="Rooms/HorizontalRoomScroll" unique_id=416176899 instance=ExtResource("7_efxa6")]
 position = Vector2(512, 0)
 
-[node name="Scene_4" parent="Rooms" unique_id=1787977831 instance=ExtResource("8_dg77c")]
+[node name="Scene_4" parent="Rooms/HorizontalRoomScroll" unique_id=1787977831 instance=ExtResource("8_dg77c")]
 position = Vector2(768, 0)
 
 [node name="Scene_5" parent="Rooms" unique_id=989877003 instance=ExtResource("9_ycdy4")]
@@ -66,14 +71,18 @@ position = Vector2(768, -512)
 [node name="Scene_7" parent="Rooms" unique_id=892131200 instance=ExtResource("11_vivmo")]
 position = Vector2(768, -768)
 
-[node name="Scene_8" parent="Rooms" unique_id=37351230 instance=ExtResource("12_dg77c")]
+[node name="HorizontalRoomScroll2" type="Node2D" parent="Rooms" unique_id=76374464]
 position = Vector2(768, -1024)
+script = ExtResource("3_4k2k6")
+metadata/_custom_type_script = "uid://cvoraqh4npog7"
 
-[node name="Scene_9" parent="Rooms" unique_id=1030378226 instance=ExtResource("9_w48qg")]
-position = Vector2(1024, -1024)
+[node name="Scene_8" parent="Rooms/HorizontalRoomScroll2" unique_id=37351230 instance=ExtResource("12_dg77c")]
 
-[node name="Scene_10" parent="Rooms" unique_id=1842796285 instance=ExtResource("10_vivmo")]
-position = Vector2(1280, -1024)
+[node name="Scene_9" parent="Rooms/HorizontalRoomScroll2" unique_id=1030378226 instance=ExtResource("9_w48qg")]
+position = Vector2(256, 0)
+
+[node name="Scene_10" parent="Rooms/HorizontalRoomScroll2" unique_id=1842796285 instance=ExtResource("10_vivmo")]
+position = Vector2(512, 0)
 
 [node name="Scene_11" parent="Rooms" unique_id=1135647731 instance=ExtResource("14_82xsv")]
 position = Vector2(1280, -1280)
@@ -84,14 +93,18 @@ position = Vector2(1280, -1536)
 [node name="Scene_13" parent="Rooms" unique_id=2074448629 instance=ExtResource("16_ryguw")]
 position = Vector2(1280, -1792)
 
-[node name="Scene_14" parent="Rooms" unique_id=401266934 instance=ExtResource("17_d13ii")]
+[node name="HorizontalRoomScroll3" type="Node2D" parent="Rooms" unique_id=1647359170]
 position = Vector2(1280, -2048)
+script = ExtResource("3_4k2k6")
+metadata/_custom_type_script = "uid://cvoraqh4npog7"
 
-[node name="Scene_15" parent="Rooms" unique_id=1621649663 instance=ExtResource("18_1u8w0")]
-position = Vector2(1536, -2048)
+[node name="Scene_14" parent="Rooms/HorizontalRoomScroll3" unique_id=401266934 instance=ExtResource("17_d13ii")]
 
-[node name="Scene_16" parent="Rooms" unique_id=1954628045 instance=ExtResource("19_0odxb")]
-position = Vector2(1792, -2048)
+[node name="Scene_15" parent="Rooms/HorizontalRoomScroll3" unique_id=1621649663 instance=ExtResource("18_1u8w0")]
+position = Vector2(256, 0)
+
+[node name="Scene_16" parent="Rooms/HorizontalRoomScroll3" unique_id=1954628045 instance=ExtResource("19_0odxb")]
+position = Vector2(512, 0)
 
 [node name="Scene_17" parent="Rooms" unique_id=467441884 instance=ExtResource("20_lswn8")]
 position = Vector2(1792, -1792)
@@ -99,20 +112,28 @@ position = Vector2(1792, -1792)
 [node name="Scene18" parent="Rooms" unique_id=54689573 instance=ExtResource("18_a6jrf")]
 position = Vector2(1792, -1536)
 
-[node name="Scene_19" parent="Rooms" unique_id=1574472765 instance=ExtResource("19_xuqvo")]
+[node name="HorizontalRoomScroll4" type="Node2D" parent="Rooms" unique_id=702771121]
 position = Vector2(1792, -1280)
+script = ExtResource("3_4k2k6")
+metadata/_custom_type_script = "uid://cvoraqh4npog7"
 
-[node name="Scene_20" parent="Rooms" unique_id=1936994331 instance=ExtResource("20_qsp4k")]
-position = Vector2(2048, -1280)
+[node name="Scene_19" parent="Rooms/HorizontalRoomScroll4" unique_id=1574472765 instance=ExtResource("19_xuqvo")]
 
-[node name="Scene_21" parent="Rooms" unique_id=1057466262 instance=ExtResource("21_kq58d")]
+[node name="Scene_20" parent="Rooms/HorizontalRoomScroll4" unique_id=1936994331 instance=ExtResource("20_qsp4k")]
+position = Vector2(256, 0)
+
+[node name="HorizontalRoomScroll5" type="Node2D" parent="Rooms" unique_id=220748914]
 position = Vector2(2304, -1280)
+script = ExtResource("3_4k2k6")
+metadata/_custom_type_script = "uid://cvoraqh4npog7"
 
-[node name="Scene_22" parent="Rooms" unique_id=1410591181 instance=ExtResource("22_seu75")]
-position = Vector2(2560, -1280)
+[node name="Scene_21" parent="Rooms/HorizontalRoomScroll5" unique_id=1057466262 instance=ExtResource("21_kq58d")]
 
-[node name="Scene23" parent="Rooms" unique_id=745698054 instance=ExtResource("23_htxhm")]
-position = Vector2(2816, -1280)
+[node name="Scene_22" parent="Rooms/HorizontalRoomScroll5" unique_id=1410591181 instance=ExtResource("22_seu75")]
+position = Vector2(256, 0)
+
+[node name="Scene_23" parent="Rooms/HorizontalRoomScroll5" unique_id=745698054 instance=ExtResource("23_htxhm")]
+position = Vector2(512, 0)
 
 [node name="Scene_24" parent="Rooms" unique_id=1429679783 instance=ExtResource("24_jq2sk")]
 position = Vector2(3072, -1280)
@@ -139,7 +160,7 @@ cutman = NodePath("../CutMan")
 rolling_cutter_speed = 150
 
 [node name="Megaman" parent="." unique_id=1964672799 instance=ExtResource("4_lquwl")]
-position = Vector2(3127, -1204)
+position = Vector2(850, -716)
 metadata/_edit_group_ = true
 
 [node name="Camera2D" type="Camera2D" parent="Megaman" unique_id=1590895567]
@@ -173,5 +194,3 @@ script = ExtResource("29_kq58d")
 
 [connection signal="Megaman_HP_changed" from="Megaman" to="." method="_on_megaman_megaman_hp_changed"]
 [connection signal="Megaman_HP_changed" from="Megaman" to="UI | Menu/UI" method="_on_megaman_megaman_hp_changed"]
-
-[editable path="Rooms/Scene_1"]

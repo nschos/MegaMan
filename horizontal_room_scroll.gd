@@ -1,0 +1,1 @@
+class_name HorizontalRoomScroll extends Node2D

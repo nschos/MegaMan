@@ -99,15 +99,7 @@ func _trigger_vertical_transition(old_room, new_room):
 	if "velocity" in player:
 		player.velocity = Vector2.ZERO
 	
-	var camera_end_x = new_room.rect.get_center().x
 	var camera_end_y = new_room.rect.get_center().y
-	
-	camera.global_position.x = camera_end_x
-	
-	camera.limit_left = -10000000
-	camera.limit_right = 10000000
-	camera.limit_top = -10000000
-	camera.limit_bottom = 10000000
 	
 	var dir_y = sign(camera_end_y - old_room.rect.get_center().y)
 	
@@ -119,11 +111,16 @@ func _trigger_vertical_transition(old_room, new_room):
 	
 	var tween = create_tween().set_parallel(true)
 	
-	#Trabalhar aqui as animações para o megaman subindo
-	tween.tween_property(camera, "global_position:y", camera_end_y, 0.6).set_trans(Tween.TRANS_LINEAR)
+	var cameraOffset: float = 248 if dir_y > 0 else -264
+	
+	tween.tween_property(camera, "offset:y", cameraOffset, 0.6)
 	tween.tween_property(player, "global_position:y", player_target_y, 0.6)
 	
 	await tween.finished
+	
+	camera.offset.y = -8
+	camera.global_position.y = camera_end_y
+	
 	
 	current_room = new_room
 	_apply_corridor_limits(current_room)
@@ -146,23 +143,10 @@ func _find_and_set_current_room(target_position: Vector2, immediate: bool):
 			return
 
 func _calculate_room_rect(room_node: Node) -> Rect2:
-	var tilemap = _find_tilemap(room_node)
-	if not tilemap:
-		return Rect2()
-		
-	var used_rect = tilemap.get_used_rect()
-	var cell_size = tilemap.tile_set.tile_size
-	
-	var pos = Vector2(used_rect.position) * Vector2(cell_size) + tilemap.global_position
-	var size = Vector2(used_rect.size) * Vector2(cell_size)
-	
-	return Rect2(pos, size)
-
-func _find_tilemap(node: Node) -> Node:
-	if node is TileMap or node.is_class("TileMapLayer"):
-		return node
-	for child in node.get_children():
-		var found = _find_tilemap(child)
-		if found: 
-			return found
-	return null
+	var room_position = room_node.global_position
+	if room_node is HorizontalRoomScroll:
+		var room_size = Vector2(room_node.get_child_count() * 256, 256)
+		#var rect = Rect2()
+		return Rect2(room_position, room_size)
+	else:
+		return Rect2(room_position, Vector2(256, 256))
