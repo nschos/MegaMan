@@ -3,15 +3,14 @@ extends Node2D
 @export var player: CharacterBody2D
 @export var camera: Camera2D
 
-const ROOM_WIDTH = 256
-const ROOM_HEIGHT = 256
-const VIEWPORT_HEIGHT = 224
+const ROOM_WIDTH := 256
+const ROOM_HEIGHT := 256
+const VIEWPORT_HEIGHT := 224
 const VERTICAL_MARGIN: int = int((ROOM_HEIGHT - VIEWPORT_HEIGHT) / 2.0)
 
-var rooms_data = []
-var current_room = null
-var is_transitioning = false
-var total_corridor_width = 0
+var rooms_dict: Dictionary[Node, Rect2] = {}
+var current_room: Node2D = null
+var is_transitioning := false
 
 func _ready():
 	await get_tree().process_frame
@@ -19,7 +18,7 @@ func _ready():
 	for child in get_children():
 		var rect = _calculate_room_rect(child)
 		if rect != Rect2():
-			rooms_data.append({"node": child, "rect": rect})
+			rooms_dict[child] = rect
 
 	if player:
 		_find_and_set_current_room(player.global_position, true)
@@ -28,8 +27,8 @@ func _process(_delta):
 	if is_transitioning or not player or not current_room:
 		return
 		
-	var visible_top = current_room.rect.position.y + VERTICAL_MARGIN
-	var visible_bottom = current_room.rect.end.y - VERTICAL_MARGIN
+	var visible_top = rooms_dict[current_room].position.y + VERTICAL_MARGIN
+	var visible_bottom = rooms_dict[current_room].end.y - VERTICAL_MARGIN
 
 	if player.global_position.y < visible_top:
 		if player.state_machine.state is MegaMan_State_Climbing:
@@ -40,57 +39,26 @@ func _process(_delta):
 		_find_and_set_current_room(player.global_position + Vector2(0, 32), false)
 		return
 		
-	if player.global_position.x < current_room.rect.position.x or player.global_position.x > current_room.rect.end.x:
+	if player.global_position.x < rooms_dict[current_room].position.x or player.global_position.x > rooms_dict[current_room].end.x:
 		_update_horizontal_room(player.global_position)
 		if is_transitioning: return
 
-	if total_corridor_width > 260:
-		camera.global_position.x = lerp(camera.global_position.x, player.global_position.x, 0.2)
-	else:
-		camera.global_position.x = current_room.rect.get_center().x
-		
-	camera.global_position.y = current_room.rect.get_center().y
+	camera.global_position = player.global_position
+	camera.global_position.y = rooms_dict[current_room].get_center().y
 
 func _update_horizontal_room(target_position: Vector2):
-	for room in rooms_data:
-		if room.rect.has_point(target_position):
+	for room in rooms_dict:
+		if rooms_dict[room].has_point(target_position):
 			current_room = room
 			_apply_corridor_limits(current_room)
 			return
 
 func _apply_corridor_limits(target_room):
-	var c_left = target_room.rect.position.x
-	var c_right = target_room.rect.end.x
-	var corridor_rooms = [target_room]
-	var added_new = true
-	
-	while added_new:
-		added_new = false
-		for room in rooms_data:
-			if room in corridor_rooms:
-				continue
-			for member in corridor_rooms:
-				var touch_left = abs(room.rect.end.x - member.rect.position.x) < 5
-				var touch_right = abs(room.rect.position.x - member.rect.end.x) < 5
-				var same_height = abs(room.rect.get_center().y - member.rect.get_center().y) < 10
-				
-				if (touch_left or touch_right) and same_height:
-					corridor_rooms.append(room)
-					if room.rect.position.x < c_left: c_left = room.rect.position.x
-					if room.rect.end.x > c_right: c_right = room.rect.end.x
-					added_new = true
-					break
-			if added_new:
-				break
-				
-	camera.limit_left = int(c_left)
-	camera.limit_right = int(c_right)
-
-	var room_center_y = target_room.rect.get_center().y
-	camera.limit_top = int(room_center_y - (VIEWPORT_HEIGHT / 2.0))
-	camera.limit_bottom = int(room_center_y + (VIEWPORT_HEIGHT / 2.0))
-	
-	total_corridor_width = c_right - c_left
+	var rect := rooms_dict[target_room]
+	camera.limit_left = int(rect.position.x)
+	camera.limit_right = int(rect.position.x + rect.size.x)
+	camera.limit_top = int(rect.position.y)
+	camera.limit_bottom = int(rect.position.y + rect.size.y)
 
 func _trigger_vertical_transition(old_room, new_room):
 	is_transitioning = true
@@ -99,15 +67,15 @@ func _trigger_vertical_transition(old_room, new_room):
 	if "velocity" in player:
 		player.velocity = Vector2.ZERO
 	
-	var camera_end_y = new_room.rect.get_center().y
+	var camera_end_y = rooms_dict[new_room].get_center().y
 	
-	var dir_y = sign(camera_end_y - old_room.rect.get_center().y)
+	var dir_y = sign(camera_end_y - rooms_dict[old_room].get_center().y)
 	
 	var player_target_y = player.global_position.y
 	if dir_y < 0:
-		player_target_y = new_room.rect.end.y - 40
+		player_target_y = rooms_dict[new_room].end.y - 40
 	else:
-		player_target_y = new_room.rect.position.y + 40
+		player_target_y = rooms_dict[new_room].position.y + 40
 	
 	var tween = create_tween().set_parallel(true)
 	
@@ -121,7 +89,6 @@ func _trigger_vertical_transition(old_room, new_room):
 	camera.offset.y = -8
 	camera.global_position.y = camera_end_y
 	
-	
 	current_room = new_room
 	_apply_corridor_limits(current_room)
 	
@@ -129,14 +96,14 @@ func _trigger_vertical_transition(old_room, new_room):
 	is_transitioning = false
 
 func _find_and_set_current_room(target_position: Vector2, immediate: bool):
-	for room in rooms_data:
-		if room.rect.has_point(target_position):
+	for room in rooms_dict:
+		if rooms_dict[room].has_point(target_position):
 			var old_room = current_room
 			
 			if immediate:
 				current_room = room
 				_apply_corridor_limits(current_room)
-				camera.global_position.y = current_room.rect.get_center().y
+				camera.global_position.y = rooms_dict[current_room].get_center().y
 			else:
 				is_transitioning = true 
 				_trigger_vertical_transition(old_room, room)
