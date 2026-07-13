@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://bthuitulw0yaa"]
+
+[ext_resource type="Texture2D" uid="uid://c3irhwkoxjtht" path="res://src/Enemies/Screw Driver/bullet_inimigo8.png" id="1_moeuv"]
+[ext_resource type="Script" uid="uid://bq7ps7rvxwpe6" path="res://src/Enemies/Screw Driver/bullet_screw_driver.gd" id="1_p53gs"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k5bke"]
+size = Vector2(6, 6)
+
+[node name="BulletInimigo8" type="Area2D" unique_id=858098446]
+collision_layer = 64
+collision_mask = 9
+script = ExtResource("1_p53gs")
+
+[node name="bullet_inim8" type="Sprite2D" parent="." unique_id=364615069]
+texture = ExtResource("1_moeuv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1648063791]
+shape = SubResource("RectangleShape2D_k5bke")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=325792558]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
