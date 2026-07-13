@@ -42,11 +42,10 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_04gau"]
 size = Vector2(16, 16)
 
-[node name="RollingCutterScene" type="Area2D" unique_id=1383584324]
+[node name="RollingCutterScene" type="Area2D" unique_id=763141093]
 collision_layer = 256
-collision_mask = 8
+collision_mask = 1544
 script = ExtResource("1_xdx14")
-metadata/_custom_type_script = "uid://cfd54j20deuav"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=801445707]
 sprite_frames = SubResource("SpriteFrames_04gau")
@@ -56,3 +55,7 @@ frame_progress = 0.4936724
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1155567912]
 shape = SubResource("RectangleShape2D_04gau")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

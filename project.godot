@@ -131,6 +131,7 @@ open_menu={
 2d_physics/layer_8="Drop"
 2d_physics/layer_9="RollingCutter"
 2d_physics/layer_10="RollingCutterArena"
+2d_physics/layer_11="CutMan"
 
 [physics]
 

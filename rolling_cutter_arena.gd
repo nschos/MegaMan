@@ -1,0 +1,1 @@
+class_name RollingCutterArena extends Area2D
