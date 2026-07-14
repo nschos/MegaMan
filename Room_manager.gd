@@ -129,11 +129,8 @@ func _find_and_set_current_room(target_position: Vector2 = player.global_positio
 				_trigger_vertical_transition(old_room, room)
 			return
 
-func _check_boss_room(room) -> void:
-	if room == null or not room.has("node"):
-		return
-
-	if room.node.name == boss_room_name:
+func _check_boss_room(room: Node2D) -> void:
+	if room.name == boss_room_name:
 		if not _boss_music_played:
 			_boss_music_played = true
 			SFXManager.play_music(SFXManager.BOSS_BATTLE_MUSIC)
