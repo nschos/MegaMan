@@ -73,6 +73,7 @@ func start_spinning() -> void:
 	shoot_timer.start(1.0)
 
 func fire_spread_shot() -> void:
+	SFXManager.play(SFXManager.ENEMY_SHOOT)
 	# Ângulos originais (em radianos)
 	var angles = [-PI, -3 * PI / 4, -PI / 2, -PI / 4, 0]
 	

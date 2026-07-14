@@ -53,6 +53,8 @@ func _physics_process(_delta: float) -> void:
 	if frame_counter <= closed_window:
 		animated_sprites.play("close")
 	elif frame_counter <= open_1_window:
+		if frame_counter == closed_window + 1:
+			SFXManager.play(SFXManager.BIG_EYE)
 		animated_sprites.play("open_1")
 	elif frame_counter <= open_2_window:
 		animated_sprites.play("open_2")

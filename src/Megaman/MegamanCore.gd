@@ -139,9 +139,9 @@ func _physics_process(_delta: float) -> void:
 	blink_timer += 1
 
 func _shoot_bullet() -> void:
-	SFXManager.play(SFXManager.MEGA_BUSTER)
 	for bullet in bullets:
 		if not bullet.bullet_moving:
+			SFXManager.play(SFXManager.MEGA_BUSTER)
 			#bullet.position = self.global_position
 			bullet.position.y = self.global_position.y + 4
 			if state_machine.state is not MegaMan_State_Climbing:

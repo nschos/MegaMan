@@ -53,6 +53,7 @@ func start_attack_sequence() -> void:
 	shoot_timer.start(attack_interval)
 
 func fire_8_way_shot() -> void:
+	SFXManager.play(SFXManager.ENEMY_SHOOT)
 	for i in range(8):
 		var angle = deg_to_rad(i * 45)
 		var bullet = bullet_scene.instantiate()
