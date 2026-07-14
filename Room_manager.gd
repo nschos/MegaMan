@@ -2,6 +2,7 @@ extends Node2D
 
 @export var player: CharacterBody2D
 @export var camera: Camera2D
+@export var boss_room_name: String = "Scene_24"
 
 const ROOM_WIDTH := 256
 const ROOM_HEIGHT := 256
@@ -11,6 +12,7 @@ const VERTICAL_MARGIN: int = int((ROOM_HEIGHT - VIEWPORT_HEIGHT) / 2.0)
 var rooms_dict: Dictionary[Node, Rect2] = {}
 var current_room: Node2D = null
 var is_transitioning := false
+var _boss_music_played = false
 
 func _ready():
 	await get_tree().process_frame
@@ -65,6 +67,7 @@ func _update_horizontal_room(target_position: Vector2):
 		if rooms_dict[room].has_point(target_position):
 			current_room = room
 			_apply_corridor_limits(current_room)
+			_check_boss_room(current_room)
 			return
 
 func _apply_corridor_limits(target_room):
@@ -106,6 +109,7 @@ func _trigger_vertical_transition(old_room, new_room):
 	
 	current_room = new_room
 	_apply_corridor_limits(current_room)
+	_check_boss_room(current_room)
 	
 	player.has_control = true
 	is_transitioning = false
@@ -119,10 +123,22 @@ func _find_and_set_current_room(target_position: Vector2 = player.global_positio
 				current_room = room
 				_apply_corridor_limits(current_room)
 				camera.global_position.y = rooms_dict[current_room].get_center().y
+				_check_boss_room(current_room)
 			else:
 				is_transitioning = true 
 				_trigger_vertical_transition(old_room, room)
 			return
+
+func _check_boss_room(room) -> void:
+	if room == null or not room.has("node"):
+		return
+
+	if room.node.name == boss_room_name:
+		if not _boss_music_played:
+			_boss_music_played = true
+			SFXManager.play_music(SFXManager.BOSS_BATTLE_MUSIC)
+	else:
+		_boss_music_played = false
 
 func _calculate_room_rect(room_node: Node) -> Rect2:
 	var room_position = room_node.global_position
