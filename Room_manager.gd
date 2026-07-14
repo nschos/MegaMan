@@ -39,12 +39,26 @@ func _process(_delta):
 		_find_and_set_current_room(player.global_position + Vector2(0, 32), false)
 		return
 		
-	if player.global_position.x < rooms_dict[current_room].position.x or player.global_position.x > rooms_dict[current_room].end.x:
-		_update_horizontal_room(player.global_position)
-		if is_transitioning: return
+	#if player.global_position.x < rooms_dict[current_room].position.x or player.global_position.x > rooms_dict[current_room].end.x:
+		#_update_horizontal_room(player.global_position)
+		#if is_transitioning: return
 
 	camera.global_position = player.global_position
 	camera.global_position.y = rooms_dict[current_room].get_center().y
+
+func walk_animation() -> void:
+	var tween = get_tree().create_tween()
+	tween.set_parallel(true)
+	tween.tween_property(player, "global_position:x", player.global_position.x+64, 2.0)
+	tween.tween_property(camera, "offset:x", 256, 2.0)
+	
+	await tween.finished
+	
+	camera.offset.x = 0
+	
+	_find_and_set_current_room()
+	
+	pass
 
 func _update_horizontal_room(target_position: Vector2):
 	for room in rooms_dict:
@@ -55,10 +69,11 @@ func _update_horizontal_room(target_position: Vector2):
 
 func _apply_corridor_limits(target_room):
 	var rect := rooms_dict[target_room]
-	camera.limit_left = int(rect.position.x)
-	camera.limit_right = int(rect.position.x + rect.size.x)
-	camera.limit_top = int(rect.position.y)
+	camera.limit_left   = int(rect.position.x)
+	camera.limit_right  = int(rect.position.x + rect.size.x)
+	camera.limit_top    = int(rect.position.y)
 	camera.limit_bottom = int(rect.position.y + rect.size.y)
+	camera.offset.x = 0
 
 func _trigger_vertical_transition(old_room, new_room):
 	is_transitioning = true
@@ -95,7 +110,7 @@ func _trigger_vertical_transition(old_room, new_room):
 	player.has_control = true
 	is_transitioning = false
 
-func _find_and_set_current_room(target_position: Vector2, immediate: bool):
+func _find_and_set_current_room(target_position: Vector2 = player.global_position, immediate: bool = true):
 	for room in rooms_dict:
 		if rooms_dict[room].has_point(target_position):
 			var old_room = current_room
@@ -112,8 +127,11 @@ func _find_and_set_current_room(target_position: Vector2, immediate: bool):
 func _calculate_room_rect(room_node: Node) -> Rect2:
 	var room_position = room_node.global_position
 	if room_node is HorizontalRoomScroll:
-		var room_size = Vector2(room_node.get_child_count() * 256, 256)
-		#var rect = Rect2()
+		var number_of_rooms := 0
+		for node in room_node.get_children():
+			if node is Room:
+				number_of_rooms += 1
+		var room_size = Vector2(number_of_rooms * 256, 256)
 		return Rect2(room_position, room_size)
 	else:
 		return Rect2(room_position, Vector2(256, 256))

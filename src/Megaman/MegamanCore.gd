@@ -22,7 +22,7 @@ const shooting_window := 15
 var shooting_frame_counter := 0
 
 var respawn_position: Vector2
-var has_control: bool = true
+@export var has_control: bool = true
 
 var blink_timer := 0
 const blink_max_time := 168

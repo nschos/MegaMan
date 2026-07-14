@@ -27,13 +27,142 @@
 [ext_resource type="PackedScene" uid="uid://lm83lpx8qdab" path="res://Stages/CutMan/scene_21.tscn" id="21_kq58d"]
 [ext_resource type="PackedScene" uid="uid://rwrtv1co1amy" path="res://Stages/CutMan/scene_22.tscn" id="22_seu75"]
 [ext_resource type="PackedScene" uid="uid://bo4j5sdbdyafy" path="res://Stages/CutMan/scene_23.tscn" id="23_htxhm"]
+[ext_resource type="Script" uid="uid://d2ng3lcmlypr5" path="res://door_script.gd" id="24_0rl1p"]
 [ext_resource type="PackedScene" uid="uid://dwk3qdllbbw5" path="res://Stages/CutMan/scene_24.tscn" id="24_jq2sk"]
+[ext_resource type="TileSet" uid="uid://bchmg0ysme7xv" path="res://invisible_tile_set.tres" id="25_ok6jj"]
 [ext_resource type="Script" uid="uid://cmu2y3dwiw8rt" path="res://rolling_cutter_arena.gd" id="27_jq2sk"]
 [ext_resource type="Script" uid="uid://hcgrvrjex4wq" path="res://pause.gd" id="27_qsp4k"]
 [ext_resource type="PackedScene" uid="uid://ddg2tnl8brw87" path="res://src/Enemies/Cutman_boss_fight/Rolling_Cutter_Scene.tscn" id="28_htxhm"]
 [ext_resource type="PackedScene" uid="uid://qgfd8we8b7by" path="res://UI.tscn" id="28_qsp4k"]
+[ext_resource type="Script" uid="uid://cxh8taod0stvc" path="res://invisible_wall_script.gd" id="29_facbu"]
 [ext_resource type="Script" uid="uid://db4ox1ib3ygqw" path="res://UI.gd" id="29_kq58d"]
 [ext_resource type="PackedScene" uid="uid://dug5o5ney7fj5" path="res://src/Enemies/Cutman_boss_fight/CutMan_boss.tscn" id="31_seu75"]
+
+[sub_resource type="Animation" id="Animation_b1qrp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:enabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../../../Megaman:has_control")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_facbu"]
+resource_name = "opening_door"
+length = 13.4767
+step = 0.5
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../../HorizontalRoomScroll4/Scene_20/Terrain")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.5, 1, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"values": [{
+"args": [Vector2i(14, 9)],
+"method": &"erase_cell"
+}, {
+"args": [Vector2i(14, 8)],
+"method": &"erase_cell"
+}, {
+"args": [Vector2i(14, 7)],
+"method": &"erase_cell"
+}, {
+"args": [Vector2i(14, 6)],
+"method": &"erase_cell"
+}]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../../HorizontalRoomScroll4/Scene_20/Terrain")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5, 1, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"values": [{
+"args": [Vector2i(15, 9)],
+"method": &"erase_cell"
+}, {
+"args": [Vector2i(15, 8)],
+"method": &"erase_cell"
+}, {
+"args": [Vector2i(15, 7)],
+"method": &"erase_cell"
+}, {
+"args": [Vector2i(15, 6)],
+"method": &"erase_cell"
+}]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../..")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"walk_animation"
+}]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:enabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../../../Megaman:has_control")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_b1qrp"]
+_data = {
+&"RESET": SubResource("Animation_b1qrp"),
+&"opening_door": SubResource("Animation_facbu")
+}
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_0rl1p"]
+a = Vector2(0, -33)
+b = Vector2(0, 31)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_04gau"]
 size = Vector2(224, 160)
@@ -122,6 +251,20 @@ metadata/_custom_type_script = "uid://cvoraqh4npog7"
 [node name="Scene_20" parent="Rooms/HorizontalRoomScroll4" unique_id=1936994331 instance=ExtResource("20_qsp4k")]
 position = Vector2(256, 0)
 
+[node name="Door" type="Area2D" parent="Rooms/HorizontalRoomScroll4" unique_id=533138831]
+position = Vector2(506, 133)
+collision_layer = 2048
+collision_mask = 8
+script = ExtResource("24_0rl1p")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Rooms/HorizontalRoomScroll4/Door" unique_id=849117861]
+root_node = NodePath("../../../HorizontalRoomScroll5/InvisibleWall")
+libraries/ = SubResource("AnimationLibrary_b1qrp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rooms/HorizontalRoomScroll4/Door" unique_id=1184926106]
+position = Vector2(-27, -4)
+shape = SubResource("SegmentShape2D_0rl1p")
+
 [node name="HorizontalRoomScroll5" type="Node2D" parent="Rooms" unique_id=220748914]
 position = Vector2(2304, -1280)
 script = ExtResource("3_4k2k6")
@@ -134,6 +277,15 @@ position = Vector2(256, 0)
 
 [node name="Scene_23" parent="Rooms/HorizontalRoomScroll5" unique_id=745698054 instance=ExtResource("23_htxhm")]
 position = Vector2(512, 0)
+
+[node name="InvisibleWall" type="TileMapLayer" parent="Rooms/HorizontalRoomScroll5" unique_id=49113828]
+position = Vector2(-512, 0)
+tile_map_data = PackedByteArray(0, 0, 32, 0, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 32, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 32, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 32, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+enabled = false
+tile_set = ExtResource("25_ok6jj")
+collision_visibility_mode = 1
+navigation_visibility_mode = 1
+script = ExtResource("29_facbu")
 
 [node name="Scene_24" parent="Rooms" unique_id=1429679783 instance=ExtResource("24_jq2sk")]
 position = Vector2(3072, -1280)
@@ -160,7 +312,7 @@ cutman = NodePath("../CutMan")
 rolling_cutter_speed = 150
 
 [node name="Megaman" parent="." unique_id=1964672799 instance=ExtResource("4_lquwl")]
-position = Vector2(1969, -1190)
+position = Vector2(2235, -1150)
 metadata/_edit_group_ = true
 
 [node name="Camera2D" type="Camera2D" parent="Megaman" unique_id=1590895567]
@@ -192,5 +344,8 @@ script = ExtResource("27_qsp4k")
 position = Vector2(128, 112)
 script = ExtResource("29_kq58d")
 
+[connection signal="body_entered" from="Rooms/HorizontalRoomScroll4/Door" to="Rooms/HorizontalRoomScroll4/Door" method="_on_body_entered"]
 [connection signal="Megaman_HP_changed" from="Megaman" to="." method="_on_megaman_megaman_hp_changed"]
 [connection signal="Megaman_HP_changed" from="Megaman" to="UI | Menu/UI" method="_on_megaman_megaman_hp_changed"]
+
+[editable path="Rooms/HorizontalRoomScroll4/Scene_20"]
