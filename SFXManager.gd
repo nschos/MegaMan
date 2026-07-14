@@ -29,11 +29,13 @@ const PI_PI_PI : = "PI_PI_PI"
 const CUTMAN_MUSIC : = "CUTMAN_MUSIC"
 const STAGE_SELECT : = "STAGE_SELECT"
 const ENEMY_CHOSEN : = "ENEMY_CHOSEN"
+const BOSS_BATTLE_MUSIC : = "BOSS_BATTLE_MUSIC"
 
 const MUSIC_PATHS := {
 	STAGE_SELECT : "res://MUSIC/1 - Stage Select.mp3",
 	ENEMY_CHOSEN : "res://MUSIC/2 - Enemy Chosen.mp3",
 	CUTMAN_MUSIC : "res://MUSIC/7 - Cut Man.mp3",
+	BOSS_BATTLE_MUSIC : "res://MUSIC/9 - Boss Battle.mp3",
 }
 
 const SFX_PATHS := {

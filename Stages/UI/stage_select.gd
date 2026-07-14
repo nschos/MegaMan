@@ -25,14 +25,14 @@ func _on_cutman_button_pressed() -> void:
 	SFXManager.play(SFXManager.GAME_START)
 	anim_player.play("Cutman Stage")
 	SFXManager.play_music(SFXManager.ENEMY_CHOSEN)
+	await get_tree().create_timer(7.0).timeout
+	SFXManager.stop_music()
 	await anim_player.animation_finished
 	get_tree().change_scene_to_file("res://main.tscn")
-	SFXManager.play_music(SFXManager.CUTMAN_MUSIC)
 
 func start_score_sequence() -> void:
 	randomize() 
 	final_score = randi_range(5, 10) * 10000
-	current_display_score = 0
 	is_randomizing = true
 	current_time = 0.0
 	tick_timer = 0.0
@@ -49,6 +49,7 @@ func _process(delta: float) -> void:
 		
 	
 		score_value.text = _format_score(final_score)
+		SFXManager.play(SFXManager.DINK)
 		
 		if final_score == 100000:
 			await get_tree().create_timer(0.1).timeout
@@ -63,6 +64,7 @@ func _process(delta: float) -> void:
 		var current_display_score = random_block * score_increment
 		
 		score_value.text = _format_score(current_display_score)
+		SFXManager.play(SFXManager.PI_PI_PI)
 
 
 func _format_score(value: int) -> String:
