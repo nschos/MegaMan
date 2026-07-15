@@ -5,11 +5,11 @@ Features que faltam:
     * Octopus Battery (Brayan) ✅
     * Super Cutter (Brayan) ✅
     * Beak (Nathan) ✅
-    * Blader
+    * Blader ✅
     * Screw Driver (Brayan) ✅ 
-    * Mambu/Flying Shell (Brayan) ((WIP))
-    * Flea/Kamadoma
-    * Cutman (Nathan)
+    * Mambu/Flying Shell (Brayan) ✅
+    * Flea/Kamadoma ✅
+    * Cutman (Nathan) 
 * Enemy Spawner (Nathan) ✅
 * HUD (Alexis)
     * Pontos
@@ -17,7 +17,7 @@ Features que faltam:
     * Power-up (?)
 * Drops (Nathan) ✅
     * Pontos
-    * HP
+    * HP 
     * One-up
 * Megaman damage animation/system
 * Weapons Menu (Aléxis)
