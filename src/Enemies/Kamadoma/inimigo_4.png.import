@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://toos51biorce"
-path="res://.godot/imported/inimigo_4.png-4f4b35fcdaaa595b3895037465d85730.ctex"
+path="res://.godot/imported/inimigo_4.png-2f0d8d83c93b8c6203ab83608a59438f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://src/Enemies/inimigo_4.png"
-dest_files=["res://.godot/imported/inimigo_4.png-4f4b35fcdaaa595b3895037465d85730.ctex"]
+source_file="res://src/Enemies/Kamadoma/inimigo_4.png"
+dest_files=["res://.godot/imported/inimigo_4.png-2f0d8d83c93b8c6203ab83608a59438f.ctex"]
 
 [params]
 

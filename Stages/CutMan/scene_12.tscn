@@ -56,6 +56,7 @@ metadata/_custom_type_script = "uid://bfyvjgp7j15n3"
 position = Vector2(8, 8)
 
 [node name="TargetMarker" parent="MobSpawner3/OctopusBattery" index="2" unique_id=1831269640]
+position = Vector2(-144, 0)
 gizmo_extents = 8.0
 
 [node name="MobSpawner4" type="Node2D" parent="." unique_id=789145946]

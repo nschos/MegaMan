@@ -37,9 +37,10 @@ size = Vector2(18.25, 22)
 collision_layer = 32
 collision_mask = 9
 script = ExtResource("1_xc56j")
-speed = 50.0
-attack_interval = 1.25
-patrol_distance = 240.0
+bullet_speed = 150.0
+speed = 51.0
+attack_interval = 1.26
+patrol_distance = 238.0
 
 [node name="inimigo6" type="AnimatedSprite2D" parent="." unique_id=1489058169]
 sprite_frames = SubResource("SpriteFrames_maw2o")

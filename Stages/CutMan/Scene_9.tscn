@@ -4,6 +4,8 @@
 [ext_resource type="TileSet" uid="uid://4sd5yyra0fl8" path="res://Stages/CutMan/TileSet_Cut_Man_Stage.tres" id="1_y6w0h"]
 [ext_resource type="Texture2D" uid="uid://dusrx0v5ik221" path="res://NES - Mega Man - Stages - Cut Man Stage.png" id="2_b0x5i"]
 [ext_resource type="Script" uid="uid://8lhqfng443s" path="res://Stages/CutMan/death_area_2d.gd" id="3_b0x5i"]
+[ext_resource type="Script" uid="uid://bfyvjgp7j15n3" path="res://mob_spawner.gd" id="5_qlx7w"]
+[ext_resource type="PackedScene" uid="uid://dqiqo2yko63sc" path="res://src/Enemies/Kamadoma/kamadoma_scene.tscn" id="6_qam3o"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dws6g"]
 size = Vector2(32, 32)
@@ -35,5 +37,32 @@ script = ExtResource("3_b0x5i")
 position = Vector2(176, 240)
 shape = SubResource("RectangleShape2D_dws6g")
 debug_color = Color(0.765029, 0, 0.20976987, 0.41960785)
+
+[node name="MobSpawner" type="Node2D" parent="." unique_id=941927106]
+z_index = 1
+position = Vector2(0, -1)
+script = ExtResource("5_qlx7w")
+metadata/_custom_type_script = "uid://bfyvjgp7j15n3"
+
+[node name="KamadomaEnemy" parent="MobSpawner" unique_id=202917617 instance=ExtResource("6_qam3o")]
+position = Vector2(120, 117)
+
+[node name="MobSpawner2" type="Node2D" parent="." unique_id=379387750]
+z_index = 1
+position = Vector2(0, -1)
+script = ExtResource("5_qlx7w")
+metadata/_custom_type_script = "uid://bfyvjgp7j15n3"
+
+[node name="KamadomaEnemy" parent="MobSpawner2" unique_id=772554643 instance=ExtResource("6_qam3o")]
+position = Vector2(89, 148)
+
+[node name="MobSpawner3" type="Node2D" parent="." unique_id=1074197295]
+z_index = 1
+position = Vector2(0, -1)
+script = ExtResource("5_qlx7w")
+metadata/_custom_type_script = "uid://bfyvjgp7j15n3"
+
+[node name="KamadomaEnemy" parent="MobSpawner3" unique_id=1298638306 instance=ExtResource("6_qam3o")]
+position = Vector2(57, 180)
 
 [connection signal="body_entered" from="Death_Area2D" to="Death_Area2D" method="_on_body_entered"]
