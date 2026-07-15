@@ -1,13 +1,14 @@
 [gd_scene format=3 uid="uid://cw1wi2t28kcj4"]
 
-[ext_resource type="Texture2D" uid="uid://c3jpf4gmiw6b6" path="res://src/Enemies/inimigo_1.png" id="1_cb8bb"]
+[ext_resource type="Script" uid="uid://x48an53nq2rg" path="res://src/Enemies/Bunby Heli/bumby_heli_enemy.gd" id="1_ee6ca"]
+[ext_resource type="Texture2D" uid="uid://c3jpf4gmiw6b6" path="res://src/Enemies/Bunby Heli/inimigo_1.png" id="1_rofra"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_aac5d"]
-atlas = ExtResource("1_cb8bb")
+atlas = ExtResource("1_rofra")
 region = Rect2(0, 0, 18, 22)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_stikd"]
-atlas = ExtResource("1_cb8bb")
+atlas = ExtResource("1_rofra")
 region = Rect2(18, 0, 18, 22)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_622h3"]
@@ -19,21 +20,35 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_stikd")
 }],
-"loop": true,
+"loop": 1,
 "name": &"float",
-"speed": 5.0
+"speed": 8.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_idvs2"]
 size = Vector2(16, 20)
 
-[node name="Inim1" type="Area2D" unique_id=1618926696]
+[node name="BunbyHeli" type="Area2D" unique_id=1618926696]
+z_index = 1
+collision_layer = 32
+collision_mask = 8
+script = ExtResource("1_ee6ca")
+patrol_speed = 50.0
+initial_HP = 1
 
 [node name="inimigo1" type="AnimatedSprite2D" parent="." unique_id=819769230]
 sprite_frames = SubResource("SpriteFrames_622h3")
 animation = &"float"
 autoplay = "float"
+frame_progress = 0.76542807
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1885402941]
-visible = false
+light_mask = 32
+visibility_layer = 8
 shape = SubResource("RectangleShape2D_idvs2")
+
+[node name="AttackTimer" type="Timer" parent="." unique_id=1546159889]
+wait_time = 0.2
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]
