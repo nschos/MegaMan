@@ -105,8 +105,8 @@ func _physics_process(_delta: float) -> void:
 	
 	if state_machine.state is not MegaMan_State_Climbing:
 		
-		if ((Input.is_action_pressed("ui_up") and is_touching_ladder) or
-			(Input.is_action_pressed("ui_down") and has_ladder_under) or 
+		if ((Input.is_action_pressed("ui_up") and is_touching_ladder and not Input.is_action_pressed("ui_down")) or
+			(Input.is_action_pressed("ui_down") and has_ladder_under and not Input.is_action_pressed("ui_up")) or 
 			(Input.is_action_pressed("ui_up")  and has_ladder_above)):
 			#has_grabbed_ladder = true
 			#print(collision_mask)

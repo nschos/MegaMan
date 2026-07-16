@@ -312,7 +312,7 @@ cutman = NodePath("../CutMan")
 rolling_cutter_speed = 150
 
 [node name="Megaman" parent="." unique_id=1964672799 instance=ExtResource("4_lquwl")]
-position = Vector2(2224, -1143)
+position = Vector2(72, 52)
 metadata/_edit_group_ = true
 
 [node name="Camera2D" type="Camera2D" parent="Megaman" unique_id=1590895567]
