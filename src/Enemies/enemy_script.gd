@@ -3,6 +3,7 @@ class_name Enemy extends Area2D
 
 @export var initial_HP := 100:
 	set(value):
+		initial_HP = value
 		current_HP = value
 		 
 var current_HP: int = initial_HP:
@@ -43,7 +44,7 @@ signal despawned
 signal spawned
 
 func cause_damage():
-	self.current_HP -= 20
+	self.current_HP -= 1
 
 func spawn_drop() -> void:
 	var drop := drop_scene.instantiate()

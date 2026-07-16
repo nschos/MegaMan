@@ -26,9 +26,12 @@ func _ready() -> void:
 
 func _reset() -> void:
 	current_state = PATROL
-	is_active = true
+	is_active = false
 	global_position = initial_position
 
+	if dive_timer and not dive_timer.is_stopped():
+		dive_timer.stop()
+		
 func _physics_process(delta: float) -> void:
 	if player_ref == null:
 		find_player()

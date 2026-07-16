@@ -34,6 +34,7 @@ script = ExtResource("1_wjvib")
 jump_force = -300.0
 fall_gravity = 1000.0
 horizontal_speed = 50.0
+initial_HP = 5
 
 [node name="inimigo3" type="AnimatedSprite2D" parent="." unique_id=1940487154]
 sprite_frames = SubResource("SpriteFrames_irpwu")
