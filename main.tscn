@@ -38,33 +38,6 @@
 [ext_resource type="Script" uid="uid://db4ox1ib3ygqw" path="res://UI.gd" id="29_kq58d"]
 [ext_resource type="PackedScene" uid="uid://dug5o5ney7fj5" path="res://src/Enemies/Cutman_boss_fight/CutMan_boss.tscn" id="31_seu75"]
 
-[sub_resource type="Animation" id="Animation_b1qrp"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:enabled")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../../../Megaman:has_control")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-
 [sub_resource type="Animation" id="Animation_facbu"]
 resource_name = "opening_door"
 length = 13.4767
@@ -156,7 +129,6 @@ tracks/4/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_b1qrp"]
 _data = {
-&"RESET": SubResource("Animation_b1qrp"),
 &"opening_door": SubResource("Animation_facbu")
 }
 
@@ -164,8 +136,216 @@ _data = {
 a = Vector2(0, -33)
 b = Vector2(0, 31)
 
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_04gau"]
+a = Vector2(0, -47)
+b = Vector2(0, 17)
+
+[sub_resource type="Animation" id="Animation_come4"]
+resource_name = "opening_door"
+length = 10.0
+step = 0.5
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../HorizontalRoomScroll5/Scene_23/Terrain")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.5, 1, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"values": [{
+"args": [Vector2i(15, 9)],
+"method": &"erase_cell"
+}, {
+"args": [Vector2i(15, 8)],
+"method": &"erase_cell"
+}, {
+"args": [Vector2i(15, 7)],
+"method": &"erase_cell"
+}, {
+"args": [Vector2i(15, 6)],
+"method": &"erase_cell"
+}]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(4),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"walk_animation"
+}]
+}
+tracks/2/type = "animation"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Cutman_cut_scene")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": PackedStringArray("cut_scene"),
+"times": PackedFloat32Array(7.5)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_h8e4i"]
+_data = {
+&"opening_door": SubResource("Animation_come4")
+}
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_04gau"]
 size = Vector2(224, 160)
+
+[sub_resource type="Animation" id="Animation_h8e4i"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Background:enabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CutManHealth:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CutManHealth/TextureProgressBar:value")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CutMan:waiting_cut_scene")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_b1qrp"]
+resource_name = "cut_scene"
+length = 10.0
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Background:enabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.79999995, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [false, true, false, true, false, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CutManHealth:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Terrain")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.1, 0.3, 0.5, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"values": [{
+"args": [Vector2i(0, 6), 2, Vector2i(1, 1), 0],
+"method": &"set_cell"
+}, {
+"args": [Vector2i(0, 7), 2, Vector2i(1, 1), 0],
+"method": &"set_cell"
+}, {
+"args": [Vector2i(0, 8), 2, Vector2i(1, 1), 0],
+"method": &"set_cell"
+}, {
+"args": [Vector2i(0, 9), 2, Vector2i(1, 1), 0],
+"method": &"set_cell"
+}]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CutManHealth/TextureProgressBar:value")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.8, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 28.0]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CutMan")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.8),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"show_boss"
+}]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CutMan:waiting_cut_scene")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(1.5),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_come4"]
+_data = {
+&"RESET": SubResource("Animation_h8e4i"),
+&"cut_scene": SubResource("Animation_b1qrp")
+}
 
 [node name="MainNode" type="Node2D" unique_id=967458337]
 texture_filter = 1
@@ -251,11 +431,12 @@ metadata/_custom_type_script = "uid://cvoraqh4npog7"
 [node name="Scene_20" parent="Rooms/HorizontalRoomScroll4" unique_id=1936994331 instance=ExtResource("20_qsp4k")]
 position = Vector2(256, 0)
 
-[node name="Door" type="Area2D" parent="Rooms/HorizontalRoomScroll4" unique_id=533138831]
+[node name="Door" type="Area2D" parent="Rooms/HorizontalRoomScroll4" unique_id=851239809]
 position = Vector2(506, 133)
 collision_layer = 2048
 collision_mask = 8
 script = ExtResource("24_0rl1p")
+metadata/_custom_type_script = "uid://d2ng3lcmlypr5"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Rooms/HorizontalRoomScroll4/Door" unique_id=849117861]
 root_node = NodePath("../../../HorizontalRoomScroll5/InvisibleWall")
@@ -270,14 +451,6 @@ position = Vector2(2304, -1280)
 script = ExtResource("3_4k2k6")
 metadata/_custom_type_script = "uid://cvoraqh4npog7"
 
-[node name="Scene_21" parent="Rooms/HorizontalRoomScroll5" unique_id=1057466262 instance=ExtResource("21_kq58d")]
-
-[node name="Scene_22" parent="Rooms/HorizontalRoomScroll5" unique_id=1410591181 instance=ExtResource("22_seu75")]
-position = Vector2(256, 0)
-
-[node name="Scene_23" parent="Rooms/HorizontalRoomScroll5" unique_id=745698054 instance=ExtResource("23_htxhm")]
-position = Vector2(512, 0)
-
 [node name="InvisibleWall" type="TileMapLayer" parent="Rooms/HorizontalRoomScroll5" unique_id=49113828]
 position = Vector2(-512, 0)
 tile_map_data = PackedByteArray(0, 0, 32, 0, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 32, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 32, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 32, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0)
@@ -287,8 +460,35 @@ collision_visibility_mode = 1
 navigation_visibility_mode = 1
 script = ExtResource("29_facbu")
 
+[node name="Scene_21" parent="Rooms/HorizontalRoomScroll5" unique_id=1057466262 instance=ExtResource("21_kq58d")]
+
+[node name="Scene_22" parent="Rooms/HorizontalRoomScroll5" unique_id=1410591181 instance=ExtResource("22_seu75")]
+position = Vector2(256, 0)
+
+[node name="Scene_23" parent="Rooms/HorizontalRoomScroll5" unique_id=745698054 instance=ExtResource("23_htxhm")]
+position = Vector2(512, 0)
+
+[node name="Door" type="Area2D" parent="Rooms/HorizontalRoomScroll5" unique_id=854692561]
+position = Vector2(751, 128)
+collision_layer = 2048
+collision_mask = 8
+script = ExtResource("24_0rl1p")
+metadata/_custom_type_script = "uid://d2ng3lcmlypr5"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rooms/HorizontalRoomScroll5/Door" unique_id=850013607]
+position = Vector2(0, 15)
+shape = SubResource("SegmentShape2D_04gau")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Rooms/HorizontalRoomScroll5/Door" unique_id=2134279994]
+root_node = NodePath("../../../Scene_24")
+libraries/ = SubResource("AnimationLibrary_h8e4i")
+
 [node name="Scene_24" parent="Rooms" unique_id=1429679783 instance=ExtResource("24_jq2sk")]
 position = Vector2(3072, -1280)
+
+[node name="CutManHealth" parent="Rooms/Scene_24" index="3" unique_id=566727470]
+visible = false
+position = Vector2(33, 25)
 
 [node name="RollingCutterArena" type="Area2D" parent="Rooms/Scene_24" unique_id=2052655830]
 position = Vector2(185, 176.99805)
@@ -301,18 +501,24 @@ position = Vector2(-57, -64.99805)
 shape = SubResource("RectangleShape2D_04gau")
 
 [node name="CutMan" parent="Rooms/Scene_24" unique_id=576268131 node_paths=PackedStringArray("megaman", "rolling_cutter") instance=ExtResource("31_seu75")]
-position = Vector2(172, 165)
+position = Vector2(172, 177)
 velocity = Vector2(0, 0)
 megaman = NodePath("../../../Megaman")
 rolling_cutter = NodePath("../RollingCutter")
+
+[node name="Sprite2D" parent="Rooms/Scene_24/CutMan" index="3" unique_id=356290514]
+flip_h = true
 
 [node name="RollingCutter" parent="Rooms/Scene_24" unique_id=1383584324 node_paths=PackedStringArray("cutman") instance=ExtResource("28_htxhm")]
 position = Vector2(157, 125)
 cutman = NodePath("../CutMan")
 rolling_cutter_speed = 150
 
+[node name="Cutman_cut_scene" type="AnimationPlayer" parent="Rooms/Scene_24" unique_id=1950013755]
+libraries/ = SubResource("AnimationLibrary_come4")
+
 [node name="Megaman" parent="." unique_id=1964672799 instance=ExtResource("4_lquwl")]
-position = Vector2(72, 52)
+position = Vector2(2995, -1153)
 metadata/_edit_group_ = true
 
 [node name="Camera2D" type="Camera2D" parent="Megaman" unique_id=1590895567]
@@ -345,7 +551,12 @@ position = Vector2(128, 112)
 script = ExtResource("29_kq58d")
 
 [connection signal="body_entered" from="Rooms/HorizontalRoomScroll4/Door" to="Rooms/HorizontalRoomScroll4/Door" method="_on_body_entered"]
+[connection signal="body_entered" from="Rooms/HorizontalRoomScroll5/Door" to="Rooms/HorizontalRoomScroll5/Door" method="_on_body_entered"]
 [connection signal="Megaman_HP_changed" from="Megaman" to="." method="_on_megaman_megaman_hp_changed"]
 [connection signal="Megaman_HP_changed" from="Megaman" to="UI | Menu/UI" method="_on_megaman_megaman_hp_changed"]
 
 [editable path="Rooms/HorizontalRoomScroll4/Scene_20"]
+[editable path="Rooms/HorizontalRoomScroll5/Scene_23"]
+[editable path="Rooms/Scene_24"]
+[editable path="Rooms/Scene_24/CutManHealth"]
+[editable path="Rooms/Scene_24/CutMan"]

@@ -1,4 +1,4 @@
-extends Area2D
+class_name Door extends Area2D
 
 @onready var animation_player := $AnimationPlayer
 

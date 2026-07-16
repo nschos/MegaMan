@@ -23,10 +23,19 @@ const JUMP_VELOCITY := -400
 const throw_attack_distance := 48
 const jump_attack_distance := 32
 
+@export var waiting_cut_scene := true
+
+func _ready() -> void:
+	self.visible = false
+	self.process_mode = Node.PROCESS_MODE_DISABLED
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(_delta: float) -> void:
 	
 	assert(megaman, "missing megaman in inspector!")
+	
+	if waiting_cut_scene:
+		return
 	
 	if not self.is_on_floor():
 		velocity.y += GRAVITY
@@ -94,6 +103,10 @@ func _physics_process(_delta: float) -> void:
 	
 	
 	pass
+	
+func show_boss():
+	self.visible = true
+	self.process_mode = Node.PROCESS_MODE_INHERIT
 	
 func try_jump_throw() -> void:
 	if _can_throw():
