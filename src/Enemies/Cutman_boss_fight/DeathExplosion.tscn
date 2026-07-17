@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://diseq7jnkqx8a"]
+
+[ext_resource type="Script" uid="uid://benx4v3xfnthv" path="res://src/Enemies/Cutman_boss_fight/death_explosion.gd" id="1_vxgrw"]
+
+[node name="DeathExplosion" type="Node2D" unique_id=236301828]
+script = ExtResource("1_vxgrw")

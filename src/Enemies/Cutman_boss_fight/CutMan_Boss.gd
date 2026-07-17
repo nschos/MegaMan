@@ -19,7 +19,7 @@ var can_jump := true
 var distance_to_megaman: float
 var x_velocity: int = 0
 
-var HP: int = 28
+@export var HP: int = 28
 
 const GRAVITY := 15
 const WALK_SPEED := 90
@@ -27,6 +27,8 @@ const PURSUE_DISTANCE := 72
 const JUMP_VELOCITY := -400
 const throw_attack_distance := 48
 const jump_attack_distance := 32
+
+const explosion_scene := preload("res://src/Enemies/Cutman_boss_fight/DeathExplosion.tscn")
 
 @export var waiting_cut_scene := true
 
@@ -146,7 +148,22 @@ func take_damage() -> void:
 		self.HP -= 3
 		life_bar.value = HP
 		if HP <= 0:
-			print("death")
+			death_animation()
+	pass
+	
+func death_animation() -> void:
+	set_deferred("process_mode", Node.PROCESS_MODE_DISABLED)
+	rolling_cutter.set_deferred("process_mode", Node.PROCESS_MODE_DISABLED)
+	rolling_cutter.visible = false
+	
+	await get_tree().create_timer(1.0).timeout
+	
+	visible = false
+	life_bar.visible = false
+	var explosion: Node2D = explosion_scene.instantiate()
+	explosion.global_position = self.global_position
+	get_tree().current_scene.add_child(explosion)
+	
 	pass
 
 func _on_damage_area_body_entered(body: Node2D) -> void:

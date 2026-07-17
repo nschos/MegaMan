@@ -47,6 +47,9 @@ var HP := MAX_HP:
 	set(value):
 		HP = clamp(value, 0, MAX_HP)
 		Megaman_HP_changed.emit(HP)
+		if HP == 0:
+			death()
+			
 
 signal Megaman_HP_changed(HP: int)
 	
