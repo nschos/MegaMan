@@ -41,6 +41,7 @@ bullet_speed = 150.0
 speed = 51.0
 attack_interval = 1.26
 patrol_distance = 238.0
+initial_HP = 1
 
 [node name="inimigo6" type="AnimatedSprite2D" parent="." unique_id=1489058169]
 sprite_frames = SubResource("SpriteFrames_maw2o")

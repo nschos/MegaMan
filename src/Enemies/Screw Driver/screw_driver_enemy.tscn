@@ -93,6 +93,7 @@ size = Vector2(128, 72)
 [node name="Screw_Driver" type="Area2D" unique_id=757134308]
 collision_mask = 9
 script = ExtResource("1_068mw")
+initial_HP = 3
 
 [node name="BulletSpawnNode" type="Marker2D" parent="." unique_id=521902518]
 

@@ -45,5 +45,5 @@ func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	if body is MegaMan:
-		body.take_damage(1)
+		body.take_damage(2)
 	pass # Replace with function body.
