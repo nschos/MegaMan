@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dug5o5ney7fj5"]
 
 [ext_resource type="Script" uid="uid://n6mywl1cscmb" path="res://src/Enemies/Cutman_boss_fight/CutMan_Boss.gd" id="1_0vdtl"]
+[ext_resource type="Texture2D" uid="uid://c7m025868j0y0" path="res://addons/Dmg_Blast.png" id="2_6mgda"]
 [ext_resource type="Texture2D" uid="uid://beymgqb7575s8" path="res://src/Enemies/Cutman_boss_fight/CutMan_atlas.png" id="2_p77vg"]
 
 [sub_resource type="Animation" id="Animation_q0t41"]
@@ -15,7 +16,52 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [1]
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_2pyre"]
+resource_name = "assembled_hurt"
+length = 0.5
+step = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"throw_ended"
+}]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../BlinkDamageAnimation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [&"blink", -1, 1.0, false],
+"method": &"play"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_p77vg"]
@@ -119,6 +165,51 @@ tracks/0/keys = {
 "values": [5, 4, 3, 4]
 }
 
+[sub_resource type="Animation" id="Animation_orcww"]
+resource_name = "disassembled_hurt"
+length = 0.5
+step = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [12]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"throw_ended"
+}]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../BlinkDamageAnimation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [&"blink", -1, 1.0, false],
+"method": &"play"
+}]
+}
+
 [sub_resource type="Animation" id="Animation_on0tx"]
 resource_name = "disassembled_idle"
 length = 0.3
@@ -175,14 +266,53 @@ tracks/0/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_q0t41"]
 _data = {
 &"RESET": SubResource("Animation_q0t41"),
+&"assembled_hurt": SubResource("Animation_2pyre"),
 &"assembled_idle": SubResource("Animation_p77vg"),
 &"assembled_jump": SubResource("Animation_g7onv"),
 &"assembled_throw": SubResource("Animation_xniof"),
 &"assembled_walk": SubResource("Animation_0vdtl"),
+&"disassembled_hurt": SubResource("Animation_orcww"),
 &"disassembled_idle": SubResource("Animation_on0tx"),
 &"disassembled_jump": SubResource("Animation_x61bh"),
 &"disassembled_walk": SubResource("Animation_6mgda")
 }
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_x61bh"]
+animation = &"assembled_hurt"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_2pyre"]
+animation = &"disassembled_hurt"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ra1mi"]
+advance_mode = 2
+advance_expression = "assembled"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_5qhwx"]
+advance_mode = 2
+advance_expression = "not assembled"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ym5xh"]
+reset = false
+advance_mode = 2
+advance_expression = "assembled"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_o8wer"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_if7et"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_6mgda"]
+states/End/position = Vector2(598, 110)
+states/Start/position = Vector2(186.5, 111.125)
+states/assembled_hurt/node = SubResource("AnimationNodeAnimation_x61bh")
+states/assembled_hurt/position = Vector2(393, 68.5)
+states/disassembled_hurt/node = SubResource("AnimationNodeAnimation_2pyre")
+states/disassembled_hurt/position = Vector2(398, 178)
+transitions = ["Start", "assembled_hurt", SubResource("AnimationNodeStateMachineTransition_ra1mi"), "Start", "disassembled_hurt", SubResource("AnimationNodeStateMachineTransition_5qhwx"), "disassembled_hurt", "assembled_hurt", SubResource("AnimationNodeStateMachineTransition_ym5xh"), "assembled_hurt", "End", SubResource("AnimationNodeStateMachineTransition_o8wer"), "disassembled_hurt", "End", SubResource("AnimationNodeStateMachineTransition_if7et")]
+graph_offset = Vector2(48, 10)
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_p77vg"]
 animation = &"assembled_idle"
@@ -326,9 +456,19 @@ advance_expression = "current_state == CutManState.WALK"
 advance_mode = 2
 advance_expression = "current_state != CutManState.WALK"
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_31g12"]
+advance_mode = 2
+advance_expression = "current_state == CutManState.HURT"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_goe2q"]
+switch_mode = 2
+advance_mode = 2
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_xniof"]
-states/End/position = Vector2(-601.5, -521.6029)
+states/End/position = Vector2(-411, -485.1029)
 states/Start/position = Vector2(-1080, -529.0217)
+states/hurt/node = SubResource("AnimationNodeStateMachine_6mgda")
+states/hurt/position = Vector2(-627.4912, -540.9099)
 states/idle/node = SubResource("AnimationNodeStateMachine_5ulwc")
 states/idle/position = Vector2(-829.5, -523.1029)
 states/jump/node = SubResource("AnimationNodeStateMachine_0vdtl")
@@ -337,8 +477,8 @@ states/throw/node = SubResource("AnimationNodeAnimation_0vdtl")
 states/throw/position = Vector2(-1032.5, -357.4375)
 states/walk/node = SubResource("AnimationNodeStateMachine_mpa0j")
 states/walk/position = Vector2(-823, -312.4375)
-transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_0vdtl"), "idle", "throw", SubResource("AnimationNodeStateMachineTransition_6mgda"), "throw", "idle", SubResource("AnimationNodeStateMachineTransition_xniof"), "idle", "jump", SubResource("AnimationNodeStateMachineTransition_m8fjw"), "jump", "idle", SubResource("AnimationNodeStateMachineTransition_rttx1"), "idle", "walk", SubResource("AnimationNodeStateMachineTransition_tdapt"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_fkobp")]
-graph_offset = Vector2(-1202.4912, -613.4099)
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_0vdtl"), "idle", "throw", SubResource("AnimationNodeStateMachineTransition_6mgda"), "throw", "idle", SubResource("AnimationNodeStateMachineTransition_xniof"), "idle", "jump", SubResource("AnimationNodeStateMachineTransition_m8fjw"), "jump", "idle", SubResource("AnimationNodeStateMachineTransition_rttx1"), "idle", "walk", SubResource("AnimationNodeStateMachineTransition_tdapt"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_fkobp"), "idle", "hurt", SubResource("AnimationNodeStateMachineTransition_31g12"), "hurt", "idle", SubResource("AnimationNodeStateMachineTransition_goe2q")]
+graph_offset = Vector2(-1144.4912, -603.4099)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_04gau"]
 size = Vector2(24, 24)
@@ -346,11 +486,124 @@ size = Vector2(24, 24)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tggb2"]
 size = Vector2(20, 24)
 
+[sub_resource type="Animation" id="Animation_papij"]
+resource_name = "blink"
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.06666667, 0.10000001, 0.13333334, 0.16666667, 0.20000002, 0.23333335, 0.26666668, 0.3, 0.33333337, 0.36666667, 0.40000004, 0.43333337, 0.4666667, 0.50000006, 0.53333336, 0.5666667, 0.6, 0.6333334, 0.6666667, 0.70000005, 0.7333334, 0.7666667, 0.8000001, 0.83333343, 0.86666673, 0.9000001, 0.9333334, 0.96666676),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"values": [{
+"args": [],
+"method": &"toggle_damage_sprite"
+}, {
+"args": [],
+"method": &"toggle_damage_sprite"
+}, {
+"args": [],
+"method": &"toggle_damage_sprite"
+}, {
+"args": [],
+"method": &"toggle_damage_sprite"
+}, {
+"args": [],
+"method": &"toggle_damage_sprite"
+}, {
+"args": [],
+"method": &"toggle_damage_sprite"
+}, {
+"args": [],
+"method": &"toggle_damage_sprite"
+}, {
+"args": [],
+"method": &"toggle_damage_sprite"
+}, {
+"args": [],
+"method": &"toggle_damage_sprite"
+}, {
+"args": [],
+"method": &"toggle_damage_sprite"
+}, {
+"args": [],
+"method": &"toggle_damage_sprite"
+}, {
+"args": [],
+"method": &"toggle_damage_sprite"
+}, {
+"args": [],
+"method": &"toggle_damage_sprite"
+}, {
+"args": [],
+"method": &"toggle_damage_sprite"
+}, {
+"args": [],
+"method": &"toggle_damage_sprite"
+}, {
+"args": [],
+"method": &"toggle_damage_sprite"
+}, {
+"args": [],
+"method": &"toggle_damage_sprite"
+}, {
+"args": [],
+"method": &"toggle_damage_sprite"
+}, {
+"args": [],
+"method": &"toggle_damage_sprite"
+}, {
+"args": [],
+"method": &"toggle_damage_sprite"
+}, {
+"args": [],
+"method": &"toggle_damage_sprite"
+}, {
+"args": [],
+"method": &"toggle_damage_sprite"
+}, {
+"args": [],
+"method": &"toggle_damage_sprite"
+}, {
+"args": [],
+"method": &"toggle_damage_sprite"
+}, {
+"args": [],
+"method": &"toggle_damage_sprite"
+}, {
+"args": [],
+"method": &"toggle_damage_sprite"
+}, {
+"args": [],
+"method": &"toggle_damage_sprite"
+}, {
+"args": [],
+"method": &"toggle_damage_sprite"
+}, {
+"args": [],
+"method": &"toggle_damage_sprite"
+}, {
+"args": [],
+"method": &"toggle_damage_sprite"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_orcww"]
+_data = {
+&"blink": SubResource("Animation_papij")
+}
+
 [node name="CutMan" type="CharacterBody2D" unique_id=1656311813]
 collision_layer = 1024
 velocity = Vector2(0, 6964110)
 safe_margin = 0.001
 script = ExtResource("1_0vdtl")
+
+[node name="DamageSprite" type="Sprite2D" parent="." unique_id=1578645502]
+visible = false
+texture = ExtResource("2_6mgda")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1586171163]
 root_node = NodePath("../Sprite2D")
@@ -370,7 +623,6 @@ shape = SubResource("RectangleShape2D_04gau")
 texture = ExtResource("2_p77vg")
 hframes = 8
 vframes = 2
-frame = 1
 
 [node name="ThrowCooldown" type="Timer" parent="." unique_id=846377271]
 wait_time = 0.433
@@ -378,11 +630,15 @@ one_shot = true
 
 [node name="DamageArea" type="Area2D" parent="." unique_id=67016206]
 collision_layer = 32
-collision_mask = 8
+collision_mask = 24
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea" unique_id=1782316843]
 position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_tggb2")
 
+[node name="BlinkDamageAnimation" type="AnimationPlayer" parent="." unique_id=1782040633]
+libraries/ = SubResource("AnimationLibrary_orcww")
+
 [connection signal="timeout" from="ThrowCooldown" to="." method="_throw_cooldown_timeout"]
+[connection signal="area_entered" from="DamageArea" to="." method="_on_damage_area_area_entered"]
 [connection signal="body_entered" from="DamageArea" to="." method="_on_damage_area_body_entered"]

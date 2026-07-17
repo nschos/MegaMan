@@ -2,19 +2,24 @@ class_name CutMan extends CharacterBody2D
 
 @onready var throw_cooldown := $ThrowCooldown
 @onready var sprite := $Sprite2D
+@onready var damage_sprite := $DamageSprite
+@onready var animation_player := $AnimationPlayer
 
+@export var life_bar: TextureProgressBar
 @export var megaman: MegaMan
 @export var rolling_cutter: RollingCutter
 
-enum CutManState { IDLE, THROW, WALK, JUMP }
+enum CutManState { IDLE, THROW, WALK, JUMP, HURT }
 var current_state: CutManState = CutManState.IDLE
 
 var assembled := true
-var is_throw_in_colldown := false
+var is_throw_in_cooldown := false
 var walk := false
 var can_jump := true
 var distance_to_megaman: float
 var x_velocity: int = 0
+
+var HP: int = 28
 
 const GRAVITY := 15
 const WALK_SPEED := 90
@@ -74,27 +79,8 @@ func _physics_process(_delta: float) -> void:
 			x_velocity = 0
 		pass
 		
-
-	#
-	#if (distance_to_megaman > PURSUE_DISTANCE and 
-		#current_state != CutManState.WALK and 
-		#is_on_floor()):
-		#current_state = CutManState.WALK
-		#self.velocity.x = WALK_SPEED
-	#
-		#if is_megaman_in_the_left():
-			#self.velocity.x *= -1
-			#
-	#if (current_state != CutManState.IDLE and
-		#distance_to_megaman > PURSUE_DISTANCE):
-		#self.velocity.x = WALK_SPEED
-		
-	#
-	#if (jump_attack_distance < distance_to_megaman and
-		#distance_to_megaman < throw_attack_distance):
-		#if assembled and is_throw_in_colldown:
-			#start_throw_animation()
-	#
+	#print(CutManState.find_key(current_state))	
+	#print(sprite.frame)
 	
 	self.velocity.x = x_velocity
 	
@@ -114,7 +100,7 @@ func try_jump_throw() -> void:
 	pass
 	
 func _can_throw() -> bool:
-	return (not is_throw_in_colldown and
+	return (not is_throw_in_cooldown and
 			assembled )#and
 			#distance_to_megaman < throw_attack_distance)
 	
@@ -131,7 +117,7 @@ func take_rolling_cutter() -> void:
 	
 func start_throw_animation() -> void:
 	current_state = CutManState.THROW
-	is_throw_in_colldown = true
+	is_throw_in_cooldown = true
 	
 func throw_rolling_cutter() -> void:
 	assembled = false
@@ -148,11 +134,44 @@ func throw_ended() -> void:
 	pass
 
 func _throw_cooldown_timeout() -> void:
-	is_throw_in_colldown = false
+	is_throw_in_cooldown = false
 	pass
 
+func take_damage() -> void:
+	#print("damage!")
+	if current_state != CutManState.HURT:
+		velocity = Vector2.ZERO
+		x_velocity = 0
+		self.current_state = CutManState.HURT
+		self.HP -= 3
+		life_bar.value = HP
+		if HP <= 0:
+			print("death")
+	pass
 
 func _on_damage_area_body_entered(body: Node2D) -> void:
 	if body is MegaMan:
 		body.take_damage(3)
 	pass # Replace with function body.
+
+
+func _on_damage_area_area_entered(area: Area2D) -> void:
+	if area is MegamanBullet:
+		take_damage()
+	pass # Replace with function body.
+
+func hurt_animation_setup() -> void:
+	#print("setup")
+	if assembled:
+		sprite.frame = 4
+	else:
+		sprite.frame = 12
+	pass
+
+func toggle_damage_sprite() -> void:
+	sprite.visible = not sprite.visible
+	damage_sprite.visible = not damage_sprite.visible
+	
+func change_state(state: CutManState) -> void:
+	current_state = state
+	
