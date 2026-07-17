@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://g8o02a05edyv" path="res://Stages/UI/stage_button.gd" id="1_8w2my"]
 [ext_resource type="SpriteFrames" uid="uid://yoejs0d73cv7" path="res://Stages/UI/UI Assets/Sprites/Gutsman_Button.tres" id="2_8w2my"]
-[ext_resource type="SpriteFrames" path="res://Enemies/Cutman/Cutman_Animations.tres" id="3_pc7b6"]
+[ext_resource type="SpriteFrames" path="res://src/Enemies/Cutman_stage_selection/Cutman_Animations.tres" id="3_pc7b6"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8w2my"]
 

@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="MegaMan"
-run/main_scene="uid://bt5nl8t1nljgk"
+run/main_scene="uid://00vvr60c50q3"
 config/features=PackedStringArray("4.7", "Forward Plus")
 boot_splash/image="uid://rqgccugx1n6q"
 config/icon="res://icon.svg"
